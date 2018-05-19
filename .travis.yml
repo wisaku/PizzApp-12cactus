@@ -1,0 +1,11 @@
+language: java
+
+services:
+  - mysql
+
+notifications:
+  email:
+    recipients:
+      - gil.maricruz@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
