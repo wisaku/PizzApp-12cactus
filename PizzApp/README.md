@@ -13,3 +13,9 @@ USE pizzappdb;
 
 3.-
 Listo, solo ejecutar el ok
+
+####Maven
+
+mvn package
+
+mvn clean install

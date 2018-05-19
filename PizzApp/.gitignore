@@ -17,7 +17,7 @@ local.properties
 .loadpath
 .recommenders
 
-src/main/webapp/package-lock.json
+PizzApp/src/main/webapp/package-lock.json
 package-lock.json
 
 # Eclipse Core
@@ -84,7 +84,7 @@ package-lock.json
 hs_err_pid*
 
 ### Maven ###
-target/
+PizzApp/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
