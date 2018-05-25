@@ -1,0 +1,15 @@
+language: java
+
+services:
+  - mysql
+
+script: 
+  - cd PizzApp 
+  - mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
+  
+notifications:
+  email:
+    recipients:
+      - gil.maricruz@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
