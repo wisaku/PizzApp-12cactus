@@ -1,11 +1,10 @@
 package persistencia.servicios;
 
 import modelo.TestUno;
+import persistencia.servicios.dto.TestDTO;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 
 @Path("/testRest")
 public class TestRest {
@@ -23,7 +22,32 @@ public class TestRest {
     @GET
     @Path("/get/{uno}")
     @Produces("application/json")
-    public TestUno getUno(@PathParam("uno") final String uno){
-        return this.getTestService().filterUno(uno);
+    public Response getUno(@PathParam("uno") final String uno){
+        TestUno testUno = this.getTestService().filterUno(uno);
+        if(testUno==null){
+            throw new NotFoundException("el elemento buscado no existe");
+        }
+        return Response.ok(toDTO(testUno)).build();
+    }
+
+    @POST
+    @Path("/put")
+    @Produces("application/json")
+    @Consumes("application/json")
+    public Response putUno(TestDTO testUno){
+        this.getTestService().save(fromDTO(testUno));
+        return Response.ok(testUno).build();
+    }
+
+    private TestDTO toDTO(TestUno testUno) {
+        TestDTO dto = new TestDTO();
+        dto.setUno(String.valueOf(testUno.getUno()));
+        return dto;
+    }
+
+    private TestUno fromDTO(TestDTO dto){
+        TestUno testUno = new TestUno();
+        testUno.setUno(dto.getUno());
+        return testUno;
     }
 }

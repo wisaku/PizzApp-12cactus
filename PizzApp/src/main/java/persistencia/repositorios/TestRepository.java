@@ -6,7 +6,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateCallback;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TestRepository
         extends HibernateGenericDAO<TestUno>
         implements GenericRepository<TestUno> {

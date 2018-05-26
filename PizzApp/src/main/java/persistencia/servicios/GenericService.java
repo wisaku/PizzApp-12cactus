@@ -2,7 +2,6 @@ package persistencia.servicios;
 
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.repositorios.GenericRepository;
-
 import java.io.Serializable;
 import java.util.List;
 

@@ -6,19 +6,18 @@ import persistencia.repositorios.TestRepository;
 
 public class TestService extends GenericService<TestUno>{
 
-    private TestRepository testRepository;
+    private TestRepository repository;
 
-    public TestRepository getTestRepository() {
-        return testRepository;
+    public TestRepository getRepository() {
+        return repository;
     }
 
-    public void setTestRepository(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public void setRepository(TestRepository testRepository) {
+        this.repository = testRepository;
     }
 
     @Transactional
     public TestUno filterUno(final String pattern){
-        TestUno testUno = this.getTestRepository().filterUno(pattern);
-        return testUno;
+        return this.getRepository().filterUno(pattern);
     }
 }

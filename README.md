@@ -12,11 +12,23 @@ CREATE DATABASE pizzappdb;
 USE pizzappdb;
 
 3.-
-Listo, solo ejecutar el ok
+Listo, solo ejecutar el test
 
 ####Maven
 
-mvn clean install
+1.-
+Para hacer build y ejecutar los test local
+
+ir a /PizzApp-12cactus/PizzApp
+
+Ejecutar "mvn clean install"
+ 
+2.-
+Para levantar el jetty local
+
+ir a /PizzApp-12cactus/
+
+Ejecutar "mvn jetty:run"
 
 #### Servicios
 
@@ -25,3 +37,10 @@ Desarrollo
 GET
 http://localhost:8080/PizzApp/rest/testRest/get/{parametro}
 
+POST
+
+http://localhost:8080/PizzApp/rest/testRest/put
+
+Body para pruebas:
+
+{"uno": 1}

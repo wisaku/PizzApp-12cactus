@@ -42,7 +42,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </jaxrs:server>
 
     <bean id="TestRest" class="persistencia.servicios.TestRest">
-        <property name="testService" ref="services.testuno"/>
+        <property name="testService" ref="services.testservice"/>
     </bean>
 
 </beans>

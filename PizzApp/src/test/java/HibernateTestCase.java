@@ -20,13 +20,13 @@ public class HibernateTestCase {
 
     @Test
     public void testSave() {
-        this.testService.save(new TestUno(1));
+        this.testService.save(new TestUno("1"));
         assertEquals(1, this.testService.retriveAll().size());
     }
 
     @Test
     public void testDelete() {
-        TestUno user = new TestUno(1);
+        TestUno user = new TestUno("1");
         this.testService.save(user);
         this.testService.delete(user);
         assertEquals(0, this.testService.retriveAll().size());
