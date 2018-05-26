@@ -17,3 +17,11 @@ Listo, solo ejecutar el ok
 ####Maven
 
 mvn clean install
+
+#### Servicios
+
+Desarrollo
+
+GET
+http://localhost:8080/PizzApp/rest/testRest/get/{parametro}
+
