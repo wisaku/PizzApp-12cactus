@@ -3,14 +3,6 @@ language: java
 services:
   - mysql
 
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-#      - mysql-client
-
 dist: trusty
 
 script: 
@@ -20,6 +12,7 @@ script:
 before_install:
   - mysql -e 'CREATE DATABASE pizzappdb;'
   - mysql -e 'USE pizzappdb;'
+  - mysql_upgrade -u root -p --force
 #  - mysql -u root -e "GRANT ALL PRIVILEGES ON pizzappdb.* TO 'travis'@'%';";
 
 notifications:
