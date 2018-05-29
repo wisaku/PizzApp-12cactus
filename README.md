@@ -1,4 +1,5 @@
 # PizzApp-12cactus
+[![Build Status](https://travis-ci.org/Salgadoema/PizzApp-12cactus.svg?branch=master)](https://travis-ci.org/Salgadoema/PizzApp-12cactus)
 
 PizzApp es una aplicación web para pizzerías.
 Integra los pedidos desde la mesa a la cocina.
