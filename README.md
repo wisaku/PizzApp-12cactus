@@ -1,5 +1,24 @@
 # PizzApp-12cactus
 
+PizzApp es una aplicación web para pizzerías.
+Integra los pedidos desde la mesa a la cocina.
+
+
+
+
+### Integrantes
+
+
+Nro | Nombre                    | Legajo | Mail
+----|---------------------------|--------|------
+1   | Emanuel Salgado           | 16659  | salgadoema@gmail.com
+2   | Rigazio Damian            | 28621  | sirdemian@gmail.com
+3   | Paula Schab               | 28688  | schabpaula@gmail.com
+4   | Pablo Nicolas Sabaliauskas| 28662  | sabaliauskaspablo@gmail.com
+5   | Maricruz Gil              | 27206  | gil.maricruz@gmail.com
+
+###
+
 
 ####Base de datos
 
