@@ -98,7 +98,7 @@
     <!-- ________________________________________ -->
     <!-- ________________________________________ -->
 
-    <bean id="persistencia.testrepository" class="persistencia.repositorios.TestRepository" >
+    <bean id="persistence.testrepository" class="persistencia.repositorios.TestRepository" >
         <property name="sessionFactory" ref="persistence.sessionFactory" />
     </bean>
 

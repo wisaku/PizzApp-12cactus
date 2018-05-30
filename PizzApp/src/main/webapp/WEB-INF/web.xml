@@ -7,10 +7,10 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
            <param-value>
-                    classpath*:/META-INF/spring-persistence-context.xml,
-                   classpath*:/META-INF/spring-services-context.xml
-               <!--         classpath*:/META-INF/spring-webServices-context.xml-->
-               </param-value>
+               classpath*:/META-INF/spring-persistence-context.xml,
+               classpath*:/META-INF/spring-services-context.xml
+               classpath*:/META-INF/spring-webServices-context.xml
+           </param-value>
 
         </context-param>
 
@@ -27,7 +27,7 @@
         <param-name>configuration</param-name>
         <param-value>development</param-value>
     </context-param>
-<!--
+
     <servlet>
         <servlet-name>CXFServlet</servlet-name>
         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
@@ -38,6 +38,5 @@
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
--->
 
 </web-app>
