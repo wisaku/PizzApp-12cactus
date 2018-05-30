@@ -20,22 +20,27 @@ Nro | Nombre                    | Legajo | Mail
 
 ###
 
-30/5 Spring 0
+### 30/5 Spring 0
   -Backlog general priorizado
-  -Estimadas las stories para el spring 1 (fibonacci, talles de camisa, bla)
-  -Ambiente de la tecnologÃ­a listo (arquitectura basica, una clase con un test una uis que mire esa clase y muestre ese 1
-    que la bbdd escriba/lea el 1, integraciÃ³n continua travis funcionando, todo en repositorio git)
-  -OrganizaciÃ³n de la documentaciÃ³n, se usa markdown generalmente
   
-Para las siguientes iteraciones...
-  -Todo lo anterior actualizado.
-  -Resutado del spring, spring rewiev
-  -Retrospectiva
-  -Demo
-  -Tabla de burndown chart
-  -
+  -Estimadas las stories para el spring 1 (fibonacci, talles de camisa, bla)
+  
+  -Ambiente de la tecnologia listo (arquitectura basica, una clase con un test una uis que mire esa clase y muestre ese 1
+    que la bbdd escriba/lea el 1, integracion continua travis funcionando, todo en repositorio git)
+    
+  -Organizacion de la documentacion, se usa markdown generalmente
+ 
+ ### Para las siguientes iteraciones 
+ 
+-Todo lo anterior actualizado.
+-Resutado del spring, spring rewiev
+-Retrospectiva
 
-####Base de datos
+### Demo
+ -Tabla de burndown chart
+ 
+
+#### Base de datos
 
 Para que ejecute ok el HibernateTestCase deben crear la base en sus maquinas antes, para ello deben ejecutar:
 
@@ -48,7 +53,7 @@ USE pizzappdb;
 3.-
 Listo, solo ejecutar el test
 
-####Maven
+#### Maven
 
 ### readme
 mvn clean install
@@ -79,7 +84,6 @@ POST
 
 http://localhost:8080/PizzApp/rest/testRest/put
 
-Body para pruebas:
-
+### Body para pruebas:
 {"uno": 1}
 #### master
