@@ -1,11 +1,31 @@
 # PizzApp-12cactus
+[![Build Status](https://travis-ci.org/Salgadoema/PizzApp-12cactus.svg?branch=master)](https://travis-ci.org/Salgadoema/PizzApp-12cactus)
+
+PizzApp es una aplicación web para pizzerías.
+Integra los pedidos desde la mesa a la cocina.
+
+
+
+
+### Integrantes
+
+
+Nro | Nombre                    | Legajo | Mail
+----|---------------------------|--------|------
+1   | Emanuel Salgado           | 16659  | salgadoema@gmail.com
+2   | Rigazio Damian            | 28621  | sirdemian@gmail.com
+3   | Paula Schab               | 28688  | schabpaula@gmail.com
+4   | Pablo Nicolas Sabaliauskas| 28662  | sabaliauskaspablo@gmail.com
+5   | Maricruz Gil              | 27206  | gil.maricruz@gmail.com
+
+###
 
 30/5 Spring 0
   -Backlog general priorizado
   -Estimadas las stories para el spring 1 (fibonacci, talles de camisa, bla)
-  -Ambiente de la tecnología listo (arquitectura basica, una clase con un test una uis que mire esa clase y muestre ese 1
-    que la bbdd escriba/lea el 1, integración continua travis funcionando, todo en repositorio git)
-  -Organización de la documentación, se usa markdown generalmente
+  -Ambiente de la tecnologÃ­a listo (arquitectura basica, una clase con un test una uis que mire esa clase y muestre ese 1
+    que la bbdd escriba/lea el 1, integraciÃ³n continua travis funcionando, todo en repositorio git)
+  -OrganizaciÃ³n de la documentaciÃ³n, se usa markdown generalmente
   
 Para las siguientes iteraciones...
   -Todo lo anterior actualizado.
@@ -26,9 +46,40 @@ CREATE DATABASE pizzappdb;
 USE pizzappdb;
 
 3.-
-Listo, solo ejecutar el ok
+Listo, solo ejecutar el test
 
 ####Maven
 
+### readme
 mvn clean install
 
+=======
+1.-
+Para hacer build y ejecutar los test local
+
+ir a /PizzApp-12cactus/PizzApp
+
+Ejecutar "mvn clean install"
+ 
+2.-
+Para levantar el jetty local
+
+ir a /PizzApp-12cactus/
+
+Ejecutar "mvn jetty:run"
+
+#### Servicios
+
+Desarrollo
+
+GET
+http://localhost:8080/PizzApp/rest/testRest/get/{parametro}
+
+POST
+
+http://localhost:8080/PizzApp/rest/testRest/put
+
+Body para pruebas:
+
+{"uno": 1}
+#### master
