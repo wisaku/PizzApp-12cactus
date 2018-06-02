@@ -6,8 +6,8 @@ services:
 build:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-script: 
-  - cd PizzApp 
+script:
+  - cd PizzApp
 #  - mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
   - mvn clean verify
 
@@ -18,7 +18,7 @@ before_install:
 
 test:
   - mvn test -B
-  
+
 notifications:
   email:
     recipients:
