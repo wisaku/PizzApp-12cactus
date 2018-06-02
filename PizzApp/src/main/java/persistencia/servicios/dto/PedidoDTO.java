@@ -1,15 +1,16 @@
-package modelo;
+package persistencia.servicios.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import modelo.Producto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name="pedido")
-public class Pedido extends Entity{
+public class PedidoDTO {
+
 
     private List<Producto> productos;
 
-    public Pedido(){
+    public PedidoDTO(){
         this.productos = new ArrayList<Producto>();
     }
 

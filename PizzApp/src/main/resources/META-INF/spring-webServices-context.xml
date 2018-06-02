@@ -27,6 +27,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <jaxrs:server id="rest" address="/"  >
         <jaxrs:serviceBeans>
             <ref bean="TestRest" />
+            <ref bean="PedidoRest" />
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
@@ -43,6 +44,10 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <bean id="TestRest" class="persistencia.servicios.TestRest">
         <property name="testService" ref="services.testservice"/>
+    </bean>
+
+    <bean id="PedidoRest" class="persistencia.servicios.PedidoRest">
+        <property name="pedidoService" ref="services.pedidoservice"/>
     </bean>
 
 </beans>
