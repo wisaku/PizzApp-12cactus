@@ -82,6 +82,11 @@ POST
 
 http://localhost:8080/PizzApp/rest/testRest/put
 
+Pedido
+
+http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
+{"productos": []}
+
 ### Body para pruebas:
 {"uno": 1}
 

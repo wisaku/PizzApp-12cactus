@@ -14,4 +14,8 @@
         <property name="repository" ref="persistence.testrepository" />
     </bean>
 
+    <bean id="services.pedidoservice" class="persistencia.servicios.PedidoService">
+        <property name="repository" ref="persistence.pedidorepository" />
+    </bean>
+
 </beans>
