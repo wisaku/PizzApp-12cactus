@@ -55,10 +55,8 @@ Listo, solo ejecutar el test
 
 #### Maven
 
-### readme
 mvn clean install
 
-=======
 1.-
 Para hacer build y ejecutar los test local
 
@@ -91,4 +89,4 @@ http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
 
 ### Body para pruebas:
 {"uno": 1}
-#### master
+
