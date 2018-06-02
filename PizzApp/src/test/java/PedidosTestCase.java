@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class PedidosTestCase {
 
     @Test
-    public void ComoAdminQuieroCrearUnPedidoParaCargarProductos(){
+    public void comoAdminQuieroCrearUnPedidoParaCargarProductos(){
 
         Admin admin = new Admin();
         Pedido pedido = new Pedido();

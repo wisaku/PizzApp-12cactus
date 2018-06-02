@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class ClienteTestCase {
 
     @Test
-    public void ComoAdminQuieroIngresarClienteParaHacerPedidos(){
+    public void comoAdminQuieroIngresarClienteParaHacerPedidos(){
 
         Admin admin = new Admin();
         assertNotNull(admin.crearCliente

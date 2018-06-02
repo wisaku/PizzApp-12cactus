@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class ProductoTestCase {
 
     @Test
-    public void ComoAdminQuieroDarDeAltaProductosParaAgregarALosPedidos(){
+    public void comoAdminQuieroDarDeAltaProductosParaAgregarALosPedidos(){
 
         Admin admin = new Admin();
         Producto producto = new Producto();
