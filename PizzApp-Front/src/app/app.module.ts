@@ -14,7 +14,7 @@ import {NuevoPedidoModule} from './nuevo-pedido/nuevo-pedido.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,5 +24,6 @@ import {NuevoPedidoModule} from './nuevo-pedido/nuevo-pedido.module';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }

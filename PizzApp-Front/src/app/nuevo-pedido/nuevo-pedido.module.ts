@@ -12,6 +12,7 @@ import {CrearPedidoService} from './crear-pedido.service';
   exports: [
     CrearPedidoComponent
   ],
-  providers: [CrearPedidoService]
+  providers: []
 })
+
 export class NuevoPedidoModule { }
