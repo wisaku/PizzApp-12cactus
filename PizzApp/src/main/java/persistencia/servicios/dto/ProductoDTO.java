@@ -1,14 +1,11 @@
-package modelo;
+package persistencia.servicios.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="producto")
-public class Producto extends Entity{
+public class ProductoDTO {
 
     private String nombre;
     private double precio;
 
-    public Producto(){}
+    public ProductoDTO(){}
 
     public String getNombre() {
         return nombre;

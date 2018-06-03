@@ -8,9 +8,11 @@ import java.util.List;
 public class Pedido extends Entity{
 
     private List<Producto> productos;
+    private Cliente cliente;
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
+        this.cliente = new Cliente();
     }
 
     public List<Producto> getProductos() {
