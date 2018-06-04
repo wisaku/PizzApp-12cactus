@@ -3,10 +3,7 @@ package persistencia.servicios;
 import modelo.Pedido;
 import persistencia.servicios.dto.PedidoDTO;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("/pedidoService")
@@ -18,7 +15,7 @@ public class PedidoRest {
         return pedidoService;
     }
 
-    public void setPedidoService(PedidoService pedidoService) {
+    public void setPedidoService(PedidoService pedidoService)    {
         this.pedidoService = pedidoService;
     }
 
@@ -27,8 +24,11 @@ public class PedidoRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response crearPedido(PedidoDTO dto){
-        this.getPedidoService().save(fromDTO(dto));
-        return Response.ok().build();
+
+        if(this.getPedidoService().crearPedido(new Pedido(), dto.getUsuario(), dto.getProductos())){
+            return Response.ok().build();
+        }
+        return Response.serverError().build();
     }
 
     private Pedido fromDTO(PedidoDTO dto){
@@ -36,4 +36,6 @@ public class PedidoRest {
         pedido.setProductos(dto.getProductos());
         return pedido;
     }
+
+
 }

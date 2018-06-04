@@ -1,5 +1,5 @@
 import modelo.Admin;
-import modelo.Producto;
+import modelo.ProductoDeElaboracion;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -9,8 +9,7 @@ public class ProductoTestCase {
     public void comoAdminQuieroDarDeAltaProductosParaAgregarALosPedidos(){
 
         Admin admin = new Admin();
-        Producto producto = new Producto();
-        assertNotNull(admin.crearProducto(producto));
+        assertNotNull(admin.crearProducto("Pizza de anana", 350.00, new ProductoDeElaboracion()));
 
     }
 }
