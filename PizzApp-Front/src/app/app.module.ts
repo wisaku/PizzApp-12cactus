@@ -1,10 +1,22 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
+// Routing
+import { APP_ROUTING} from './app.routes';
+
+// Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+import {NuevoPedidoModule} from './components/nuevo-pedido/nuevo-pedido.module';
+import { CrearClienteComponent } from './components/crear-cliente/crear-cliente.component';
+import { HomeClientesComponent } from './components/home-clientes/home-clientes.component';
+import {CrearClienteService} from './components/crear-cliente/crear-cliente.service';
+import {HttpClientModule} from '@angular/common/http';
 import { PedidoComponent } from './pedido/pedido.component';
+
 
 
 @NgModule({
@@ -12,12 +24,18 @@ import { PedidoComponent } from './pedido/pedido.component';
     AppComponent,
     NavbarComponent,
     PedidoComponent
+    CrearClienteComponent,
+    HomeClientesComponent,
   ],
   imports: [
     BrowserModule,
+    NuevoPedidoModule,
+    APP_ROUTING,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CrearClienteService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}

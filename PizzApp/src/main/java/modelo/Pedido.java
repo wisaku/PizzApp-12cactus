@@ -11,12 +11,13 @@ public class Pedido extends Entity{
     private String state="abierto"; // el estado puedo ser "cerrado" o "abierto"
     private int numeroDePedido=0;
     private int nroSiguientePedido=numeroDePedido+1;
+    private Cliente cliente;
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
+        this.cliente = new Cliente();
         this.numeroDePedido=nroSiguientePedido;
         this.nroSiguientePedido=numeroDePedido+1;
-
     }
 
     public List<Producto> getProductos() {

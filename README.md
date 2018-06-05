@@ -82,11 +82,40 @@ POST
 
 http://localhost:8080/PizzApp/rest/testRest/put
 
-Pedido
+Ejemplo Json
 
+{"uno": 1}
+
+
+PEDIDO
+
+POST
 http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
 {"productos": []}
 
-### Body para pruebas:
-{"uno": 1}
 
+CLIENTE
+
+POST
+http://localhost:8080/PizzApp/rest/clienteService/crearCliente
+
+Ejemplo Json
+
+{
+"telefono": 12345678,
+"nombre": "Macri",
+"apellido": "Gato",
+"direccion": "Casa Rosada"
+}
+
+PRODUCTO
+
+POST
+http://localhost:8080/PizzApp/rest/productoService/crearProducto
+
+Ejemplo Json
+
+{
+"nombre": "pizza",
+"precio": 130
+}

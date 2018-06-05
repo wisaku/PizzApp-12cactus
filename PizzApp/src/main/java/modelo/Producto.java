@@ -8,7 +8,6 @@ public class Producto extends Entity{
     private String nombre;
     private double precio;
 
-
     public Producto(String unNombre, double unPrecio)
     {
         this.nombre=unNombre;
