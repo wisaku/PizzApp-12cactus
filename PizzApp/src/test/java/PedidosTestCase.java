@@ -85,5 +85,5 @@ public class PedidosTestCase {
         assertEquals(2,admin.getCantidadDePedidos(),0);
 
     }
-    
+
 }
