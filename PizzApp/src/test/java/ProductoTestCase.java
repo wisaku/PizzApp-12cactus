@@ -8,7 +8,7 @@ public class ProductoTestCase {
     @Test
     public void creoUnProductoPizzaMozzarellaYCuandoLePreguntoSuNombreDicePizzaMozzarella(){
 
-        Producto producto = new Producto();
+        Producto producto = new Producto(" ", 0);
         producto.setNombre("Pizza Mozzarella");
 
         assertEquals("Pizza Mozzarella", producto.getNombre());
@@ -18,19 +18,27 @@ public class ProductoTestCase {
     @Test
     public void creoUnProductoPizzaMozzarellaDePrecio100YCuandoLePreguntoSuPrecioMeDice100(){
 
-        Producto producto = new Producto();
+        Producto producto = new Producto(" ", 0);
         producto.setNombre("Pizza Mozzarella");
         producto.setPrecio(100);
         assertEquals(100, producto.getPrecio(),0);
     }
 
+    @Test
+    public void creoUnProductoPizzaMozzarellaDePrecio100YCuandoLePreguntoSuPrecioMeDice100YSuNombrePizzaMozzarella(){
+
+        Producto producto = new Producto("Pizza Mozzarella",100);
+
+        assertEquals(100, producto.getPrecio(),0);
+        assertEquals("Pizza Mozzarella", producto.getNombre());
+    }
 
 
     @Test
     public void comoAdminQuieroDarDeAltaProductosParaAgregarALosPedidos(){
 
         Admin admin = new Admin();
-        Producto producto = new Producto();
+        Producto producto = new Producto("Pizza Provolone", 120);
         assertNotNull(admin.crearProducto(producto));
 
     }

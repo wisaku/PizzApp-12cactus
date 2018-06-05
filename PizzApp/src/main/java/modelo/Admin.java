@@ -8,7 +8,7 @@ public class Admin {
     }
 
     public Producto crearProducto(Producto producto) {
-        return new Producto();
+        return new Producto("Pizza Fugazza",100);
     }
 
     public Pedido crearPedido(Pedido pedido) {
