@@ -33,4 +33,29 @@ public class PedidosTestCase {
         assertEquals("cerrado",pedido.getState());
     }
 
+    @Test
+    public void comoAdminCreoUnPedidoConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10(){
+        Admin admin = new Admin();
+        Pedido pedido = new Pedido();
+        pedido.setNumeroDePedido(10);
+        assertNotNull(admin.crearPedido(pedido));
+
+        assertEquals(10,pedido.getNumeroDePedido(),0);
+
+    }
+
+    @Test
+    public void comoAdminCreoDosPedidosElPrimeroConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10yElSiguiente11(){
+        Admin admin = new Admin();
+        Pedido pedido = new Pedido();
+        Pedido siguientePedido = new Pedido();
+        pedido.setNumeroDePedido(10);
+
+        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
+        assertNotNull(admin.crearPedido(pedido));
+
+        assertEquals(10,pedido.getNumeroDePedido(),0);
+        assertEquals(11,siguientePedido.getNumeroDePedido(),0);
+
+    }
 }
