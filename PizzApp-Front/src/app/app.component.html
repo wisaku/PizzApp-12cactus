@@ -3,6 +3,13 @@
   <h1>Welcome to {{ title }}!</h1>
 </div>
 <app-navbar></app-navbar>
+<app-pedido></app-pedido>
+
+<div *ngIf="articulos!=null; else espera">
+  {{articulos}}
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
+<div>{{articulos}}</div>
 
 
 <router-outlet></router-outlet>
