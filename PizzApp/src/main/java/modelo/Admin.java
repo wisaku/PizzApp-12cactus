@@ -15,6 +15,11 @@ public class Admin {
         return new Pedido();
     }
 
+    public Pedido cerrarPedido(Pedido pedido){
+        pedido.setState("cerrado");
+        return pedido;
+    }
+
 /*
     public boolean puedeHacerPedidos(int telefono) {
     }
