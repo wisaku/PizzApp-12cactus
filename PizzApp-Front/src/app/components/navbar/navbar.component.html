@@ -11,7 +11,7 @@
           Administración
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
-          <a class="dropdown-item" href="#">Clientes</a>
+          <a class="dropdown-item" [routerLink]="['homeClientes']">Clientes</a>
           <!--<a class="dropdown-item" href="#">Pedidos</a>-->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Productos</a>
@@ -19,12 +19,12 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVentas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mostrador 
+          Mostrador
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
           <a class="dropdown-item" href="#"> Cliente </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"> Pedido </a>
+          <a class="dropdown-item" [routerLink]="['nuevoPedido']"> Pedido </a>
         </div>
       </li>
     </ul>

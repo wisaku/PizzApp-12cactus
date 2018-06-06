@@ -1,26 +1,13 @@
-package modelo;
+package persistencia.servicios.dto;
 
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
+public class ClienteDTO {
 
-@XmlRootElement(name="cliente")
-public class Cliente extends Entity{
-
-    @Id
     private int telefono;
-
     private String nombre;
     private String apellido;
     private String direccion;
 
-    public Cliente(){};
-
-    public Cliente (int telefono, String nombre, String apellido, String direccion){
-        this.telefono = telefono;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-    }
+    public ClienteDTO(){};
 
     public int getTelefono() {
         return telefono;
@@ -53,4 +40,5 @@ public class Cliente extends Entity{
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
 }

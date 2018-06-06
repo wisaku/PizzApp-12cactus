@@ -18,4 +18,12 @@
         <property name="repository" ref="persistence.pedidorepository" />
     </bean>
 
+    <bean id="services.productoservice" class="persistencia.servicios.ProductoService">
+        <property name="repository" ref="persistence.productorepository" />
+    </bean>
+
+    <bean id="services.clienteservice" class="persistencia.servicios.ClienteService">
+        <property name="repository" ref="persistence.clienterepository" />
+    </bean>
+
 </beans>

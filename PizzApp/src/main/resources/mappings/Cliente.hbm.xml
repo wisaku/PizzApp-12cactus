@@ -7,17 +7,15 @@
 <hibernate-mapping default-access="field"
                    default-cascade="save-update">
 
-    <class name="modelo.Pedido">
-        <id name="id">
+    <class name="modelo.Cliente">
+        <id name="telefono">
             <generator class="native"/>
         </id>
-<!--
-        <list name="productos" lazy="false">
-            <key column="id"/>
-            <list-index column="type"></list-index>
-            <one-to-many class="modelo.Producto"/>
-        </list>
--->
+
+        <property name="nombre"/>
+        <property name="apellido"/>
+        <property name="direccion"/>
+
     </class>
 
 </hibernate-mapping>

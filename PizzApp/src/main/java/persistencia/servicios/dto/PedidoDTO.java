@@ -8,6 +8,8 @@ import java.util.List;
 public class PedidoDTO {
 
 
+    Integer usuario;
+
     private List<Producto> productos;
 
     public PedidoDTO(){
@@ -21,4 +23,9 @@ public class PedidoDTO {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
+
+    public Integer getUsuario() {
+        return usuario;
+    }
+
 }
