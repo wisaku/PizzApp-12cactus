@@ -4,16 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-<<<<<<< HEAD
-public class Admin {
-
-  //  private List<Pedido> pedidos=new ArrayList<Pedido>();
-    private Map<Integer,Pedido> pedidos = new HashMap <Integer, Pedido>();
-=======
 public class Admin extends Usuario{
 
-   private List<Pedido> pedidos=new ArrayList<Pedido>();  //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
->>>>>>> 66dd25635548da09058944873e322cd6eb3c1f2b
+  //  private List<Pedido> pedidos=new ArrayList<Pedido>();
+    private Map<Integer,Pedido> pedidos = new HashMap <Integer, Pedido>(); //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
+
+
+
+
 
     @Override
     public Cliente crearCliente(int telefono, String nombre, String apellido, String direccion) {
@@ -25,20 +23,12 @@ public class Admin extends Usuario{
         return new Producto(nombreProducto, precio, tipoProducto);
     }
 
-<<<<<<< HEAD
 
-    public Pedido crearPedido(Integer nroPedido,Pedido pedido) {
-
-//        this.pedidos.add(pedido);
+    public Pedido crearPedido(Integer nroPedido) {
+        Pedido pedido = new Pedido();
         this.pedidos.put(nroPedido,pedido);
-        return new Pedido();
-=======
-    @Override
-    public Pedido crearPedido() {
-        Pedido nuevo = new Pedido();
-        this.pedidos.add(nuevo);
-        return nuevo;
->>>>>>> 66dd25635548da09058944873e322cd6eb3c1f2b
+        return pedido;
+
     }
 
     public Pedido seleccionarPedido(Integer nroPedido){
