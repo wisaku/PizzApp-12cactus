@@ -1,27 +1,26 @@
 package modelo;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Admin {
+public class Admin extends Usuario{
 
-    private List<Pedido> pedidos=new ArrayList<Pedido>();
+   private List<Pedido> pedidos=new ArrayList<Pedido>();  //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
 
-
+    @Override
     public Cliente crearCliente(int telefono, String nombre, String apellido, String direccion) {
         return new Cliente(telefono,nombre,apellido,direccion);
     }
 
-    public Producto crearProducto(Producto producto) {
-        return new Producto("Pizza Fugazza",100);
+    @Override
+    public Producto crearProducto(String nombreProducto, Double precio, TipoProducto tipoProducto) {
+        return new Producto(nombreProducto, precio, tipoProducto);
     }
 
-
-    public Pedido crearPedido(Pedido pedido) {
-
-        this.pedidos.add(pedido);
-        return new Pedido();
+    @Override
+    public Pedido crearPedido() {
+        Pedido nuevo = new Pedido();
+        this.pedidos.add(nuevo);
+        return nuevo;
     }
 
     public Pedido cerrarPedido(Pedido pedido){
@@ -43,4 +42,5 @@ public class Admin {
     public boolean puedeHacerPedidos(int telefono) {
     }
 */
+      
 }
