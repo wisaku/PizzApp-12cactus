@@ -106,4 +106,12 @@
         <property name="sessionFactory" ref="persistence.sessionFactory" />
     </bean>
 
+    <bean id="persistence.productorepository" class="persistencia.repositorios.ProductoRepository" >
+        <property name="sessionFactory" ref="persistence.sessionFactory" />
+    </bean>
+
+    <bean id="persistence.clienterepository" class="persistencia.repositorios.ClienteRepository" >
+        <property name="sessionFactory" ref="persistence.sessionFactory" />
+    </bean>
+
 </beans>

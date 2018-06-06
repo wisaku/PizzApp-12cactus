@@ -28,6 +28,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <jaxrs:serviceBeans>
             <ref bean="TestRest" />
             <ref bean="PedidoRest" />
+            <ref bean="ProductoRest" />
+            <ref bean="ClienteRest" />
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
@@ -48,6 +50,14 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <bean id="PedidoRest" class="persistencia.servicios.PedidoRest">
         <property name="pedidoService" ref="services.pedidoservice"/>
+    </bean>
+
+    <bean id="ProductoRest" class="persistencia.servicios.ProductoRest">
+        <property name="productoService" ref="services.productoservice"/>
+    </bean>
+
+    <bean id="ClienteRest" class="persistencia.servicios.ClienteRest">
+        <property name="clienteService" ref="services.clienteservice"/>
     </bean>
 
 </beans>
