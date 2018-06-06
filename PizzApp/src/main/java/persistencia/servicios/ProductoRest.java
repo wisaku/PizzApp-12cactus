@@ -32,7 +32,7 @@ public class ProductoRest {
     }
 
     private Producto fromDTO(ProductoDTO dto) {
-        Producto producto = new Producto("anchoas", 300);
+        Producto producto = new Producto("anchoas", 300, new ProductoDeElaboracion());
         producto.setNombre(dto.getNombre());
         producto.setPrecio(dto.getPrecio());
         return producto;
