@@ -2,6 +2,7 @@ package persistencia.servicios;
 
 import modelo.Producto;
 import persistencia.servicios.dto.ProductoDTO;
+import modelo.*;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
