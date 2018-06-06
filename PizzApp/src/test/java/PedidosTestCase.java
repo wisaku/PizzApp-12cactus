@@ -52,8 +52,9 @@ public class PedidosTestCase {
 
         assertTrue(lineaDePedidoService.findByPedido(pedido));
         assertTrue(pedido.estaAbierto());
+    }
 
-    }*/
+    */
 
     @Test
     public void comoAdminQuieroCrearUnPedidoParaCargarProductosYAlPReguntarElEstadoDelPedidoRespondeAbierto(){
@@ -128,5 +129,4 @@ public class PedidosTestCase {
         assertEquals(2,admin.getCantidadDePedidos(),0);
 
     }
-
 }

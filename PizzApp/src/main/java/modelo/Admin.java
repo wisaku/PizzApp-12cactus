@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Admin extends Usuario{
 
-    private List<Pedido> pedidos=new ArrayList<Pedido>();
+   private List<Pedido> pedidos=new ArrayList<Pedido>();  //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
 
     @Override
     public Cliente crearCliente(int telefono, String nombre, String apellido, String direccion) {
@@ -42,4 +42,5 @@ public class Admin extends Usuario{
     public boolean puedeHacerPedidos(int telefono) {
     }
 */
+      
 }
