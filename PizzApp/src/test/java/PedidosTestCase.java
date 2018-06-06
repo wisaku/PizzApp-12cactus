@@ -10,14 +10,14 @@ public class PedidosTestCase {
 
         Admin admin = new Admin();
         Pedido pedido = new Pedido();
-        assertNotNull(admin.crearPedido(pedido));
+        assertNotNull(admin.crearPedido(1,pedido));
     }
     @Test
     public void comoAdminQuieroCrearUnPedidoParaCargarProductosYAlPReguntarElEstadoDelPedidoRespondeAbierto(){
 
         Admin admin = new Admin();
         Pedido pedido = new Pedido();
-        assertNotNull(admin.crearPedido(pedido));
+        assertNotNull(admin.crearPedido(1,pedido));
 
         assertEquals("abierto",pedido.getState());
     }
@@ -27,50 +27,10 @@ public class PedidosTestCase {
 
         Admin admin = new Admin();
         Pedido pedido = new Pedido();
-        assertNotNull(admin.crearPedido(pedido));
-        assertNotNull(admin.cerrarPedido(pedido));
+        assertNotNull(admin.crearPedido(1,pedido));
+        assertNotNull(admin.cerrarPedido(1));
 
         assertEquals("cerrado",pedido.getState());
-    }
-
-    @Test
-    public void comoAdminCreoUnPedidoConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        pedido.setNumeroDePedido(10);
-        assertNotNull(admin.crearPedido(pedido));
-
-        assertEquals(10,pedido.getNumeroDePedido(),0);
-
-    }
-
-    @Test
-    public void comoAdminCreoDosPedidosElPrimeroConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10yElSiguiente11(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        Pedido siguientePedido = new Pedido();
-        pedido.setNumeroDePedido(10);
-
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
-        assertNotNull(admin.crearPedido(pedido));
-
-        assertEquals(10,pedido.getNumeroDePedido(),0);
-        assertEquals(11,siguientePedido.getNumeroDePedido(),0);
-
-    }
-
-    @Test
-    public void comoAdminCreoDosPedidosYCuandoLePreguntoSuNumeroDePedidoMeDice1yElSiguiente2(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        Pedido siguientePedido = new Pedido();
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
-
-        assertNotNull(admin.crearPedido(pedido));
-
-        assertEquals(1,pedido.getNumeroDePedido(),0);
-        assertEquals(2,siguientePedido.getNumeroDePedido(),0);
-
     }
 
     @Test
@@ -78,12 +38,27 @@ public class PedidosTestCase {
         Admin admin = new Admin();
         Pedido pedido = new Pedido();
         Pedido siguientePedido = new Pedido();
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
+     //   siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
 
-        assertNotNull(admin.crearPedido(pedido));
-        assertNotNull(admin.crearPedido(siguientePedido));
+        assertNotNull(admin.crearPedido(1,pedido));
+        assertNotNull(admin.crearPedido(2,siguientePedido));
         assertEquals(2,admin.getCantidadDePedidos(),0);
 
     }
 
+    @Test
+    public void comoAdminQuieroSeleccionarUnPedidoParaCerrarlo(){
+        Admin admin = new Admin();
+        Pedido pedido = new Pedido();
+        Pedido siguientePedido = new Pedido();
+
+        assertNotNull(admin.crearPedido(1,pedido));
+        assertNotNull(admin.crearPedido(2,siguientePedido));
+        assertEquals("abierto",pedido.getState());
+        assertEquals("abierto",siguientePedido.getState());
+        assertNotNull(admin.cerrarPedido(2));
+        assertEquals("abierto",pedido.getState());
+        assertEquals("cerrado",siguientePedido.getState());
+
+    }
 }

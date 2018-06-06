@@ -14,8 +14,6 @@ public class Pedido extends Entity{
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
-        this.numeroDePedido=nroSiguientePedido;
-        this.nroSiguientePedido=numeroDePedido+1;
 
     }
 
@@ -31,18 +29,5 @@ public class Pedido extends Entity{
 
     public String getState(){return this.state;}
 
-    public void setNumeroDePedido(int unNroPedido)
-    {
-        this.numeroDePedido=unNroPedido;
-        this.nroSiguientePedido=numeroDePedido+1;
-    }
 
-    public int getNumeroDePedido()
-    {
-        return numeroDePedido;
-    }
-
-    public int getNroSiguientePedido() {
-        return nroSiguientePedido;
-    }
 }
