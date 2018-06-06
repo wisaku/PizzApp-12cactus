@@ -6,16 +6,19 @@ import java.util.List;
 
 @XmlRootElement(name="pedido")
 public class Pedido extends Entity {
-
-
-    private String state = null;
     private List<Producto> productos;
+    private String state="abierto"; // el estado puedo ser "cerrado" o "abierto"
+    private int numeroDePedido=0;
+    private int nroSiguientePedido=numeroDePedido+1;
+    private Cliente cliente;
+    private Usuario creadoPor;
 
     public Pedido(){
-        this.init();
+        this.productos = new ArrayList<Producto>();
+        this.cliente = new Cliente();
+        this.numeroDePedido=nroSiguientePedido;
+        this.nroSiguientePedido=numeroDePedido+1;
     }
-
-
 
     public List<Producto> getProductos() {
         return productos;
@@ -23,10 +26,6 @@ public class Pedido extends Entity {
 
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
-    }
-
-    private void init() {
-        this.state="Abierto";
     }
 
     public String getState(){
@@ -38,6 +37,21 @@ public class Pedido extends Entity {
     }
 
     public void setCreadoPor(Usuario usuario) {
-        this.setCreadoPor(usuario);
+        this.creadoPor=usuario;
+    }
+
+    public void setState(String aState){ this.state=aState;}
+
+    public void setNumeroDePedido(int unNroPedido) {
+        this.numeroDePedido=unNroPedido;
+        this.nroSiguientePedido=numeroDePedido+1;
+    }
+
+    public int getNumeroDePedido() {
+        return numeroDePedido;
+    }
+
+    public int getNroSiguientePedido() {
+        return nroSiguientePedido;
     }
 }
