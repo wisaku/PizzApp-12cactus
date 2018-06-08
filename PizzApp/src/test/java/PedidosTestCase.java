@@ -24,7 +24,7 @@ public class PedidosTestCase {
     public void comoAdminQuieroCrearUnPedidoParaCargarProductos(){
 
         Admin admin = new Admin();
-        assertNotNull(admin.crearPedido());
+        assertNotNull(admin.crearPedido(1));
     }
 
 
@@ -43,6 +43,9 @@ public class PedidosTestCase {
 
         usuarioService.save(admin);
         Pedido pedido = new Pedido();
+<<<<<<< HEAD
+        assertNotNull(admin.crearPedido(1,pedido));
+=======
         PedidoService.crearPedido(pedido, admin.getId(), productos);
 
 
@@ -52,6 +55,7 @@ public class PedidosTestCase {
 
         assertTrue(lineaDePedidoService.findByPedido(pedido));
         assertTrue(pedido.estaAbierto());
+>>>>>>> 66dd25635548da09058944873e322cd6eb3c1f2b
     }
 
     */
@@ -60,73 +64,50 @@ public class PedidosTestCase {
     public void comoAdminQuieroCrearUnPedidoParaCargarProductosYAlPReguntarElEstadoDelPedidoRespondeAbierto(){
 
         Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        assertNotNull(admin.crearPedido());
+        //Pedido pedido = new Pedido();
+      //  assertNotNull(admin.crearPedido(1));
 
-        assertEquals("abierto",pedido.getState());
+
+        assertEquals("abierto",admin.crearPedido(1).getState());
     }
 
     @Test
     public void comoAdminQuieroCrearUnPedidoParaCargarProductosyLuegoCerrarloYAlConsultarElEstadoDelPedidoRespondeCerrado(){
 
         Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        assertNotNull(admin.crearPedido());
-        assertNotNull(admin.cerrarPedido(pedido));
+     //   Pedido pedido = new Pedido();
+        assertNotNull(admin.crearPedido(1));
+        assertNotNull(admin.cerrarPedido(1));
 
-        assertEquals("cerrado",pedido.getState());
-    }
 
-    @Test
-    public void comoAdminCreoUnPedidoConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        pedido.setNumeroDePedido(10);
-        assertNotNull(admin.crearPedido());
-
-        assertEquals(10,pedido.getNumeroDePedido(),0);
-
-    }
-
-    @Test
-    public void comoAdminCreoDosPedidosElPrimeroConElNumero10YCuandoLePreguntoSuNumeroDePedidoMeDice10yElSiguiente11(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        Pedido siguientePedido = new Pedido();
-        pedido.setNumeroDePedido(10);
-
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
-        assertNotNull(admin.crearPedido());
-
-        assertEquals(10,pedido.getNumeroDePedido(),0);
-        assertEquals(11,siguientePedido.getNumeroDePedido(),0);
-
-    }
-
-    @Test
-    public void comoAdminCreoDosPedidosYCuandoLePreguntoSuNumeroDePedidoMeDice1yElSiguiente2(){
-        Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        Pedido siguientePedido = new Pedido();
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
-
-        assertNotNull(admin.crearPedido());
-
-        assertEquals(1,pedido.getNumeroDePedido(),0);
-        assertEquals(2,siguientePedido.getNumeroDePedido(),0);
-
+        assertEquals("cerrado",admin.seleccionarPedido(1).getState());
     }
 
     @Test
     public void comoAdminCreoDosPedidosYCuandoLePreguntoCuantoPedidosTieneMeDiceDos(){
         Admin admin = new Admin();
-        Pedido pedido = new Pedido();
-        Pedido siguientePedido = new Pedido();
-        siguientePedido.setNumeroDePedido(pedido.getNroSiguientePedido());
+        assertNotNull(admin.crearPedido(1));
+        assertNotNull(admin.crearPedido(2));
 
-        assertNotNull(admin.crearPedido());
-        assertNotNull(admin.crearPedido());
-        assertEquals(2,admin.getCantidadDePedidos(),0);
+        assertEquals(2,admin.getCantidadDePedidos());
+    }
+
+
+
+    //TEST DE ACEPTACIÓN(?)
+    @Test
+    public void comoAdminQuieroSeleccionarUnPedidoParaCerrarlo(){
+        Admin admin = new Admin();
+        Pedido pedido = admin.crearPedido(1);
+        Pedido siguientePedido = admin.crearPedido(2);
+
+
+        assertEquals("abierto",pedido.getState());
+        assertEquals("abierto",siguientePedido.getState());
+        assertNotNull(admin.cerrarPedido(2));
+        assertEquals("abierto",pedido.getState());
+        assertEquals("cerrado",siguientePedido.getState());
+
 
     }
 }

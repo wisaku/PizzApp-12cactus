@@ -1,10 +1,17 @@
 package modelo;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Admin extends Usuario{
 
-   private List<Pedido> pedidos=new ArrayList<Pedido>();  //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
+  //  private List<Pedido> pedidos=new ArrayList<Pedido>();
+    private Map<Integer,Pedido> pedidos = new HashMap <Integer, Pedido>(); //TODO FIXME LA LISTA DE PEDIDOS DEBRíA ESTAR EN ALGO LLAMADO PIZZERIA
+
+
+
+
 
     @Override
     public Cliente crearCliente(int telefono, String nombre, String apellido, String direccion) {
@@ -16,22 +23,29 @@ public class Admin extends Usuario{
         return new Producto(nombreProducto, precio, tipoProducto);
     }
 
-    @Override
-    public Pedido crearPedido() {
-        Pedido nuevo = new Pedido();
-        this.pedidos.add(nuevo);
-        return nuevo;
+
+    public Pedido crearPedido(Integer nroPedido) {
+        Pedido pedido = new Pedido();
+        this.pedidos.put(nroPedido,pedido);
+        return pedido;
+
     }
 
-    public Pedido cerrarPedido(Pedido pedido){
-        pedido.setState("cerrado");
+    public Pedido seleccionarPedido(Integer nroPedido){
+        Pedido pedido = new Pedido();
+        pedido=pedidos.get(nroPedido);
         return pedido;
     }
+    public Pedido cerrarPedido(Integer nroPedido){
 
-    public void addPedido(Pedido unPedido)
+        seleccionarPedido(nroPedido).setState("cerrado");
+        return seleccionarPedido(nroPedido);
+    }
+
+    public void addPedido(Integer nroPedido,Pedido unPedido)
     {
-        this.pedidos = new ArrayList<Pedido>();
-        this.pedidos.add(unPedido);
+//        this.pedidos = new ArrayList<Pedido>();
+        this.pedidos.put(nroPedido,unPedido);
     }
 
     public int getCantidadDePedidos()
