@@ -258,6 +258,13 @@
         </dependency>
         <!-- /codacy -->
 
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlets</artifactId>
+            <version>9.1.0.M0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
