@@ -10,7 +10,7 @@
     <!-- ==== beans de spring ====== -->
     <!-- =========================== -->
 
-    <bean id="services.testservice" class="persistencia.servicios.TestService">
+    <bean id="services.testservice" class="persistencia.servicios.Service.TestService">
         <property name="repository" ref="persistence.testrepository" />
     </bean>
 

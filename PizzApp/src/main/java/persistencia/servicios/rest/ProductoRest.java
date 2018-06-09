@@ -34,12 +34,19 @@ public class ProductoRest {
     @Path("/buscarProducto/{id}")
     @Produces("application/json")
     public Response buscarCliente(@PathParam("id")final int id){
-        Cliente cliente = this.getProductoService().getPruducto(id);
-        return Response.ok(toToDTO(cliente)).build();
+        Producto prod = this.getProductoService().getPruducto(id);
+        return Response.ok(toDTO(prod)).build();
+    }
+
+    private ProductoDTO toDTO(Producto prod) {
+        ProductoDTO dto = new ProductoDTO();
+        dto.setNombre(prod.getNombre());
+        dto.setPrecio(prod.getPrecio());
+        return dto;
     }
 
     private Producto fromDTO(ProductoDTO dto) {
-        Producto producto = new Producto("anchoas", 300, new ProductoDeElaboracion());
+        Producto producto = new Producto();
         producto.setNombre(dto.getNombre());
         producto.setPrecio(dto.getPrecio());
         return producto;
