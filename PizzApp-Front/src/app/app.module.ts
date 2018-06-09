@@ -13,8 +13,8 @@ import {NuevoPedidoModule} from './components/nuevo-pedido/nuevo-pedido.module';
 import { CrearClienteComponent } from './components/crear-cliente/crear-cliente.component';
 import { HomeClientesComponent } from './components/home-clientes/home-clientes.component';
 import {CrearClienteService} from './components/crear-cliente/crear-cliente.service';
-import {HttpClientModule} from '@angular/common/http';
 import { PedidoComponent } from './pedido/pedido.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 
@@ -25,6 +25,7 @@ import { PedidoComponent } from './pedido/pedido.component';
     PedidoComponent,
     CrearClienteComponent,
     HomeClientesComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,

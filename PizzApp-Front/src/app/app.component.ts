@@ -13,15 +13,16 @@ export class AppComponent {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:8080/PizzApp/rest/testRest/get/7")
-      .subscribe(
-        result => {
-          this.articulos = result;
-        },
-        error => {
-          console.log('problemas');
-        }
-      );
+    let self = this;
+    this.http.get("http://localhost:8080/PizzApp/rest/testRest/get/7").toPromise()
+    .then(function(res){
+       console.log(res);
+    })
+    .catch(function(err){
+      self.articulos = {uno:"7"}
+      console.log(err);
+    })
+     
   }
 
 
