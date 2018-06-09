@@ -1,6 +1,7 @@
-package persistencia.servicios;
+package persistencia.servicios.rest;
 
 import modelo.TestUno;
+import persistencia.servicios.Service.TestService;
 import persistencia.servicios.dto.TestDTO;
 
 import javax.ws.rs.*;

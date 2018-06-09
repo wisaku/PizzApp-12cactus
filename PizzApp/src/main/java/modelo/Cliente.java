@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Cliente extends Entity{
 
     @Id
-    private int telefono;
+    private String telefono;
 
     private String nombre;
     private String apellido;
@@ -15,18 +15,18 @@ public class Cliente extends Entity{
 
     public Cliente(){};
 
-    public Cliente (int telefono, String nombre, String apellido, String direccion){
+    public Cliente (String telefono, String nombre, String apellido, String direccion){
         this.telefono = telefono;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

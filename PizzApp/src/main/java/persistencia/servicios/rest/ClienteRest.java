@@ -1,6 +1,7 @@
-package persistencia.servicios;
+package persistencia.servicios.rest;
 
 import modelo.Cliente;
+import persistencia.servicios.Service.ClienteService;
 import persistencia.servicios.dto.ClienteDTO;
 
 import javax.ws.rs.*;
@@ -28,6 +29,25 @@ public class ClienteRest {
         return Response.ok().build();
     }
 
+    @GET
+    @Path("/buscarCliente/{telefono}")
+    @Produces("application/json")
+    public Response buscarCliente(@PathParam("telefono")final String telefono){
+        Cliente cliente = this.getClienteService().getCliente(telefono);
+        if(cliente==null){
+            throw new NotFoundException("el elemento buscado no existe");
+        }
+        return Response.ok(toDTO(cliente)).build();
+    }
+
+    @GET
+    @Path("/cantidadClientes")
+    @Produces("application/json")
+    public int cantidadCliente(){
+        return this.getClienteService().getSize();
+    }
+
+
     private Cliente fromDTO(ClienteDTO dto){
         Cliente cliente = new Cliente();
         cliente.setApellido(dto.getApellido());
@@ -36,21 +56,13 @@ public class ClienteRest {
         cliente.setTelefono(dto.getTelefono());
         return cliente;
     }
-    private ClienteDTO toToDTO(Cliente cliente){
+    private ClienteDTO toDTO(Cliente cliente){
         ClienteDTO clienteDTO = new ClienteDTO();
         clienteDTO.setApellido(cliente.getApellido());
         clienteDTO.setDireccion(cliente.getDireccion());
         clienteDTO.setNombre(cliente.getNombre());
         clienteDTO.setTelefono(cliente.getTelefono());
         return clienteDTO;
-    }
-
-    @GET
-    @Path("/buscarCliente/{telefono}")
-    @Produces("application/json")
-    public Response buscarCliente(@PathParam("telefono")final int telefono){
-        Cliente cliente =this.getClienteService().getCliente(telefono);
-        return Response.ok(toToDTO(cliente)).build();
     }
 
 }

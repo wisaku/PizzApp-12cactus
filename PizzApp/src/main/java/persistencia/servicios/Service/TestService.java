@@ -1,10 +1,11 @@
-package persistencia.servicios;
+package persistencia.servicios.Service;
 
 import modelo.TestUno;
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.repositorios.TestRepository;
+import persistencia.servicios.Service.GenericService;
 
-public class TestService extends GenericService<TestUno>{
+public class TestService extends GenericService<TestUno> {
 
     private TestRepository repository;
 

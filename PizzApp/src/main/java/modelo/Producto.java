@@ -10,6 +10,8 @@ public class Producto extends Entity{
     private double precio;
     private TipoProducto tipo;
 
+    public Producto(){}
+
     public Producto(String nombre, double precio, TipoProducto tipoProducto){
         this.nombre = nombre;
         this.precio = precio;

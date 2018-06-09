@@ -1,19 +1,19 @@
 package persistencia.servicios.dto;
 
-public class ClienteDTO {
+public class ClienteDTO{
 
-    private int telefono;
+    private String telefono;
     private String nombre;
     private String apellido;
     private String direccion;
 
     public ClienteDTO(){};
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

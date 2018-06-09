@@ -7,22 +7,36 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <!-- =========================== -->
+    <!--    Initialize Services      -->
+    <!-- =========================== -->
+    <bean id="initializer" class="persistencia.ServiceInitializer">
+        <constructor-arg>
+            <list>
+                <ref bean="services.productoservice"/>
+                <ref bean="services.clienteservice"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+
+    <!-- =========================== -->
     <!-- ==== beans de spring ====== -->
     <!-- =========================== -->
 
-    <bean id="services.testservice" class="persistencia.servicios.TestService">
+    <bean id="services.testservice" class="persistencia.servicios.Service.TestService">
         <property name="repository" ref="persistence.testrepository" />
     </bean>
 
-    <bean id="services.pedidoservice" class="persistencia.servicios.PedidoService">
+    <bean id="services.pedidoservice" class="persistencia.servicios.Service.PedidoService">
         <property name="repository" ref="persistence.pedidorepository" />
     </bean>
 
-    <bean id="services.productoservice" class="persistencia.servicios.ProductoService">
+    <bean id="services.productoservice" class="persistencia.servicios.Service.ProductoService">
         <property name="repository" ref="persistence.productorepository" />
     </bean>
 
-    <bean id="services.clienteservice" class="persistencia.servicios.ClienteService">
+    <bean id="services.clienteservice" class="persistencia.servicios.Service.ClienteService">
         <property name="repository" ref="persistence.clienterepository" />
     </bean>
 

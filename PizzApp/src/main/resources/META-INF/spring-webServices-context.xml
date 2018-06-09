@@ -44,19 +44,19 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         </jaxrs:features>
     </jaxrs:server>
 
-    <bean id="TestRest" class="persistencia.servicios.TestRest">
+    <bean id="TestRest" class="persistencia.servicios.rest.TestRest">
         <property name="testService" ref="services.testservice"/>
     </bean>
 
-    <bean id="PedidoRest" class="persistencia.servicios.PedidoRest">
+    <bean id="PedidoRest" class="persistencia.servicios.rest.PedidoRest">
         <property name="pedidoService" ref="services.pedidoservice"/>
     </bean>
 
-    <bean id="ProductoRest" class="persistencia.servicios.ProductoRest">
+    <bean id="ProductoRest" class="persistencia.servicios.rest.ProductoRest">
         <property name="productoService" ref="services.productoservice"/>
     </bean>
 
-    <bean id="ClienteRest" class="persistencia.servicios.ClienteRest">
+    <bean id="ClienteRest" class="persistencia.servicios.rest.ClienteRest">
         <property name="clienteService" ref="services.clienteservice"/>
     </bean>
 

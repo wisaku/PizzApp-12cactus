@@ -1,11 +1,8 @@
 import modelo.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import persistencia.servicios.LineaDePedidoService;
-import persistencia.servicios.UsuarioService;
-
-import java.util.ArrayList;
-import java.util.List;
+import persistencia.servicios.Service.LineaDePedidoService;
+import persistencia.servicios.Service.UsuarioService;
 
 import static org.junit.Assert.*;
 
@@ -18,7 +15,7 @@ public class PedidosTestCase {
     UsuarioService usuarioService;
 
     @Autowired
-    persistencia.servicios.PedidoService PedidoService;
+    persistencia.servicios.Service.PedidoService PedidoService;
 
     @Test
     public void comoAdminQuieroCrearUnPedidoParaCargarProductos(){

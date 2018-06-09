@@ -8,10 +8,7 @@
                    default-cascade="save-update">
 
     <class name="modelo.Cliente">
-        <id name="telefono">
-            <generator class="native"/>
-        </id>
-
+        <id name="telefono"/>
         <property name="nombre"/>
         <property name="apellido"/>
         <property name="direccion"/>

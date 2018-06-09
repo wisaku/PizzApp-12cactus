@@ -1,13 +1,13 @@
-package persistencia.servicios;
+package persistencia.servicios.Service;
 
 import modelo.LineaDePedido;
 import modelo.Pedido;
 import persistencia.repositorios.LineaDePedidoRepository;
-import persistencia.repositorios.PedidoRepository;
+import persistencia.servicios.Service.GenericService;
 
 import java.util.List;
 
-public class LineaDePedidoService extends GenericService<LineaDePedido>{
+public class LineaDePedidoService extends GenericService<LineaDePedido> {
 
     private LineaDePedidoRepository repository;
 

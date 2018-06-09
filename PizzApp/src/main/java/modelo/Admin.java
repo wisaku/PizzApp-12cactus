@@ -14,7 +14,7 @@ public class Admin extends Usuario{
 
 
     @Override
-    public Cliente crearCliente(int telefono, String nombre, String apellido, String direccion) {
+    public Cliente crearCliente(String telefono, String nombre, String apellido, String direccion) {
         return new Cliente(telefono,nombre,apellido,direccion);
     }
 
