@@ -32,9 +32,12 @@ public class ClienteRest {
     @GET
     @Path("/buscarCliente/{telefono}")
     @Produces("application/json")
-    public Response buscarCliente(@PathParam("telefono")final int telefono){
+    public Response buscarCliente(@PathParam("telefono")final String telefono){
         Cliente cliente = this.getClienteService().getCliente(telefono);
-        return Response.ok(toToDTO(cliente)).build();
+        if(cliente==null){
+            throw new NotFoundException("el elemento buscado no existe");
+        }
+        return Response.ok(toDTO(cliente)).build();
     }
 
     @GET
@@ -53,7 +56,7 @@ public class ClienteRest {
         cliente.setTelefono(dto.getTelefono());
         return cliente;
     }
-    private ClienteDTO toToDTO(Cliente cliente){
+    private ClienteDTO toDTO(Cliente cliente){
         ClienteDTO clienteDTO = new ClienteDTO();
         clienteDTO.setApellido(cliente.getApellido());
         clienteDTO.setDireccion(cliente.getDireccion());

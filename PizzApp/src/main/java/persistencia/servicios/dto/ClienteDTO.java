@@ -1,26 +1,19 @@
 package persistencia.servicios.dto;
 
-import modelo.Entity;
+public class ClienteDTO{
 
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="cliente")
-public class ClienteDTO  extends Entity {
-
-    @Id
-    private int telefono;
+    private String telefono;
     private String nombre;
     private String apellido;
     private String direccion;
 
     public ClienteDTO(){};
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

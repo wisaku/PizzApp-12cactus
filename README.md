@@ -108,6 +108,11 @@ Ejemplo Json
 "direccion": "Casa Rosada"
 }
 
+GET 
+http://localhost:8080/PizzApp/rest/clienteService/buscarCliente/12345678
+
+
+
 PRODUCTO
 
 POST
@@ -119,3 +124,6 @@ Ejemplo Json
 "nombre": "pizza",
 "precio": 130
 }
+
+GET
+http://localhost:8080/PizzApp/rest/productoService/buscarProducto/1

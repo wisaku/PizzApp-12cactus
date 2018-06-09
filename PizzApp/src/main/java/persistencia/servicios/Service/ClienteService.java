@@ -18,7 +18,7 @@ public class ClienteService  extends GenericService<Cliente> {
     }
 
     @Transactional
-    public Cliente getCliente(int telefono)
+    public Cliente getCliente(String telefono)
     {
         return this.getRepository().getClienteByPhone(telefono);
     }

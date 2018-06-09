@@ -21,7 +21,7 @@ public class ClienteRepository
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public Cliente getClienteByPhone(final int pattern) {
+    public Cliente getClienteByPhone(final String pattern) {
 
         return (Cliente) this.getHibernateTemplate().execute(new HibernateCallback() {
             @Override
