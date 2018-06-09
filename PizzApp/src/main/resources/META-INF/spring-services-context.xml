@@ -7,6 +7,20 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <!-- =========================== -->
+    <!--    Initialize Services      -->
+    <!-- =========================== -->
+    <bean id="initializer" class="persistencia.ServiceInitializer">
+        <constructor-arg>
+            <list>
+                <ref bean="services.productoservice"/>
+                <ref bean="services.clienteservice"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+
+    <!-- =========================== -->
     <!-- ==== beans de spring ====== -->
     <!-- =========================== -->
 
