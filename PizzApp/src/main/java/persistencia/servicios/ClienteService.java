@@ -15,4 +15,9 @@ public class ClienteService  extends GenericService<Cliente>{
     public void setRepository(ClienteRepository repository) {
         this.repository = repository;
     }
+
+    public Cliente getCliente(int telefono)
+    {
+        return this.getRepository().getClienteByPhone(telefono);
+    }
 }

@@ -3,10 +3,7 @@ package persistencia.servicios;
 import modelo.Cliente;
 import persistencia.servicios.dto.ClienteDTO;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("/clienteService")
@@ -39,4 +36,21 @@ public class ClienteRest {
         cliente.setTelefono(dto.getTelefono());
         return cliente;
     }
+    private ClienteDTO toToDTO(Cliente cliente){
+        ClienteDTO clienteDTO = new ClienteDTO();
+        clienteDTO.setApellido(cliente.getApellido());
+        clienteDTO.setDireccion(cliente.getDireccion());
+        clienteDTO.setNombre(cliente.getNombre());
+        clienteDTO.setTelefono(cliente.getTelefono());
+        return clienteDTO;
+    }
+
+    @GET
+    @Path("/buscarCliente/{telefono}")
+    @Produces("application/json")
+    public Response buscarCliente(@PathParam("telefono")final int telefono){
+        Cliente cliente =this.getClienteService().getCliente(telefono);
+        return Response.ok(toToDTO(cliente)).build();
+    }
+
 }
