@@ -1,7 +1,6 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
 // Routing
 import { APP_ROUTING} from './app.routes';
@@ -23,7 +22,7 @@ import { PedidoComponent } from './pedido/pedido.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    PedidoComponent
+    PedidoComponent,
     CrearClienteComponent,
     HomeClientesComponent,
   ],
