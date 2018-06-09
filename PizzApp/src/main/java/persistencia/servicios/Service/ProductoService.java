@@ -1,7 +1,8 @@
-package persistencia.servicios;
+package persistencia.servicios.Service;
 
 import modelo.Producto;
 import persistencia.repositorios.ProductoRepository;
+import persistencia.servicios.Service.GenericService;
 
 public class ProductoService extends GenericService<Producto>
 {

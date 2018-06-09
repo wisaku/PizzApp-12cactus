@@ -1,4 +1,4 @@
-package persistencia.servicios;
+package persistencia.servicios.Service;
 
 import modelo.*;
 import org.springframework.transaction.annotation.Transactional;

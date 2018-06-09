@@ -1,9 +1,10 @@
-package persistencia.servicios;
+package persistencia.servicios.Service;
 
 import modelo.Cliente;
+import org.springframework.transaction.annotation.Transactional;
 import persistencia.repositorios.ClienteRepository;
 
-public class ClienteService  extends GenericService<Cliente>{
+public class ClienteService  extends GenericService<Cliente> {
 
     private ClienteRepository repository;
 
@@ -16,8 +17,14 @@ public class ClienteService  extends GenericService<Cliente>{
         this.repository = repository;
     }
 
+    @Transactional
     public Cliente getCliente(int telefono)
     {
         return this.getRepository().getClienteByPhone(telefono);
+    }
+
+    @Transactional
+    public int getSize() {
+        return this.getRepository().count();
     }
 }

@@ -1,10 +1,8 @@
 package modelo;
 
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="cliente")
-public class Cliente extends Entity{
+public class Cliente{
 
     @Id
     private int telefono;
