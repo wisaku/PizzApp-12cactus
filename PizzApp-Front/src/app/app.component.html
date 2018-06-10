@@ -4,10 +4,4 @@
 </div>
 <app-navbar></app-navbar>
 
-<div *ngIf="articulos!=null; else espera">
-  {{articulos}}
-  <ng-template #espera>Esperando datos...</ng-template>
-</div>
-<div><app-dropdown></app-dropdown></div>
-
 <router-outlet></router-outlet>

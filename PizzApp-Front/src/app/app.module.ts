@@ -15,6 +15,7 @@ import { HomeClientesComponent } from './components/home-clientes/home-clientes.
 import {CrearClienteService} from './components/crear-cliente/crear-cliente.service';
 import { PedidoComponent } from './pedido/pedido.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
