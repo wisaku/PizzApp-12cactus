@@ -1,0 +1,19 @@
+<div class="container">
+  <form>
+    <label><input type="radio" value="admin" ng-model="FrontEndUsers.status"> Click For Admin</label>
+    <label><input type="radio" value="contributor" ng-model="FrontEndUsers.status"> Click For User</label>
+    <label><input type="radio" value="visitor" ng-model="FrontEndUsers.status"> Click For Visitor</label>
+  </form>
+  <hr>
+    <div ng-switch="FrontEndUsers.status" id="wrapper">
+      <div ng-switch-when="admin">
+        <h2> Admin Section</h2>
+      </div>
+      <div ng-switch-when="contributor">
+        <h2>User Section </h2>
+      </div>
+      <div ng-switch-default>
+        <h2> Visitor Section</h2>
+      </div>
+  </div>
+</div>

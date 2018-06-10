@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>Alta de Cliente</h2>
-
-<form action="/action_page.php">
-  Telefono:<br>
-  <input type="text" name="firstname">
-  <br>
-  Nombre:<br>
-  <input type="text" name="firstname">
-  <br>
-  Apellido:<br>
-  <input type="text" name="lastname">
-  <br>
-  Dirección:<br>
-  <input type="text" name="firstname">
-  <br><br>
-  <input type="submit" (click)= persistirCliente() value="Aceptar">
+<form action="/html/tags/html_form_tag_action.cfm" class="form-inline">
+  <label class="mr-sm-2 mb-0 sr-only" for="first_name">First Name</label>
+  <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name" placeholder="Agregar Cliente">
+  <label class="mr-sm-2 mb-0 sr-only" for="last_name">Last Name</label>
+  <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="last_name" name="last_name" placeholder="Last name">
+  <button type="submit" class="btn btn-primary mt-2 mt-sm-0">Submit</button>
 </form>
-
-</body>
-</html>
