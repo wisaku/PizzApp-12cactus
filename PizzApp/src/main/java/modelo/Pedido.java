@@ -6,9 +6,9 @@ import java.util.List;
 
 @XmlRootElement(name="pedido")
 public class Pedido extends Entity {
+
     private List<Producto> productos;
     private String state="abierto"; // el estado puedo ser "cerrado" o "abierto" como state es malisimo (sirDemian)
-
     private Cliente cliente;
     private Usuario creadoPor;
 
@@ -41,6 +41,11 @@ public class Pedido extends Entity {
 
     public void setState(String aState){ this.state=aState;}
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
