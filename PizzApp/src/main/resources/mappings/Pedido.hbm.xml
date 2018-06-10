@@ -13,7 +13,7 @@
         </id>
 
         <list name="productos" lazy="false">
-            <key column="id"/>
+            <key column="idProd"/>
             <list-index column="type"/>
             <one-to-many class="modelo.Producto"/>
         </list>
