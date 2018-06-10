@@ -11,13 +11,15 @@
         <id name="id">
             <generator class="native"/>
         </id>
-<!--
+
         <list name="productos" lazy="false">
-            <key column="id"/>
-            <list-index column="type"></list-index>
+            <key column="idProd"/>
+            <list-index column="type"/>
             <one-to-many class="modelo.Producto"/>
         </list>
--->
+
+        <one-to-one name="cliente" class="modelo.Cliente"/>
+
     </class>
 
 </hibernate-mapping>

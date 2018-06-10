@@ -15,6 +15,9 @@ import { HomeClientesComponent } from './components/home-clientes/home-clientes.
 import {CrearClienteService} from './components/crear-cliente/crear-cliente.service';
 import { PedidoComponent } from './pedido/pedido.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
+import { BuscarClienteComponent } from './components/buscar-cliente/buscar-cliente.component';
 
 
 
@@ -26,6 +29,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     CrearClienteComponent,
     HomeClientesComponent,
     DropdownComponent,
+    FooterComponent,
+    BuscarClienteComponent,
   ],
   imports: [
     BrowserModule,

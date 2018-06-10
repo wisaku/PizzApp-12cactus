@@ -13,7 +13,11 @@ export class HomeClientesComponent implements OnInit {
   ngOnInit() {
   }
 
-  agregarCliente(){
+  agregarCliente() {
     this._router.navigate(['crearCliente']);
   }
+
+  buscarCliente() {
+  this._router.navigate(['buscarCliente']);
+}
 }
