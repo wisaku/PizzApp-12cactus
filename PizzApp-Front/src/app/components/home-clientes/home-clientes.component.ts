@@ -16,4 +16,8 @@ export class HomeClientesComponent implements OnInit {
   agregarCliente() {
     this._router.navigate(['crearCliente']);
   }
+
+  buscarCliente() {
+  this._router.navigate(['buscarCliente']);
+}
 }
