@@ -25,16 +25,14 @@ public class PedidoRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response crearPedido(PedidoDTO dto){
-
-        if(this.getPedidoService().crearPedido(new Pedido(), dto.getUsuario(), dto.getProductos())){
-            return Response.ok().build();
-        }
-        return Response.serverError().build();
+        this.getPedidoService().save(fromDTO(dto));
+        return Response.ok().build();
     }
 
     private Pedido fromDTO(PedidoDTO dto){
         Pedido pedido = new Pedido();
         pedido.setProductos(dto.getProductos());
+        pedido.setCliente(dto.getCliente());
         return pedido;
     }
 

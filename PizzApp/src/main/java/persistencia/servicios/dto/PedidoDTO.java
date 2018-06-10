@@ -1,5 +1,6 @@
 package persistencia.servicios.dto;
 
+import modelo.Cliente;
 import modelo.Producto;
 
 import java.util.ArrayList;
@@ -7,10 +8,9 @@ import java.util.List;
 
 public class PedidoDTO {
 
-
-    Integer usuario;
-
+    private Integer usuario;
     private List<Producto> productos;
+    private Cliente cliente;
 
     public PedidoDTO(){
         this.productos = new ArrayList<Producto>();
@@ -28,4 +28,11 @@ public class PedidoDTO {
         return usuario;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
