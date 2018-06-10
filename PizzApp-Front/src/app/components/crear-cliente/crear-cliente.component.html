@@ -1,24 +1,40 @@
-<!DOCTYPE html>
-<html>
-<body>
-
+<div class="main-container form animated fadeIn fast">
 <h2>Alta de Cliente</h2>
 
-<form action="/action_page.php">
-  Telefono:<br>
-  <input type="text" name="firstname">
-  <br>
-  Nombre:<br>
-  <input type="text" name="firstname">
-  <br>
-  Apellido:<br>
-  <input type="text" name="lastname">
-  <br>
-  Dirección:<br>
-  <input type="text" name="firstname">
-  <br><br>
-  <input type="submit" (click)= persistirCliente() value="Aceptar">
+<form class="main-container" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip01">Nombre</label>
+      <input type="text" class="form-control" id="validationTooltip01"required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip02">Apellido</label>
+      <input type="text" class="form-control" id="validationTooltip02" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationTooltip03">Dirección</label>
+      <input type="text" class="form-control" id="validationTooltip03"required>
+      <div class="invalid-tooltip">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationTooltip05">Teléfono</label>
+      <input type="text" class="form-control" id="validationTooltip05"required>
+      <div class="invalid-tooltip">
+        Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary"  class="btn btn-warning" >Aceptar</button>
 </form>
 
-</body>
-</html>
+</div>
