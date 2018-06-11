@@ -8,23 +8,37 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Administración
+          Clientes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
-          <a class="dropdown-item" [routerLink]="['homeClientes']">Clientes</a>
-          <!--<a class="dropdown-item" href="#">Pedidos</a>-->
+          <button type="button" class="btn btn-outline-secondary btn-block">Nuevo</button>
+        <!--  <a class="dropdown-item" [routerLink]="['homeClientes']">Nuevo</a> -->
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Productos</a>
+          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          <!--<a class="dropdown-item" href="#">Por si se nos ocurre algo</a>-->
         </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVentas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mostrador
+          Productos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
-          <a class="dropdown-item" href="#"> Cliente </a>
+          <button type="button" class="btn btn-outline-secondary btn-block">Nuevo</button>
+          <!-- <a class="dropdown-item" href="#"> Nuevo </a> -->
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="['nuevoPedido']"> Pedido </a>
+          <!-- <a class="dropdown-item" [routerLink]="['nuevoPedido']"> Buscar </a> -->
+          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVentas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pedidos Activos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
+          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          <div class="dropdown-divider"></div>
+          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          
         </div>
       </li>
     </ul>
