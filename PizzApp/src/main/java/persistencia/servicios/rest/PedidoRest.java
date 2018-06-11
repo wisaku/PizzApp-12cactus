@@ -1,6 +1,7 @@
 package persistencia.servicios.rest;
 
 import modelo.Pedido;
+import modelo.Usuario;
 import persistencia.servicios.Service.PedidoService;
 import persistencia.servicios.dto.PedidoDTO;
 
@@ -42,12 +43,16 @@ public class PedidoRest {
 
 
 
+
     private Pedido fromDTO(PedidoDTO dto){
         Pedido pedido = new Pedido();
+        Usuario usuario = new Usuario();
+        pedido.setCreadoPor(usuario);
         pedido.setProductos(dto.getProductos());
         pedido.setCliente(dto.getCliente());
         return pedido;
     }
+
 
     private List<PedidoDTO> toDTO(List<Pedido> pedidos){
         List<PedidoDTO> pedidosDTO = new ArrayList<PedidoDTO>();
@@ -58,6 +63,7 @@ public class PedidoRest {
             pedidosDTO.add(pedidoDTO);
         }
         return pedidosDTO;
+
 
     }
 

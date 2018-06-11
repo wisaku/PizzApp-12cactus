@@ -1,7 +1,9 @@
 package persistencia.repositorios;
 
+import modelo.Cliente;
 import modelo.Pedido;
 import org.hibernate.Criteria;
+
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.stereotype.Repository;
@@ -25,8 +27,7 @@ public class PedidoRepository
             Criteria criteria = session.createCriteria(Pedido.class, "pedido").createAlias("pedido.cliente", "cliente");
             criteria.add(Restrictions.eq("cliente.telefono", pattern));
 
-            return  criteria.list();
-
+            return criteria.list();
 
         });
     }

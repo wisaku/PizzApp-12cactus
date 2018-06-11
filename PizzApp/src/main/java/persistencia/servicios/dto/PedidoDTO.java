@@ -1,19 +1,28 @@
 package persistencia.servicios.dto;
 
+
 import modelo.Cliente;
+
+import modelo.Entity;
+
 import modelo.Producto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoDTO {
+public class PedidoDTO extends Entity {
 
     private Integer usuario;
     private List<Producto> productos;
     private Cliente cliente;
 
+
     public PedidoDTO(){
         this.productos = new ArrayList<Producto>();
+    }
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     public List<Producto> getProductos() {

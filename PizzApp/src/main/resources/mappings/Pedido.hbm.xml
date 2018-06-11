@@ -17,9 +17,15 @@
             <list-index column="type"/>
             <one-to-many class="modelo.Producto"/>
         </list>
+<<<<<<< HEAD
 
         <one-to-one name="cliente" class="modelo.Cliente"/>
 
+=======
+<!--
+
+//-->
+>>>>>>> d6a38efcff9ed52e2b63ab2d0fd8300c223fe7dd
     </class>
 
 </hibernate-mapping>
