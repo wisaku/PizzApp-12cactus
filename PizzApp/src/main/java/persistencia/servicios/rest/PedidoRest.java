@@ -6,6 +6,8 @@ import persistencia.servicios.dto.PedidoDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/pedidoService")
 public class PedidoRest {
@@ -29,6 +31,17 @@ public class PedidoRest {
         return Response.ok().build();
     }
 
+    @GET
+    @Path("/buscarPedido/{idCliente}")
+    @Produces("application/json")
+    public List<PedidoDTO> buscarPedido(@PathParam("idCliente")final String idCliente){
+        return toDTO(this.getPedidoService().getPedido(idCliente));
+
+    }
+
+
+
+
     private Pedido fromDTO(PedidoDTO dto){
         Pedido pedido = new Pedido();
         pedido.setProductos(dto.getProductos());
@@ -36,5 +49,16 @@ public class PedidoRest {
         return pedido;
     }
 
+    private List<PedidoDTO> toDTO(List<Pedido> pedidos){
+        List<PedidoDTO> pedidosDTO = new ArrayList<PedidoDTO>();
+        for(Pedido p: pedidos) {
+            PedidoDTO pedidoDTO = new PedidoDTO();
+            pedidoDTO.setProductos(p.getProductos());
+            pedidoDTO.setCliente(p.getCliente());
+            pedidosDTO.add(pedidoDTO);
+        }
+        return pedidosDTO;
+
+    }
 
 }

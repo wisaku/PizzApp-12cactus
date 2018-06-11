@@ -42,4 +42,11 @@ public class PedidoService extends GenericService<Pedido> {
     }
 
 
+    @Transactional
+    public List<Pedido> getPedido( String idCliente)
+    {
+        return this.getRepository().getPedidoPorIDCliente(idCliente);
+    }
+
+
 }
