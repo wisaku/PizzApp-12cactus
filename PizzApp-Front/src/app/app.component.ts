@@ -8,22 +8,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'PizzApp';
-  private articulos = null;
+  articulos = null;
   
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     let self = this;
-    this.http.get("http://localhost:8080/PizzApp/rest/testRest/get/7").toPromise()
-    .then(function(res){
-       console.log(res);
-    })
-    .catch(function(err){
-      self.articulos = {uno:"7"}
-      console.log(err);
-    })
-     
-  }
+    this.http.get("http://localhost:8080/PizzApp/rest/productoService/buscarProducto/1")
+    .subscribe(
+      result => {
+        this.articulos = result;
+      },
+      error => {
+        console.log('problemas');
+      })
+   }
 
 
  

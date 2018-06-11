@@ -6,11 +6,10 @@
 
 
 <div *ngIf="articulos!=null; else espera">
-  {{articulos}}
+  <p>Articulo: {{articulos.nombre}}</p>
+  <p>Precio: {{articulos.precio}}</p>
   <ng-template #espera>Esperando datos...</ng-template>
 </div>
-
-<app-switchWindows></app-switchWindows>
 
 <div><app-dropdown></app-dropdown></div>
 

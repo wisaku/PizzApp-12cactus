@@ -2,9 +2,10 @@ package persistencia.servicios;
 
 import modelo.Cliente;
 import persistencia.repositorios.ClienteRepository;
+import persistencia.servicios.Service.GenericService;
 import persistencia.servicios.dto.ClienteDTO;
 
-public class ClienteService  extends GenericService<Cliente>{
+public class ClienteService  extends GenericService<Cliente> {
 
     private ClienteRepository repository;
 

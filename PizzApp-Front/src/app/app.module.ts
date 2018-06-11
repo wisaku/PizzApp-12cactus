@@ -18,8 +18,6 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { BuscarClienteComponent } from './components/buscar-cliente/buscar-cliente.component';
-import { SwitchWindowsComponent } from './switchWindows/switchWindows.component';
-
 
 
 @NgModule({
@@ -30,7 +28,6 @@ import { SwitchWindowsComponent } from './switchWindows/switchWindows.component'
     CrearClienteComponent,
     HomeClientesComponent,
     DropdownComponent,
-    SwitchWindowsComponent,
     FooterComponent,
     BuscarClienteComponent,
   ],
