@@ -12,10 +12,25 @@ public class Pedido extends Entity {
     private Cliente cliente;
     private Usuario creadoPor;
 
+
     public Pedido(){
         this.productos = new ArrayList<Producto>();
         this.cliente = new Cliente();
 
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    public String getIdString(){
+        return String.valueOf(super.getId());
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     public List<Producto> getProductos() {
