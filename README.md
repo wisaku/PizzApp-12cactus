@@ -2,9 +2,8 @@
 [![Build Status](https://travis-ci.org/Salgadoema/PizzApp-12cactus.svg?branch=master)](https://travis-ci.org/Salgadoema/PizzApp-12cactus)
 
 PizzApp es una aplicación web para pizzerías.
+
 Integra los pedidos desde la mesa a la cocina.
-
-
 
 
 ### Integrantes
@@ -18,29 +17,20 @@ Nro | Nombre                    | Legajo | Mail
 4   | Pablo Nicolas Sabaliauskas| 28662  | sabaliauskaspablo@gmail.com
 5   | Maricruz Gil              | 27206  | gil.maricruz@gmail.com
 
-###
 
-### 30/5 Spring 0
-  -Backlog general priorizado
-  
-  -Estimadas las stories para el spring 1 (fibonacci, talles de camisa, bla)
-  
-  -Ambiente de la tecnologia listo (arquitectura basica, una clase con un test una uis que mire esa clase y muestre ese 1
-    que la bbdd escriba/lea el 1, integracion continua travis funcionando, todo en repositorio git)
-    
-  -Organizacion de la documentacion, se usa markdown generalmente
- 
- ### Para las siguientes iteraciones 
- 
--Todo lo anterior actualizado.
--Resutado del spring, spring rewiev
--Retrospectiva
+#### Respositorio Github:
 
-### Demo
- -Tabla de burndown chart
- 
+https://github.com/Salgadoema/PizzApp-12cactus/
 
-#### Base de datos
+####Visual Story mapping:
+
+https://trello.com/b/ruHHduMr/ingenieria-pizzapp
+
+####Estimaciones:
+
+https://www.planitpoker.com/board/#/room/ad41df737b2a40e0b86f5d45fec5265e
+
+#### BASE DE DATOS
 
 Para que ejecute ok el HibernateTestCase deben crear la base en sus maquinas antes, para ello deben ejecutar:
 
@@ -71,9 +61,9 @@ ir a /PizzApp-12cactus/
 
 Ejecutar "mvn jetty:run"
 
-#### Servicios
+#### SERVICIOS
 
-Desarrollo
+####DESARROLLO
 
 GET
 http://localhost:8080/PizzApp/rest/testRest/get/{parametro}
@@ -87,43 +77,65 @@ Ejemplo Json
 {"uno": 1}
 
 
-PEDIDO
+####PEDIDO
 
 POST
 http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
+
 {"productos": []}
 
 
-CLIENTE
+####CLIENTE
 
 POST
+
 http://localhost:8080/PizzApp/rest/clienteService/crearCliente
 
 Ejemplo Json
 
 {
+
 "telefono": 12345678,
+
 "nombre": "Macri",
+
 "apellido": "Gato",
+
 "direccion": "Casa Rosada"
+
 }
 
 GET 
+
 http://localhost:8080/PizzApp/rest/clienteService/buscarCliente/12345678
 
 http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes
 
-PRODUCTO
+###PRODUCTO
 
 POST
+
 http://localhost:8080/PizzApp/rest/productoService/crearProducto
 
 Ejemplo Json
 
 {
+
 "nombre": "pizza",
+
 "precio": 130
+
 }
 
 GET
+
 http://localhost:8080/PizzApp/rest/productoService/buscarProducto/1
+
+###
+
+### 30/5 Sprint 0
+
+### 06/6 Sprint 1
+
+### 13/6 Sprint 2
+ 
