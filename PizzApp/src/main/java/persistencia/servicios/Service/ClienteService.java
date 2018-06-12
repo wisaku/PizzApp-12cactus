@@ -5,6 +5,9 @@ import modelo.builders.ClienteBuilder;
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
 import persistencia.repositorios.ClienteRepository;
+import persistencia.servicios.dto.ClienteDTO;
+
+import java.util.List;
 
 public class ClienteService  extends GenericService<Cliente> implements Initializable{
 
@@ -50,5 +53,10 @@ public class ClienteService  extends GenericService<Cliente> implements Initiali
         this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Maru","Gil").
                 conTelefono("5555").conDireccion("5555").build());
 
+    }
+
+    @Transactional
+    public List<Cliente> todosLosClientes() {
+        return this.getRepository().findAll();
     }
 }
