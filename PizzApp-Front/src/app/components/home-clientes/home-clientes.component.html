@@ -1,5 +1,27 @@
+<form>
 
-
+	<div class="form-group"> <!-- nombre field -->
+		<label class="control-label " for="name" >Nombre</label>
+		<input class="form-control" id="name" name="name" type="text" placeholder="Nombre"/>
+	</div>	
+	<div class="form-group"> <!-- Telefono field -->
+		<label class="control-label requiredField" for="telefono">Telefono<span class="asteriskField">*</span></label>
+		<input class="form-control" id="telefono" name="telefono" type="text" placeholder="Telefono"/>
+	</div>	
+	<div class="form-group"> <!-- Direccion field -->
+		<label class="control-label requiredField" for="subject">Dirección</label>
+		<input class="form-control" id="direccion" name="direccion" type="text" placeholder="direccion"/>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary " name="submit" type="submit" (click)= agregarCliente()>
+            Agregar
+        </button>
+	</div>
+	
+</form>								
+						
+<!--
 <button (click)= agregarCliente() class="btn btn-warning" >Agregar Cliente</button>
 
 <button (click)= buscarCliente() class="btn btn-warning" >Buscar Cliente</button>
+-->
