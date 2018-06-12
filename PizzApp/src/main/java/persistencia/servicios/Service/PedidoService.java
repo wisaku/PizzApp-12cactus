@@ -71,4 +71,8 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
                         conProducto(pizza).build()
         );
     }
+
+    public List<Pedido> todosLosPedidos() {
+        return this.getRepository().findAll();
+    }
 }

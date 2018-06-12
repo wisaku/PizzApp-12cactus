@@ -5,7 +5,6 @@ import modelo.builders.ClienteBuilder;
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
 import persistencia.repositorios.ClienteRepository;
-import persistencia.servicios.dto.ClienteDTO;
 
 import java.util.List;
 
