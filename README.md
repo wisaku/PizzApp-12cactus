@@ -111,7 +111,7 @@ Ejemplo Json
 GET 
 http://localhost:8080/PizzApp/rest/clienteService/buscarCliente/12345678
 
-
+http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes
 
 PRODUCTO
 
