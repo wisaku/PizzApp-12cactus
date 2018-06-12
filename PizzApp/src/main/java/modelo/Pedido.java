@@ -18,6 +18,11 @@ public class Pedido extends Entity {
 
     }
 
+    public Pedido(List<Producto> productos, Cliente cliente){
+        this.productos = productos;
+        this.cliente = cliente;
+    }
+
     public List<Producto> getProductos() {
         return productos;
     }

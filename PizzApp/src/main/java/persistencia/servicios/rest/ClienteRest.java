@@ -6,6 +6,8 @@ import persistencia.servicios.dto.ClienteDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/clienteService")
 public class ClienteRest {
@@ -25,7 +27,7 @@ public class ClienteRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response crearCliente(ClienteDTO dto){
-        this.getClienteService().save(fromDTO(dto));
+        this.getClienteService().save(clienteDTOToCliente(dto));
         return Response.ok().build();
     }
 
@@ -37,18 +39,25 @@ public class ClienteRest {
         if(cliente==null){
             throw new NotFoundException("el elemento buscado no existe");
         }
-        return Response.ok(toDTO(cliente)).build();
+        return Response.ok(clienteToClienteDTO(cliente)).build();
     }
 
     @GET
-    @Path("/cantidadClientes")
+    @Path("/todosLosClientes")
     @Produces("application/json")
-    public int cantidadCliente(){
-        return this.getClienteService().getSize();
+    public List<ClienteDTO> todosLosCliente(){
+        return listClientesToClientesDTO(this.getClienteService().todosLosClientes());
     }
 
+    private List<ClienteDTO> listClientesToClientesDTO(List<Cliente> clientes){
+        List<ClienteDTO> listDTO = new ArrayList<>();
+        for(Cliente c: clientes){
+            listDTO.add(clienteToClienteDTO(c));
+        }
+        return listDTO;
+    }
 
-    private Cliente fromDTO(ClienteDTO dto){
+    private Cliente clienteDTOToCliente(ClienteDTO dto){
         Cliente cliente = new Cliente();
         cliente.setApellido(dto.getApellido());
         cliente.setDireccion(dto.getDireccion());
@@ -56,7 +65,7 @@ public class ClienteRest {
         cliente.setTelefono(dto.getTelefono());
         return cliente;
     }
-    private ClienteDTO toDTO(Cliente cliente){
+    private ClienteDTO clienteToClienteDTO(Cliente cliente){
         ClienteDTO clienteDTO = new ClienteDTO();
         clienteDTO.setApellido(cliente.getApellido());
         clienteDTO.setDireccion(cliente.getDireccion());
