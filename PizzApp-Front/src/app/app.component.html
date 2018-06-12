@@ -1,17 +1,15 @@
-<div class="jumbotron" xmlns:float="http://www.w3.org/1999/xhtml">
-  <img width="80" style="float:left;" height="80" src="../../../assets/img/logo_pizzapp.png">
-  <h1>PizzApp</h1>
-  <p>El mejor lugar... la mejor pizza</p>
+
+<div class="content">
+
+  <div class="jumbotron" xmlns:float="http://www.w3.org/1999/xhtml">
+    <img width="80" style="float:left;" height="80" src="../../../assets/img/logo_pizzapp.png">
+    <h1>PizzApp</h1>
+    <p>El mejor lugar... la mejor pizza</p>
+  </div>
+
+  <app-navbar></app-navbar>
+  <body>
+  <router-outlet></router-outlet>
+  </body>
+  <app-footer></app-footer>
 </div>
-
-<app-navbar></app-navbar>
-
-<div *ngIf="articulos!=null; else espera">
-  <p>Articulo: {{articulos.nombre}}</p>
-  <p>Precio: {{articulos.precio}}</p>
-  <ng-template #espera>Esperando datos...</ng-template>
-</div>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>
