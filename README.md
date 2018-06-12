@@ -93,7 +93,6 @@ http://localhost:8080/PizzApp/rest/clienteService/crearCliente
 Ejemplo Json
 
 {
-
 "telefono": 12345678,
 
 "nombre": "Macri",
@@ -101,7 +100,6 @@ Ejemplo Json
 "apellido": "Gato",
 
 "direccion": "Casa Rosada"
-
 }
 
 GET 
