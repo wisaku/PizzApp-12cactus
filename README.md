@@ -22,11 +22,11 @@ Nro | Nombre                    | Legajo | Mail
 
 https://github.com/Salgadoema/PizzApp-12cactus/
 
-####Visual Story mapping:
+#### Visual Story mapping:
 
 https://trello.com/b/ruHHduMr/ingenieria-pizzapp
 
-####Estimaciones:
+#### Estimaciones:
 
 https://www.planitpoker.com/board/#/room/ad41df737b2a40e0b86f5d45fec5265e
 
@@ -63,7 +63,7 @@ Ejecutar "mvn jetty:run"
 
 #### SERVICIOS
 
-####DESARROLLO
+#### DESARROLLO
 
 GET
 http://localhost:8080/PizzApp/rest/testRest/get/{parametro}
@@ -77,7 +77,7 @@ Ejemplo Json
 {"uno": 1}
 
 
-####PEDIDO
+#### PEDIDO
 
 POST
 http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
@@ -85,10 +85,9 @@ http://localhost:8080/PizzApp/rest/pedidoService/crearPedido
 {"productos": []}
 
 
-####CLIENTE
+#### CLIENTE
 
 POST
-
 http://localhost:8080/PizzApp/rest/clienteService/crearCliente
 
 Ejemplo Json
@@ -111,7 +110,7 @@ http://localhost:8080/PizzApp/rest/clienteService/buscarCliente/12345678
 
 http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes
 
-###PRODUCTO
+### PRODUCTO
 
 POST
 
@@ -120,18 +119,15 @@ http://localhost:8080/PizzApp/rest/productoService/crearProducto
 Ejemplo Json
 
 {
-
 "nombre": "pizza",
 
 "precio": 130
-
 }
 
 GET
-
 http://localhost:8080/PizzApp/rest/productoService/buscarProducto/1
 
-###
+
 
 ### 30/5 Sprint 0
 
