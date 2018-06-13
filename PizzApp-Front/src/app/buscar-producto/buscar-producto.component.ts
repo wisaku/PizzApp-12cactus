@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-buscar-producto',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-producto.component.css']
 })
 export class BuscarProductoComponent implements OnInit {
+  productos = null;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.productos = this.getProductos();
   }
 
+  getProductos(){
+    let self = this;
+    this.http.get("http://localhost:8080/PizzApp/rest/productoService/todosLosProductos")
+    .subscribe(
+      result => {
+        this.productos = result;
+      },
+      error => {
+        console.log('problemas');
+      })
+  }
 }
