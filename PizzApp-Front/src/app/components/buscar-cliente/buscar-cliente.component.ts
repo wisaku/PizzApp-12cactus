@@ -21,6 +21,7 @@ export class BuscarClienteComponent implements OnInit {
     this.http.get("http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes")
     .subscribe(
       result => {
+        console.log(result);
         this.clientes = result;
       },
       error => {
