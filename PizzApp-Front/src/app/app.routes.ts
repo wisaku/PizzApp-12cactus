@@ -4,6 +4,8 @@ import {CrearClienteComponent} from './components/crear-cliente/crear-cliente.co
 import {HomeClientesComponent} from './components/home-clientes/home-clientes.component';
 import {DropdownComponent} from './dropdown/dropdown.component';
 import {BuscarClienteComponent} from './components/buscar-cliente/buscar-cliente.component';
+import {NuevoProductoComponent} from './nuevo-producto/nuevo-producto.component';
+import {BuscarProductoComponent} from './buscar-producto/buscar-producto.component';
 /*import {CrearPedidoService} from './nuevo-pedido/crear-pedido.service';*/
 
 const APP_ROUTES: Routes = [
@@ -22,6 +24,12 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'buscarCliente', component: BuscarClienteComponent
+  },
+  {
+    path: 'nuevoProducto', component: NuevoProductoComponent
+  },
+  {
+    path: 'buscarProducto', component: BuscarProductoComponent
   }
 ] ;
 

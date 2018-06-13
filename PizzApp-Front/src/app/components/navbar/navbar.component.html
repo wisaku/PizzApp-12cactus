@@ -11,11 +11,9 @@
           Clientes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
-          <button type="button" class="btn btn-outline-secondary btn-block">Nuevo</button>
-        <!--  <a class="dropdown-item" [routerLink]="['homeClientes']">Nuevo</a> -->
+          <button type="button" class="btn btn-outline-secondary btn-block" [routerLink]="['crearCliente']">Nuevo</button>
           <div class="dropdown-divider"></div>
-          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
-          <!--<a class="dropdown-item" href="#">Por si se nos ocurre algo</a>-->
+          <button type="button" class="btn btn-outline-secondary btn-block" [routerLink]="['buscarCliente']">Buscar</button>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -23,11 +21,9 @@
           Productos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
-          <button type="button" class="btn btn-outline-secondary btn-block">Nuevo</button>
-          <!-- <a class="dropdown-item" href="#"> Nuevo </a> -->
+          <button type="button" class="btn btn-outline-secondary btn-block"[routerLink]="['nuevoProducto']">Nuevo</button>
           <div class="dropdown-divider"></div>
-          <!-- <a class="dropdown-item" [routerLink]="['nuevoPedido']"> Buscar </a> -->
-          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          <button type="button" class="btn btn-outline-secondary btn-block"[routerLink]="['buscarProducto']">Buscar</button>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -36,9 +32,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
           <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          <!--(click)="listarProductos()"-->
           <div class="dropdown-divider"></div>
-          <button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
-          
+          <!--button type="button" class="btn btn-outline-secondary btn-block">Buscar</button>
+          <[push]='ProductosPage' (click)="irAProductos()"-->
         </div>
       </li>
     </ul>
