@@ -29,20 +29,13 @@
         <th>Telefono</th>
       </tr>
     </thead>
-    <tbody>
-        <!--td>1</td>
-        <td>Espi</td>
-        <td>Noso</td>
-        <td>calle falsa 123</td>
-        <td>555-1213</td-->
-
+    <tbody>   
       <tr *ngFor="let cliente of clientes">
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellido}}</td>
             <td>{{cliente.direccion}}</td>
             <td>{{cliente.telefono}}</td>
-        </tr>
-
+      </tr>
     </tbody>
   </table>
 </div>
