@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Cliente} from '../../interfaces/Cliente';
-import { Http, RequestOptions, Headers } from '@angular/http';
+//import { Http, RequestOptions, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable()
 export class CrearClienteService {
@@ -20,4 +22,21 @@ export class CrearClienteService {
 
   }
   */
+ constructor(private http: HttpClient) { }
+
+  crearCliente() {
+    console.log("data");
+    
+    
+    /*let self = this;
+    this.http.post("url", data)
+
+    .subscribe(
+      result => {
+        this.articulos = result;
+      },
+      error => {
+        console.log('problemas');
+      })*/
+   }
 }

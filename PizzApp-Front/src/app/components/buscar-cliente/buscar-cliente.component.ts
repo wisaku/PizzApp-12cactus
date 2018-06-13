@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-buscar-cliente',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-cliente.component.css']
 })
 export class BuscarClienteComponent implements OnInit {
+  clientes = null;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.clientes = this.getClientes();
+  }
+
+  getClientes(){
+    let self = this;
+    this.http.get("http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes")
+    .subscribe(
+      result => {
+        this.clientes = result;
+      },
+      error => {
+        console.log('problemas');
+      })
   }
 
 }
+
+

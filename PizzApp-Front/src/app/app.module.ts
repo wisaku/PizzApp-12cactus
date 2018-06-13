@@ -18,6 +18,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { BuscarClienteComponent } from './components/buscar-cliente/buscar-cliente.component';
+import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.component';
+import { BuscarProductoComponent } from './buscar-producto/buscar-producto.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { BuscarClienteComponent } from './components/buscar-cliente/buscar-clien
     DropdownComponent,
     FooterComponent,
     BuscarClienteComponent,
+    NuevoProductoComponent,
+    BuscarProductoComponent,
   ],
   imports: [
     BrowserModule,

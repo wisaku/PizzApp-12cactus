@@ -1,6 +1,42 @@
-<nav class="navbar navbar-light bg-light">
+<!--nav class="navbar navbar-light bg-light">
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Teléfono" aria-label="Teléfono">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
   </form>
 </nav>
+<div class="table-responsive">          
+    <tableclass="table">
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col}}
+          </th>
+        </tr>
+        <tr *ngFor="let char of characters | async">
+          <td *ngFor="let col of columns">
+            {{char[col]}}
+          </td>
+        </tr>
+    </table>
+</div-->  
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Espi</td>
+        <td>Noso</td>
+        <td>calle falsa 123</td>
+        <td>555-1213</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
