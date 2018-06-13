@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<!--div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
@@ -15,4 +15,23 @@
         </tr>
       </tbody>
     </table>
-</div>
+</div-->
+
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <!--th>#</th     LO DEJO COMENTADO POR SI LE PONEMOS ID DE PRODUCTO-->
+          <th>Nombre Producto</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>   
+        <tr *ngFor="let producto of productos">
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.precio}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
