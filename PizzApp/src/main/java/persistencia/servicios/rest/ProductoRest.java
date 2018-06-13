@@ -7,6 +7,8 @@ import modelo.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/productoService")
 public class ProductoRest {
@@ -36,6 +38,21 @@ public class ProductoRest {
     public Response buscarCliente(@PathParam("id")final int id){
         Producto prod = this.getProductoService().getPruducto(id);
         return Response.ok(toDTO(prod)).build();
+    }
+
+    @GET
+    @Path("/todosLosProductos")
+    @Produces("application/json")
+    public List<ProductoDTO> todosLosCliente(){
+        return listProductosTProductosDTO(this.getProductoService().todosLosProductos());
+    }
+
+    private List<ProductoDTO> listProductosTProductosDTO(List<Producto> productos) {
+        List<ProductoDTO> proddtos = new ArrayList<>();
+        for(Producto p: productos){
+            proddtos.add(toDTO(p));
+        }
+        return proddtos;
     }
 
     private ProductoDTO toDTO(Producto prod) {
