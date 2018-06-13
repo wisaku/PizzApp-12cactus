@@ -106,6 +106,8 @@ GET
 
 http://localhost:8080/PizzApp/rest/clienteService/buscarCliente/12345678
 
+GET 
+
 http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes
 
 ### PRODUCTO
@@ -124,6 +126,10 @@ Ejemplo Json
 
 GET
 http://localhost:8080/PizzApp/rest/productoService/buscarProducto/1
+
+GET 
+
+http://localhost:8080/PizzApp/rest/productoService/todosLosProductos
 
 
 
