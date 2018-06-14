@@ -1,7 +1,7 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 // Routing
 import { APP_ROUTING} from './app.routes';
 
@@ -39,7 +39,8 @@ import { BuscarProductoComponent } from './buscar-producto/buscar-producto.compo
     BrowserModule,
     NuevoPedidoModule,
     APP_ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    Angular2FontawesomeModule
   ],
   providers: [CrearClienteService],
   bootstrap: [AppComponent]

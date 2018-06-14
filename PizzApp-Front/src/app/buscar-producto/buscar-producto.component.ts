@@ -15,6 +15,8 @@ export class BuscarProductoComponent implements OnInit {
     this.productos = this.getProductos();
   }
 
+
+
   getProductos(){
     let self = this;
     this.http.get("http://localhost:8080/PizzApp/rest/productoService/todosLosProductos")
