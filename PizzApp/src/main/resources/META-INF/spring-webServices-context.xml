@@ -50,6 +50,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <bean id="PedidoRest" class="persistencia.servicios.rest.PedidoRest">
         <property name="pedidoService" ref="services.pedidoservice"/>
+        <property name="productoService" ref="services.productoservice"/>
+        <property name="clienteService" ref="services.clienteservice"/>
     </bean>
 
     <bean id="ProductoRest" class="persistencia.servicios.rest.ProductoRest">
