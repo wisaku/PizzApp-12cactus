@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Cliente} from '../../interfaces/Cliente';
-//import { Http, RequestOptions, Headers } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
-
+import { catchError, retry } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 
 @Injectable()
 export class CrearClienteService {
-/*
-  constructor(private _http: Http) { }
+  private handleError: HandleError;
+  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) { 
+    this.handleError = httpErrorHandler.createHandleError('ClienteService');
+  }
 
-  extensionUrl: 'http://localhost:8080/PizzApp/rest/clienteService/crearCliente/';
+  extensionUrl: 'http://localhost:8080/PizzApp/rest/clienteService/crearCliente';
 
-  crearCliente(cliente: Cliente): Observable<Response> {
+ /* crearCliente(cliente: Cliente): Observable<Response> {
 
     const header = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions ( { headers: header });
@@ -21,14 +24,13 @@ export class CrearClienteService {
     this._http.post(this.extensionUrl, cliente, options).map((res: any) => { res.json(); } );
 
   }
-  */
- constructor(private http: HttpClient) { }
+  
 
   crearCliente() {
     console.log("data");
     
     
-    /*let self = this;
+    let self = this;
     this.http.post("url", data)
 
     .subscribe(
@@ -37,6 +39,31 @@ export class CrearClienteService {
       },
       error => {
         console.log('problemas');
-      })*/
+      })
    }
+*/
+  /** POST: add a new hero to the database */
+  crearCliente(cliente: Cliente): Observable<Cliente> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'text/html; charset=iso-8859-1',
+      })
+    };
+    console.log(httpOptions)
+    return this.http.post<Cliente>(this.extensionUrl, cliente, httpOptions)
+      .pipe(
+      catchError(this.handleError('addHero', cliente))
+      );
+  }
+   
+  crearCliente(cliente: Cliente): Observable<Cliente>  {
+    return this.http.post<Cliente>(this.extensionUrl, cliente, httpOptions).pipe(
+      tap((cliente: Cliente) => this.log(`added hero w/ nombre${cliente.nombre}`)),
+      catchError(this.handleError<Cliente>('addHero'))
+    );
+  }
+
+
+
 }
