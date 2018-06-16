@@ -24,7 +24,7 @@ export class CrearPedidoComponent implements OnInit {
   addProduct(producto){
     console.log(producto);
     this.productosPedidos.push(producto);
-    //new productoTable(producto, 1);
+    
     var line = new lineaTable(producto.nombre,1,producto.precio);
     this.lines.push(line);
 
@@ -46,8 +46,8 @@ export class CrearPedidoComponent implements OnInit {
         })
   }
 
-  crearPedido() {
-    this._router.navigate(['dropdown']);
+  addPedido() {
+    console.log(this.lines)
   }
 
 }

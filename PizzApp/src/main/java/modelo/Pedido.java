@@ -14,7 +14,7 @@ public class Pedido extends Entity {
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
-        this.cliente = new Cliente();
+        this.cliente = new Cliente();           //Esto porque es? Es para configurar la base?
 
     }
 
