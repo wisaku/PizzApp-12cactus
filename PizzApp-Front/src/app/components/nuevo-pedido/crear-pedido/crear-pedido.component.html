@@ -1,2 +1,58 @@
 
-  <button (click)= crearPedido() class="btn btn-warning">Nuevo Pedido</button>
+<div class="container"> 
+  <div class="row">
+    <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-4" style="margin:5px" *ngFor="let producto of productos;">
+                <button width="200px" height="50px" class="btn btn-default btn-lg btn-block" type="submit"  (click)= addProduct(producto)>
+                  {{producto.nombre}}
+                </button>
+          </div>
+          <span></span>
+      </div>  
+    </div>
+    <div class="col-sm-5" id= "containerproductSelecteds">
+      <table class="table table-striped">
+        <thead >
+          <tr>
+            <th>#</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let line of lines; let i = index" [attr.data-index]="i">
+            <td>{{i +1}}</td>
+            <td>{{line.producto}}</td>
+            <td>{{line.cantidad}}</td>
+            <td>{{line.precio * line.cantidad}}</td>
+            <td>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button class="btn btn-danger" (click)= deleteLine(i)>
+                    <i class="fa fa-trash" ></i>
+                  </button>
+                  </div>
+                  <div class="col-sm-6">
+                  <button class="btn btn-warning">
+                    <i class="fa fa-exchange"></i>
+                  </button>
+                </div>
+              </div>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div>
+      <button width="200px" height="50px" class="btn btn-success btn-lg btn-block" type="submit" (click)= addPedido()>
+        Crear
+      </button>
+  </div>
+
+</div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {CrearClienteService} from './crear-cliente.service';
 import {Cliente} from '../../interfaces/Cliente';
+
 
 @Component({
   selector: 'app-crear-cliente',
@@ -10,12 +11,21 @@ import {Cliente} from '../../interfaces/Cliente';
 export class CrearClienteComponent implements OnInit {
 
   clientes: Cliente[];
-
-  constructor(private _clienteService: CrearClienteService) { }
+  model: Cliente = new clienteTable('', '', '', 0);
+  @Output() onsubmit = new EventEmitter<any>();
+  constructor(private clienteService: CrearClienteService) { }
 
   ngOnInit() {
   }
 
-  persistirCliente() { }
+  submit() {
+    this.onsubmit.emit(this.model);
+    console.log(this.model)
+    this.clienteService.addCliente(this.model).subscribe(cliente => this.clientes.push(cliente))
+    this.model = new clienteTable('', '', '', 0);
+  }
 
+}
+export class clienteTable implements Cliente {
+  constructor(public nombre, public apellido, public direccion, public telefono,) { }
 }
