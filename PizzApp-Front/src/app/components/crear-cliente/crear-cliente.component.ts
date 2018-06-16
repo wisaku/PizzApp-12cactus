@@ -11,7 +11,7 @@ import {Cliente} from '../../interfaces/Cliente';
 export class CrearClienteComponent implements OnInit {
 
   clientes: Cliente[];
-  model: Cliente = new clienteTable('macr', 'gato', 'asdf', 123);
+  model: Cliente = new clienteTable('', '', '', 0);
   @Output() onsubmit = new EventEmitter<any>();
   constructor(private clienteService: CrearClienteService) { }
 
@@ -21,11 +21,9 @@ export class CrearClienteComponent implements OnInit {
   submit() {
     this.onsubmit.emit(this.model);
     console.log(this.model)
-    this.model = new clienteTable('macr', 'gato', 'asdf', 123);
-    this.clienteService.crearCliente(this.model)
+    this.clienteService.addCliente(this.model).subscribe(cliente => this.clientes.push(cliente))
+    this.model = new clienteTable('', '', '', 0);
   }
-
-
 
 }
 export class clienteTable implements Cliente {

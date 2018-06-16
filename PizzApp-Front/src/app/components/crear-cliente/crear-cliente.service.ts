@@ -1,4 +1,33 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Cliente } from '../../interfaces/Cliente';
+
+@Injectable()
+export class CrearClienteService {
+  public url: string;
+
+  constructor(
+    public http: HttpClient
+  ) {
+    this.url = 'http://localhost:8080/PizzApp/rest/clienteService/crearCliente';
+  }
+
+
+  addCliente(cliente: Cliente): Observable<any> {
+    let json = JSON.stringify(cliente);
+    let params = json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    console.log(this.url);
+    return this.http.post(this.url, params, { headers: headers });//.pipe();
+  }
+
+
+}
+
+
+
+/*import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Cliente} from '../../interfaces/Cliente';
 import { catchError, retry } from 'rxjs/operators';
@@ -13,57 +42,17 @@ export class CrearClienteService {
     this.handleError = httpErrorHandler.createHandleError('ClienteService');
   }
 
-  extensionUrl: 'http://localhost:8080/PizzApp/rest/clienteService/crearCliente';
+  addCliente(cliente: Cliente): Observable<any> {
+    let json = JSON.stringify(cliente);
+    let url: 'http://localhost:8080/PizzApp/rest/clienteService/crearCliente';
+    //El backend recogerá un parametro json
+    let params = "json=" + json;
+    console.log("funciona lpmqtp")
+    //Establecemos cabeceras
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
- /* crearCliente(cliente: Cliente): Observable<Response> {
-
-    const header = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions ( { headers: header });
-
-
-    this._http.post(this.extensionUrl, cliente, options).map((res: any) => { res.json(); } );
-
+    return this.http.post(url , params, { headers: headers });
   }
-  
-
-  crearCliente() {
-    console.log("data");
-    
-    
-    let self = this;
-    this.http.post("url", data)
-
-    .subscribe(
-      result => {
-        this.articulos = result;
-      },
-      error => {
-        console.log('problemas');
-      })
-   }
-*/
-  /** POST: add a new hero to the database */
-  crearCliente(cliente: Cliente): Observable<Cliente> {
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'text/html; charset=iso-8859-1',
-      })
-    };
-    console.log(httpOptions)
-    return this.http.post<Cliente>(this.extensionUrl, cliente, httpOptions)
-      .pipe(
-      catchError(this.handleError('addHero', cliente))
-      );
-  }
-   
-  crearCliente(cliente: Cliente): Observable<Cliente>  {
-    return this.http.post<Cliente>(this.extensionUrl, cliente, httpOptions).pipe(
-      tap((cliente: Cliente) => this.log(`added hero w/ nombre${cliente.nombre}`)),
-      catchError(this.handleError<Cliente>('addHero'))
-    );
-  }
-
-
 
 }
+*/
