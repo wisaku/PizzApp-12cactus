@@ -19,7 +19,7 @@
         </list>
 <<<<<<< HEAD
 
-        <one-to-one name="cliente" class="modelo.Cliente"/>
+        <one-to-one name="cliente" class="modelo.Cliente" lazy="false"/>
 
 =======
 <!--

@@ -1,8 +1,9 @@
 package persistencia.servicios.rest;
 
 import modelo.Pedido;
-import modelo.Usuario;
+import persistencia.servicios.Service.ClienteService;
 import persistencia.servicios.Service.PedidoService;
+import persistencia.servicios.Service.ProductoService;
 import persistencia.servicios.dto.PedidoDTO;
 
 import javax.ws.rs.*;
@@ -15,6 +16,10 @@ public class PedidoRest {
 
     private PedidoService pedidoService;
 
+    private ClienteService clienteService;
+
+    private ProductoService productoService;
+
     public PedidoService getPedidoService() {
         return pedidoService;
     }
@@ -23,48 +28,59 @@ public class PedidoRest {
         this.pedidoService = pedidoService;
     }
 
+    public ClienteService getClienteService() {
+        return clienteService;
+    }
+
+    public void setClienteService(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
+
+    public ProductoService getProductoService() {
+        return productoService;
+    }
+
+    public void setProductoService(ProductoService productoService) {
+        this.productoService = productoService;
+    }
+
     @POST
     @Path("/crearPedido")
     @Produces("application/json")
     @Consumes("application/json")
     public Response crearPedido(PedidoDTO dto){
-        this.getPedidoService().save(fromDTO(dto));
+        this.getPedidoService().save(pedidoDTOToPedido(dto));
         return Response.ok().build();
     }
 
     @GET
-    @Path("/buscarPedido/{idCliente}")
+    @Path("/todosLosPedidos")
     @Produces("application/json")
-    public List<PedidoDTO> buscarPedido(@PathParam("idCliente")final String idCliente){
-        return toDTO(this.getPedidoService().getPedido(idCliente));
-
+    public List<PedidoDTO> todosLosPedidos(){
+        return listPedidosToPedidoDTO(this.getPedidoService().todosLosPedidos());
     }
 
+    private List<PedidoDTO> listPedidosToPedidoDTO(List<Pedido> clientes){
+        List<PedidoDTO> listDTO = new ArrayList<>();
+        for(Pedido c: clientes){
+            listDTO.add(pedidoDTOToPedido(c));
+        }
+        return listDTO;
+    }
 
+    private PedidoDTO pedidoDTOToPedido(Pedido pedido){
+        PedidoDTO dto = new PedidoDTO();
+        dto.setProductos(pedido.getProductos());
+        dto.setCliente(pedido.getCliente());
+        return dto;
+    }
 
-
-
-    private Pedido fromDTO(PedidoDTO dto){
+    private Pedido pedidoDTOToPedido(PedidoDTO dto){
         Pedido pedido = new Pedido();
-        Usuario usuario = new Usuario();
-        pedido.setCreadoPor(usuario);
         pedido.setProductos(dto.getProductos());
         pedido.setCliente(dto.getCliente());
         return pedido;
     }
 
-
-    private List<PedidoDTO> toDTO(List<Pedido> pedidos){
-        List<PedidoDTO> pedidosDTO = new ArrayList<PedidoDTO>();
-        for(Pedido p: pedidos) {
-            PedidoDTO pedidoDTO = new PedidoDTO();
-            pedidoDTO.setProductos(p.getProductos());
-            pedidoDTO.setCliente(p.getCliente());
-            pedidosDTO.add(pedidoDTO);
-        }
-        return pedidosDTO;
-
-
-    }
 
 }

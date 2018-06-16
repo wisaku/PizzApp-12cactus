@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
 import persistencia.repositorios.ProductoRepository;
 
+import java.util.List;
+
 public class ProductoService extends GenericService<Producto> implements Initializable {
 
     private ProductoRepository repository;
@@ -25,15 +27,27 @@ public class ProductoService extends GenericService<Producto> implements Initial
     }
 
 
+
     @Override
     @Transactional
     public void initialize() {
 
         this.getRepository().save(
-                ProductoBuilder.unProducto().conNombre("Empanada JyQ").conPrecio(35).build());
+                ProductoBuilder.unProducto().conNombre("Empanada Pollo").conPrecio(35).build());
+
+        this.getRepository().save(
+                ProductoBuilder.unProducto().conNombre("Pizza Muzza").conPrecio(135).build());
+
+        this.getRepository().save(
+                ProductoBuilder.unProducto().conNombre("Pizza palmitos").conPrecio(250).build());
 
 
         this.getRepository().save(
-                ProductoBuilder.unProducto().conNombre("Pizza Provolone").conPrecio(135).build());
+                ProductoBuilder.unProducto().conNombre("Empanada Carne").conPrecio(35).build());
+    }
+
+    @Transactional
+    public List<Producto> todosLosProductos() {
+        return this.getRepository().findAll();
     }
 }

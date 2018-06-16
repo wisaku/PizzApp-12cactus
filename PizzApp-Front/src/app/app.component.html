@@ -1,9 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
+
+<div class="content">
+
+  <div class="jumbotron" xmlns:float="http://www.w3.org/1999/xhtml">
+    <img width="80" style="float:left;" height="80" src="../../../assets/img/logo_pizzapp.png">
+    <h1>PizzApp</h1>
+    <p>El mejor lugar... la mejor pizza</p>
+  </div>
+
+  <app-navbar></app-navbar>
+  <body>
+  <router-outlet></router-outlet>
+  </body>
+  <app-footer></app-footer>
 </div>
-<app-navbar></app-navbar>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>
