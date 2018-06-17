@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Linea } from '../../../interfaces/Linea';
 import { Producto } from '../../../interfaces/Producto';
+//import { PedidoService} from '../../services/pedido.service'
 
 @Component({
   selector: 'app-crear-pedido',
@@ -48,6 +49,9 @@ export class CrearPedidoComponent implements OnInit {
     producto.cantidad ++;
   }
 
+
+
+  
   restarUnoAlProducto(producto) {
     if(producto.cantidad==1)
       return;
@@ -71,7 +75,7 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido(){
-
+    //this.pedidoService.crear(0,[0],0);
   }
 
 }
