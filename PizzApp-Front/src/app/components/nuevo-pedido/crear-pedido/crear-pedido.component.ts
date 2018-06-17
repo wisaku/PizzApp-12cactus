@@ -18,17 +18,30 @@ export class CrearPedidoComponent implements OnInit {
 
   ngOnInit() {
     this.productosDisponibles = this.getProductos(); 
-    this.productosDelPedido = []; 
     this.productos = []; 
   }
 
   addProduct(producto){
-    console.log(producto);
-    this.productosDelPedido.push(producto);
-    
-    var line = new lineaTable(producto.nombre,1,producto.precio);
-    this.productos.push(line);
+    if ((this.getTodosLosProductos()).includes(producto.nombre)){
+      this.productos.forEach(element => {
+        console.log(element + "es igual a" + producto.nombre)
+        if (element.producto === producto.nombre) {
+          this.sumarUnoAlProducto(element);
+        }
+      });
+    }
+    else{
+        var line = new lineaTable(producto.nombre, 1, producto.precio);
+        this.productos.push(line);
+    }
+  }
 
+  getTodosLosProductos(){
+    var todosLosProductos = [];
+    this.productos.forEach(element => {
+        todosLosProductos.push(element.producto)
+    });
+    return todosLosProductos;
   }
 
   sumarUnoAlProducto(producto){
@@ -57,10 +70,16 @@ export class CrearPedidoComponent implements OnInit {
         })
   }
 
+  crearPedido(){
+
+  }
+
 }
 export class productoTable implements Producto {
   constructor(public nombre, public precio) {}
 }
+
+
 
 export class lineaTable implements Linea {
   constructor(public producto, public cantidad, public precio) { }
