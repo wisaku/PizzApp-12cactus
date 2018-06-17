@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Linea } from '../../../interfaces/Linea';
 import { Producto } from '../../../interfaces/Producto';
+//import { PedidoService} from '../../services/pedido.service'
 
 @Component({
   selector: 'app-crear-pedido',
@@ -12,48 +13,77 @@ import { Producto } from '../../../interfaces/Producto';
 export class CrearPedidoComponent implements OnInit {
 
   constructor(private _router: Router, private http: HttpClient) { }
+  productosDisponibles = null;
+  productosDelPedido = null;
   productos = null;
-  productosPedidos = null;
-  lines = null;
+
   ngOnInit() {
-    this.productos = this.getProductos();
-    this.productosPedidos = [];
-    this.lines = [];
+    this.productosDisponibles = this.getProductos(); 
+    this.productos = []; 
   }
 
   addProduct(producto){
-    console.log(producto);
-    this.productosPedidos.push(producto);
-    
-    var line = new lineaTable(producto.nombre,1,producto.precio);
-    this.lines.push(line);
-
+    if ((this.getTodosLosProductos()).includes(producto.nombre)){
+      this.productos.forEach(element => {
+        console.log(element + "es igual a" + producto.nombre)
+        if (element.producto === producto.nombre) {
+          this.sumarUnoAlProducto(element);
+        }
+      });
+    }
+    else{
+        var line = new lineaTable(producto.nombre, 1, producto.precio);
+        this.productos.push(line);
+    }
   }
+
+  getTodosLosProductos(){
+    var todosLosProductos = [];
+    this.productos.forEach(element => {
+        todosLosProductos.push(element.producto)
+    });
+    return todosLosProductos;
+  }
+
+  sumarUnoAlProducto(producto){
+    producto.cantidad ++;
+  }
+
+
+
+  
+  restarUnoAlProducto(producto) {
+    if(producto.cantidad==1)
+      return;
+    producto.cantidad--;
+  }
+
   deleteLine(index) {
-    this.lines.splice(index, 1);
+    this.productos.splice(index, 1);
   }
-
 
   getProductos(){
     let self = this;
     this.http.get("http://localhost:8080/PizzApp/rest/productoService/todosLosProductos")
       .subscribe(
         result => {
-          this.productos = result;
+          this.productosDisponibles = result;
         },
         error => {
           console.log('problemas');
         })
   }
 
-  addPedido() {
-    console.log(this.lines)
+  crearPedido(){
+    //this.pedidoService.crear(0,[0],0);
   }
 
 }
 export class productoTable implements Producto {
   constructor(public nombre, public precio) {}
 }
+
+
 
 export class lineaTable implements Linea {
   constructor(public producto, public cantidad, public precio) { }

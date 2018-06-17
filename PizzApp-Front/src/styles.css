@@ -18,7 +18,7 @@ thead th {
     /*text-align: left;*/
 }
 
-tbody {
+tbodypedido {
     height: 320px;
     width: 500px;
     overflow-y: auto;
