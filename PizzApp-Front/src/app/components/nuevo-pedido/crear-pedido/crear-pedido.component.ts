@@ -12,42 +12,49 @@ import { Producto } from '../../../interfaces/Producto';
 export class CrearPedidoComponent implements OnInit {
 
   constructor(private _router: Router, private http: HttpClient) { }
+  productosDisponibles = null;
+  productosDelPedido = null;
   productos = null;
-  productosPedidos = null;
-  lines = null;
+
   ngOnInit() {
-    this.productos = this.getProductos();
-    this.productosPedidos = [];
-    this.lines = [];
+    this.productosDisponibles = this.getProductos(); 
+    this.productosDelPedido = []; 
+    this.productos = []; 
   }
 
   addProduct(producto){
     console.log(producto);
-    this.productosPedidos.push(producto);
+    this.productosDelPedido.push(producto);
     
     var line = new lineaTable(producto.nombre,1,producto.precio);
-    this.lines.push(line);
+    this.productos.push(line);
 
   }
+
+  sumarUnoAlProducto(producto){
+    producto.cantidad ++;
+  }
+
+  restarUnoAlProducto(producto) {
+    if(producto.cantidad==1)
+      return;
+    producto.cantidad--;
+  }
+
   deleteLine(index) {
-    this.lines.splice(index, 1);
+    this.productos.splice(index, 1);
   }
-
 
   getProductos(){
     let self = this;
     this.http.get("http://localhost:8080/PizzApp/rest/productoService/todosLosProductos")
       .subscribe(
         result => {
-          this.productos = result;
+          this.productosDisponibles = result;
         },
         error => {
           console.log('problemas');
         })
-  }
-
-  addPedido() {
-    console.log(this.lines)
   }
 
 }

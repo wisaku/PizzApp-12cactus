@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-7">
         <div class="row">
-          <div class="col-sm-4" style="margin:5px" *ngFor="let producto of productos;">
+          <div class="col-sm-4" style="margin:5px" *ngFor="let producto of productosDisponibles;">
                 <button width="200px" height="50px" class="btn btn-default btn-lg btn-block" type="submit"  (click)= addProduct(producto)>
                   {{producto.nombre}}
                 </button>
@@ -23,17 +23,17 @@
           </tr>
         </thead>
         <tbody class="tbodypedido">
-          <tr *ngFor="let line of lines; let i = index" [attr.data-index]="i">
+          <tr *ngFor="let producto of productos let i = index" [attr.data-index]="i">
             <td>{{i +1}}</td>
-            <td>{{line.producto}}</td>
-            <td>{{line.cantidad}}</td>
-            <td>{{line.precio * line.cantidad}}</td>
+            <td>{{producto.producto}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td>{{producto.precio * producto.cantidad}}</td>
             <td>
               <div class="btn-group">
-                <button class="btn btn-success">
+                <button class="btn btn-success" (click)= sumarUnoAlProducto(producto) >
                   <i class="fa fa-plus-square"></i>
                 </button>
-                <button class="btn btn-info">
+                <button class="btn btn-info" (click)= restarUnoAlProducto(producto)> 
                   <i class="fa fa-minus-square"></i>
                 </button>
                 <button class="btn btn-danger" (click)=deleteLine(i)>
