@@ -12,11 +12,11 @@ import persistencia.servicios.Service.TestService;
 import static org.junit.Assert.*;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "/META-INF/spring-persistence-context.xml",
-        "/META-INF/spring-services-context.xml" })
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration({ "/META-INF/spring-persistence-context.xml",
+ //       "/META-INF/spring-services-context.xml" })
 public class HibernateTestCase {
-
+/*
     @Autowired
     private TestService testService;
 
@@ -38,4 +38,5 @@ public class HibernateTestCase {
     public void cleanup() {
         this.testService.deleteAll();
     }
+    */
 }

@@ -27,6 +27,7 @@ public class ProductoService extends GenericService<Producto> implements Initial
     }
 
 
+
     @Override
     @Transactional
     public void initialize() {
@@ -39,6 +40,7 @@ public class ProductoService extends GenericService<Producto> implements Initial
 
         this.getRepository().save(
                 ProductoBuilder.unProducto().conNombre("Pizza palmitos").conPrecio(250).build());
+
 
         this.getRepository().save(
                 ProductoBuilder.unProducto().conNombre("Empanada Carne").conPrecio(35).build());
