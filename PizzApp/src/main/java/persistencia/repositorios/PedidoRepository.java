@@ -1,6 +1,5 @@
 package persistencia.repositorios;
 
-import modelo.Cliente;
 import modelo.Pedido;
 import org.hibernate.Criteria;
 
