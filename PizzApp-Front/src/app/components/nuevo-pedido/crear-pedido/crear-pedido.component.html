@@ -22,26 +22,24 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="tbodypedido">
           <tr *ngFor="let line of lines; let i = index" [attr.data-index]="i">
             <td>{{i +1}}</td>
             <td>{{line.producto}}</td>
             <td>{{line.cantidad}}</td>
             <td>{{line.precio * line.cantidad}}</td>
             <td>
-              <div class="row">
-                <div class="col-sm-6">
-                  <button class="btn btn-danger" (click)= deleteLine(i)>
-                    <i class="fa fa-trash" ></i>
-                  </button>
-                  </div>
-                  <div class="col-sm-6">
-                  <button class="btn btn-warning">
-                    <i class="fa fa-exchange"></i>
-                  </button>
-                </div>
-              </div>
-            
+              <div class="btn-group">
+                <button class="btn btn-success">
+                  <i class="fa fa-plus-square"></i>
+                </button>
+                <button class="btn btn-info">
+                  <i class="fa fa-minus-square"></i>
+                </button>
+                <button class="btn btn-danger" (click)=deleteLine(i)>
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>            
             </td>
           </tr>
         </tbody>
