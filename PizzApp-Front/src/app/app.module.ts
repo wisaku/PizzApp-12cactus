@@ -1,8 +1,8 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
-import { FormsModule } from '@angular/forms'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { FormsModule } from '@angular/forms';
 // Routing
 import { APP_ROUTING} from './app.routes';
 
@@ -23,6 +23,7 @@ import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.componen
 import { BuscarProductoComponent } from './buscar-producto/buscar-producto.component';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
+import { PedidoService } from './components/services/pedido.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MessageService } from './message.service';
   ],
   providers: [
     CrearClienteService,
+    PedidoService,
     HttpErrorHandler,
     MessageService
   ],

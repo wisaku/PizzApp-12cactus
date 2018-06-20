@@ -6,20 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedido.component.css']
 })
 export class PedidoComponent implements OnInit {
-  contador : number;
+  contador: number;
   constructor() {
    }
 
   ngOnInit() {
-    this.contador = 0; 
+    this.contador = 0;
   }
-  
+
   incrementar() {
     this.contador++;
   }
-  
+
   decrementar() {
     this.contador--;
   }
-  
+
 }
