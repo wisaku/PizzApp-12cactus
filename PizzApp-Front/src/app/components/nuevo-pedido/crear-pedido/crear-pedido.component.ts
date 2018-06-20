@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Linea } from '../../../interfaces/Linea';
 import { Producto } from '../../../interfaces/Producto';
-//import { PedidoService} from '../../services/pedido.service'
+import { Pedido } from '../../../interfaces/Pedido';
+import { PedidoComponent } from '../../../pedido/pedido.component';
+import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -12,49 +14,48 @@ import { Producto } from '../../../interfaces/Producto';
 })
 export class CrearPedidoComponent implements OnInit {
 
-  constructor(private _router: Router, private http: HttpClient) { }
+  @Output() onsubmit = new EventEmitter<any>();
+  constructor(private _router: Router, private http: HttpClient, private pedidoService: PedidoService) { }
   productosDisponibles = null;
   productosDelPedido = null;
   productos = null;
+  pedidos: Pedido[];
 
   ngOnInit() {
-    this.productosDisponibles = this.getProductos(); 
-    this.productos = []; 
+    this.productosDisponibles = this.getProductos();
+    this.productos = [];
   }
 
-  addProduct(producto){
-    if ((this.getTodosLosProductos()).includes(producto.nombre)){
+  addProduct(producto) {
+    if ((this.getTodosLosProductos()).includes(producto.nombre)) {
       this.productos.forEach(element => {
-        console.log(element + "es igual a" + producto.nombre)
+        console.log(element + 'es igual a' + producto.nombre);
         if (element.producto === producto.nombre) {
           this.sumarUnoAlProducto(element);
         }
       });
-    }
-    else{
-        var line = new lineaTable(producto.nombre, 1, producto.precio);
+    } else {
+        const line = new lineaTable(producto.nombre, 1, producto.precio);
         this.productos.push(line);
     }
   }
 
-  getTodosLosProductos(){
-    var todosLosProductos = [];
+  getTodosLosProductos() {
+    const todosLosProductos = [];
     this.productos.forEach(element => {
-        todosLosProductos.push(element.producto)
+        todosLosProductos.push(element.producto);
     });
     return todosLosProductos;
   }
 
-  sumarUnoAlProducto(producto){
+  sumarUnoAlProducto(producto) {
     producto.cantidad ++;
   }
 
-
-
-  
   restarUnoAlProducto(producto) {
-    if(producto.cantidad==1)
+    if (producto.cantidad === 1) {
       return;
+    }
     producto.cantidad--;
   }
 
@@ -62,29 +63,39 @@ export class CrearPedidoComponent implements OnInit {
     this.productos.splice(index, 1);
   }
 
-  getProductos(){
-    let self = this;
-    this.http.get("http://localhost:8080/PizzApp/rest/productoService/todosLosProductos")
+  getProductos() {
+    const self = this;
+    this.http.get('http://localhost:8080/PizzApp/rest/productoService/todosLosProductos')
       .subscribe(
         result => {
           this.productosDisponibles = result;
         },
         error => {
           console.log('problemas');
-        })
+        });
   }
 
-  crearPedido(){
-    //this.pedidoService.crear(0,[0],0);
+  crearPedido() {
+    console.log('hola que aseeee00');
+    const pedido = new pedidoTable('1' , this.productos, '1');
+    this.onsubmit.emit(pedido);
+    console.log(pedido);
+    this.pedidoService.addPedido(pedido).subscribe(pedidoNuevo => this.pedidos.push(pedidoNuevo));
   }
 
 }
+// tslint:disable-next-line:class-name
 export class productoTable implements Producto {
-  constructor(public nombre, public precio) {}
+  constructor(public productoId, public nombre, public precio) {}
 }
 
 
 
+// tslint:disable-next-line:class-name
 export class lineaTable implements Linea {
-  constructor(public producto, public cantidad, public precio) { }
+  constructor(public productoId , public producto, public cantidad, public precio) { }
+}
+// tslint:disable-next-line:class-name
+export class pedidoTable implements Pedido {
+  constructor(public cliente, public linea, public usuario) { }
 }

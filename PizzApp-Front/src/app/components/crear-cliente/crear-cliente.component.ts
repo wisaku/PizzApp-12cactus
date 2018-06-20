@@ -20,12 +20,15 @@ export class CrearClienteComponent implements OnInit {
 
   submit() {
     this.onsubmit.emit(this.model);
-    console.log(this.model)
-    this.clienteService.addCliente(this.model).subscribe(cliente => this.clientes.push(cliente))
+    console.log(this.model);
+    this.clienteService.addCliente(this.model).subscribe(cliente => this.clientes.push(cliente));
     this.model = new clienteTable('', '', '', 0);
   }
 
 }
+
+// tslint:disable-next-line:class-name
 export class clienteTable implements Cliente {
-  constructor(public nombre, public apellido, public direccion, public telefono,) { }
+  constructor(public nombre, public apellido, public direccion, public telefono) { }
 }
+
