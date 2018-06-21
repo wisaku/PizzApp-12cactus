@@ -20,6 +20,7 @@ public class PedidoDTO extends Entity {
     private ProductoService productoService;
 
 
+
     public PedidoDTO(){
         this.productos = new ArrayList<Integer>();
     }
@@ -56,5 +57,13 @@ public class PedidoDTO extends Entity {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public String getIdCliente (){
+        return this.cliente.getTelefono();
+    }
+
+    public void setIdCliente(String anIdCliente) {
+        this.cliente.setTelefono(anIdCliente);
     }
 }

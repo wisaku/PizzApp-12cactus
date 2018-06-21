@@ -55,4 +55,8 @@ public class Pedido extends Entity {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public String getIdCliente(){return this.cliente.getTelefono();}
+
+    public void setIdCliente(String idCliente){this.cliente.setTelefono(idCliente);}
 }

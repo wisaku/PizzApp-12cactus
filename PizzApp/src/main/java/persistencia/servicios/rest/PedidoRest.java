@@ -68,11 +68,12 @@ public class PedidoRest {
         return listDTO;
     }
 
-    
+
     private PedidoDTO pedidoDTOToPedido(Pedido pedido){
         PedidoDTO dto = new PedidoDTO();
         dto.setProductos(pedido.getProductos());
         dto.setCliente(pedido.getCliente());
+        dto.setIdCliente(pedido.getIdCliente());
         return dto;
     }
 
@@ -80,6 +81,7 @@ public class PedidoRest {
         Pedido pedido = new Pedido();
         pedido.setProductos(dto.getProductos());
         pedido.setCliente(dto.getCliente());
+        pedido.setIdCliente(dto.getIdCliente());
         return pedido;
     }
 
