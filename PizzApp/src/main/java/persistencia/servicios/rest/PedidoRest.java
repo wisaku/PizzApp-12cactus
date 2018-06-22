@@ -1,7 +1,9 @@
 package persistencia.servicios.rest;
 
 import modelo.Pedido;
+import persistencia.servicios.Service.ClienteService;
 import persistencia.servicios.Service.PedidoService;
+import persistencia.servicios.Service.ProductoService;
 import persistencia.servicios.dto.PedidoDTO;
 
 import javax.ws.rs.*;
@@ -14,12 +16,32 @@ public class PedidoRest {
 
     private PedidoService pedidoService;
 
+    private ClienteService clienteService;
+
+    private ProductoService productoService;
+
     public PedidoService getPedidoService() {
         return pedidoService;
     }
 
     public void setPedidoService(PedidoService pedidoService)    {
         this.pedidoService = pedidoService;
+    }
+
+    public ClienteService getClienteService() {
+        return clienteService;
+    }
+
+    public void setClienteService(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
+
+    public ProductoService getProductoService() {
+        return productoService;
+    }
+
+    public void setProductoService(ProductoService productoService) {
+        this.productoService = productoService;
     }
 
     @POST
@@ -46,10 +68,12 @@ public class PedidoRest {
         return listDTO;
     }
 
+
     private PedidoDTO pedidoDTOToPedido(Pedido pedido){
         PedidoDTO dto = new PedidoDTO();
         dto.setProductos(pedido.getProductos());
         dto.setCliente(pedido.getCliente());
+        dto.setIdCliente(pedido.getIdCliente());
         return dto;
     }
 
@@ -57,6 +81,7 @@ public class PedidoRest {
         Pedido pedido = new Pedido();
         pedido.setProductos(dto.getProductos());
         pedido.setCliente(dto.getCliente());
+        pedido.setIdCliente(dto.getIdCliente());
         return pedido;
     }
 

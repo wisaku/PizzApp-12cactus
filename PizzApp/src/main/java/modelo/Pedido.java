@@ -14,16 +14,18 @@ public class Pedido extends Entity {
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
-        this.cliente = new Cliente();
+        this.cliente = new Cliente();           //Esto porque es? Es para configurar la base?
 
     }
 
     public Pedido(List<Producto> productos, Cliente cliente){
         this.productos = productos;
         this.cliente = cliente;
+
     }
 
     public List<Producto> getProductos() {
+
         return productos;
     }
 
@@ -53,4 +55,8 @@ public class Pedido extends Entity {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public String getIdCliente(){return this.cliente.getTelefono();}
+
+    public void setIdCliente(String idCliente){this.cliente.setTelefono(idCliente);}
 }

@@ -2,10 +2,10 @@ package modelo;
 
 public class LineaDePedido extends Entity{
 
-    Pedido pedido = null;
-    String Estado = null; //En curso, listo, Entregado, rechazado, anulado
-    Producto producto = null;
-    Usuario creadoPor = null;
+    Pedido pedido;
+    String Estado; //En curso, listo, Entregado, rechazado, anulado
+    Producto producto;
+    Usuario creadoPor;
 
     public LineaDePedido(Pedido pedido, Producto producto, Usuario usuario) {
         this.pedido = pedido;

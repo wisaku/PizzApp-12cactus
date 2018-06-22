@@ -22,9 +22,9 @@ public class Admin extends Usuario{
     }
 
 
-    public Pedido crearPedido(Integer nroPedido) {
+    public Pedido crearPedido(Integer nropedido) {
         Pedido pedido = new Pedido();
-        this.pedidos.put(nroPedido,pedido);
+        this.pedidos.put(pedido.getId(),pedido);
         return pedido;
 
     }
