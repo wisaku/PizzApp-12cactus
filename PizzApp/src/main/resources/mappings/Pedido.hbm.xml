@@ -12,12 +12,12 @@
             <generator class="native"/>
         </id>
 
-        <list name="productos" lazy="false">
+        <list name="productos" lazy="false" cascade="all">
             <key column="idProd"/>
             <list-index column="type"/>
             <one-to-many class="modelo.Producto"/>
         </list>
-        <one-to-one name="cliente" class="modelo.Cliente" lazy="false"/>
+        <many-to-one name="cliente" class="modelo.Cliente" lazy="false" cascade="all"/>
 
     </class>
 
