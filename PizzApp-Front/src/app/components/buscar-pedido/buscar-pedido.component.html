@@ -1,0 +1,25 @@
+<div class="col-sm-12" id="containerproductSelecteds">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!--th>#</th-->
+        <th>cliente</th>
+        <th>productos</th>
+        <th>Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+      <td>{{pedido.cliente}}</td>
+      <td>
+        <div *ngFor="let lin of pedido.linea">
+          <label>{{lin.nombre}} - cantidad: {{lin.cantidad}}</label>
+        </div>
+        
+        </td>
+      <td>{{pedido.usuario}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

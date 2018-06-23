@@ -5,12 +5,16 @@ import {HomeClientesComponent} from './components/home-clientes/home-clientes.co
 import {BuscarClienteComponent} from './components/buscar-cliente/buscar-cliente.component';
 import {NuevoProductoComponent} from './components/nuevo-producto/nuevo-producto.component';
 import {BuscarProductoComponent} from './components/buscar-producto/buscar-producto.component';
+import { BuscarPedidoComponent } from './components/buscar-pedido/buscar-pedido.component';
 /*import {CrearPedidoService} from './nuevo-pedido/crear-pedido.service';*/
 
 const APP_ROUTES: Routes = [
   {
     path: 'nuevoPedido', component: CrearPedidoComponent
     /*canActivate: [CrearPedidoService]*/
+  },
+  {
+    path: 'buscarPedido', component: BuscarPedidoComponent
   },
   {
     path: 'crearCliente', component: CrearClienteComponent

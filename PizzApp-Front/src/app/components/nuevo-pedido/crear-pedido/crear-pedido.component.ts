@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Linea } from '../../interfaces/Linea';
 import { Producto } from '../../interfaces/Producto';
 import { Pedido } from '../../interfaces/Pedido';
+import { Cliente } from '../../interfaces/Cliente';
 import { PedidoService } from '../../services/pedido.service';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -13,16 +15,33 @@ import { PedidoService } from '../../services/pedido.service';
 export class CrearPedidoComponent implements OnInit {
 
   @Output() onsubmit = new EventEmitter<any>();
+  // tslint:disable-next-line:max-line-length
   constructor(private _router: Router, private http: HttpClient, private pedidoService: PedidoService) { }
   productosDisponibles = null;
   productosDelPedido = null;
   productos = null;
   pedidos: Pedido[];
+  clientes: null;
 
   ngOnInit() {
     this.productosDisponibles = this.getProductos();
     this.productos = [];
+    this.getClientes();
   }
+
+  getClientes() {
+    const self = this;
+    this.http.get('http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes')
+      .subscribe(
+        result => {
+          console.log(result);
+          return result;
+        },
+        error => {
+          console.log('problemas');
+        });
+  }
+
 
   addProduct(producto) {
     if ((this.getTodosLosProductos()).includes(producto.nombre)) {

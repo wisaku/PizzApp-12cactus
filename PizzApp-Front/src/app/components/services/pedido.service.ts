@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pedido } from '../../interfaces/Pedido';
+import { Pedido } from '../../components/interfaces/Pedido';
 
 
 @Injectable()
