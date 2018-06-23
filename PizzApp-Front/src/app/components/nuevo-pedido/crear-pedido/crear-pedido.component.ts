@@ -30,12 +30,13 @@ export class CrearPedidoComponent implements OnInit {
     if ((this.getTodosLosProductos()).includes(producto.nombre)) {
       this.productos.forEach(element => {
         console.log(element + 'es igual a' + producto.nombre);
-        if (element.producto === producto.nombre) {
+        if (element.nombre === producto.nombre) {
           this.sumarUnoAlProducto(element);
         }
       });
     } else {
-        const line = new lineaTable(1, producto.nombre, 1, producto.precio);
+      console.log('productoId------> ' + producto.productoId);
+      const line = new lineaTable(producto.id, producto.nombre, producto.precio, '1');
         this.productos.push(line);
     }
   }
@@ -43,7 +44,7 @@ export class CrearPedidoComponent implements OnInit {
   getTodosLosProductos() {
     const todosLosProductos = [];
     this.productos.forEach(element => {
-        todosLosProductos.push(element.producto);
+        todosLosProductos.push(element.nombre);
     });
     return todosLosProductos;
   }
@@ -69,6 +70,7 @@ export class CrearPedidoComponent implements OnInit {
       .subscribe(
         result => {
           this.productosDisponibles = result;
+          console.log(result);
         },
         error => {
           console.log('problemas');
@@ -76,24 +78,23 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido() {
-    console.log('hola que aseeee00');
-    const pedido = new pedidoTable('1' , this.productos, '1');
+    const pedido = new pedidoTable('1111' , this.productos, '1');
     this.onsubmit.emit(pedido);
     console.log(pedido);
-    this.pedidoService.addPedido(pedido).subscribe(pedidoNuevo => this.pedidos.push(pedidoNuevo));
+    this.pedidoService.addPedido(pedido).subscribe();
   }
 
 }
 // tslint:disable-next-line:class-name
 export class productoTable implements Producto {
-  constructor(public productoId, public nombre, public precio) {}
+  constructor(public id, public nombre, public precio) {}
 }
 
 
 
 // tslint:disable-next-line:class-name
 export class lineaTable implements Linea {
-  constructor(public productoId , public producto, public cantidad, public precio) { }
+  constructor(public id, public nombre, public precio, public cantidad ) { }
 }
 // tslint:disable-next-line:class-name
 export class pedidoTable implements Pedido {

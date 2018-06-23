@@ -1,7 +1,8 @@
 import { Producto } from '../interfaces/Producto';
 export interface Linea {
-  productoId: string;
-  producto: string;
-  cantidad: number;
+  id: string;
+  nombre: string;
   precio: string;
+  cantidad: number;
+
 }

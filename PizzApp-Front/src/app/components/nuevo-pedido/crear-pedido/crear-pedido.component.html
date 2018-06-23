@@ -4,7 +4,7 @@
     <div class="col-sm-7">
         <div class="row"> 
           <div class="col-sm-12">
-
+            <label>aca busco cliente  </label>
           </div>
 
 
@@ -31,7 +31,7 @@
         <tbody class="tbodypedido">
           <tr *ngFor="let producto of productos let i = index" [attr.data-index]="i">
             <td>{{i +1}}</td>
-            <td>{{producto.producto}}</td>
+            <td>{{producto.nombre}}</td>
             <td>{{producto.cantidad}}</td>
             <td>{{producto.precio * producto.cantidad}}</td>
             <td>
