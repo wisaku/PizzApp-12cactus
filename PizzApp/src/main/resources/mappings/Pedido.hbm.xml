@@ -14,18 +14,11 @@
 
         <list name="productos" lazy="false">
             <key column="idProd"/>
-            <list-index column="type"/>
-            <one-to-many class="modelo.Producto"/>
+            <list-index column="prod"/>
+            <element type="modelo.Producto"/>
         </list>
-<<<<<<< HEAD
-
-        <one-to-one name="cliente" class="modelo.Cliente" lazy="false"/>
-
-=======
-<!--
-
-//-->
->>>>>>> d6a38efcff9ed52e2b63ab2d0fd8300c223fe7dd
+        <many-to-one name="cliente" class="modelo.Cliente" lazy="false" cascade="all"/>
+        <!--<many-to-one name="usuario" class="modelo.Usuario" lazy="false" cascade="all"/>-->
     </class>
 
 </hibernate-mapping>

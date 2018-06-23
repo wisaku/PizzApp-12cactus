@@ -14,14 +14,12 @@ public class Pedido extends Entity {
 
     public Pedido(){
         this.productos = new ArrayList<Producto>();
-        this.cliente = new Cliente();           //Esto porque es? Es para configurar la base?
 
     }
 
     public Pedido(List<Producto> productos, Cliente cliente){
         this.productos = productos;
         this.cliente = cliente;
-
     }
 
     public List<Producto> getProductos() {

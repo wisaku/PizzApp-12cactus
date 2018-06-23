@@ -35,7 +35,7 @@ export class CrearPedidoComponent implements OnInit {
         }
       });
     } else {
-        const line = new lineaTable(producto.nombre, 1, producto.precio);
+        const line = new lineaTable(1, producto.nombre, 1, producto.precio);
         this.productos.push(line);
     }
   }
