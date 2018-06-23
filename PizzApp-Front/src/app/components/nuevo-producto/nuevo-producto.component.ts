@@ -21,7 +21,7 @@ export class NuevoProductoComponent implements OnInit {
    submit() {
     this.onsubmit.emit(this.model);
     console.log(this.model);
-    this.productoService.addProducto(this.model).subscribe(producto => this.productos.push(producto));
+    this.productoService.addProducto(this.model).subscribe();
     this.model = new productoTable('', '', '');
   }
 

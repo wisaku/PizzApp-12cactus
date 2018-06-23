@@ -1,12 +1,20 @@
 package persistencia.servicios.dto;
 
-import modelo.Entity;
-
-public class ProductoDTO extends Entity{
+public class ProductoDTO {
 
     private String nombre;
     private double precio;
     private Integer cantidad;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
 
     public ProductoDTO(){}
 
