@@ -21,7 +21,7 @@ export class CrearClienteComponent implements OnInit {
   submit() {
     this.onsubmit.emit(this.model);
     console.log(this.model);
-    this.clienteService.addCliente(this.model).subscribe(cliente => this.clientes.push(cliente));
+    this.clienteService.addCliente(this.model).subscribe();
     this.model = new clienteTable('', '', '', 0);
   }
 
