@@ -5,6 +5,9 @@ public class ProductoDTO {
     private String nombre;
     private double precio;
     private Integer cantidad;
+    private Integer id;
+
+    public ProductoDTO(){}
 
     public Integer getId() {
         return id;
@@ -13,10 +16,6 @@ public class ProductoDTO {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    private Integer id;
-
-    public ProductoDTO(){}
 
     public String getNombre() {
         return nombre;
