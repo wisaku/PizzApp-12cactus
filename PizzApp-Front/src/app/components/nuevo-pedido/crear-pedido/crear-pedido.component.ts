@@ -1,16 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Linea } from '../../../interfaces/Linea';
-import { Producto } from '../../../interfaces/Producto';
-import { Pedido } from '../../../interfaces/Pedido';
-import { PedidoComponent } from '../../../pedido/pedido.component';
+import { Linea } from '../../interfaces/Linea';
+import { Producto } from '../../interfaces/Producto';
+import { Pedido } from '../../interfaces/Pedido';
 import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'app-crear-pedido',
-  templateUrl: './crear-pedido.component.html',
-  styleUrls: ['./crear-pedido.component.css']
+  templateUrl: './crear-pedido.component.html'
 })
 export class CrearPedidoComponent implements OnInit {
 

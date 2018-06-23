@@ -1,4 +1,3 @@
-import { Producto } from '../interfaces/Producto';
 export interface Linea {
   id: string;
   nombre: string;
