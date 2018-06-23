@@ -1,7 +1,6 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { FormsModule } from '@angular/forms';
 // Routing
 import { APP_ROUTING} from './app.routes';
@@ -43,7 +42,6 @@ import { PedidoService } from './components/services/pedido.service';
     NuevoPedidoModule,
     APP_ROUTING,
     HttpClientModule,
-    Angular2FontawesomeModule,
     FormsModule
   ],
   providers: [
