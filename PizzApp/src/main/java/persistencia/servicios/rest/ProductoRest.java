@@ -59,6 +59,7 @@ public class ProductoRest {
         ProductoDTO dto = new ProductoDTO();
         dto.setNombre(prod.getNombre());
         dto.setPrecio(prod.getPrecio());
+        dto.setId(prod.getId());
         return dto;
     }
 
