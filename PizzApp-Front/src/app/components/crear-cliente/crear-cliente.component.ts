@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {CrearClienteService} from './crear-cliente.service';
-import {Cliente} from '../../interfaces/Cliente';
+import {Cliente} from '../interfaces/Cliente';
 
 
 @Component({
