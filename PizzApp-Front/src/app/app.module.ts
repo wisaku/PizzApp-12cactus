@@ -24,6 +24,7 @@ import { PedidoService } from './components/services/pedido.service';
 import { ClienteService } from './components/services/cliente.service';
 import { BuscarPedidoComponent } from './components/buscar-pedido/buscar-pedido.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { BuscarPedidoComponent } from './components/buscar-pedido/buscar-pedido.
     NuevoPedidoModule,
     APP_ROUTING,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     CrearClienteService,

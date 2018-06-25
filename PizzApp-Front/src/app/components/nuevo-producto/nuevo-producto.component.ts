@@ -9,15 +9,15 @@ import { productoTable } from '../nuevo-pedido/crear-pedido/crear-pedido.compone
 })
 export class NuevoProductoComponent implements OnInit {
   constructor(private productoService: NuevoProductoService) { }
-  productos : Producto[];
+  productos: Producto[];
   model: Producto = new productoTable('', '', '');
-  
+
   @Output() onsubmit = new EventEmitter<any>();
-   
+
     ngOnInit() {
-    
+
    }
-   
+
    submit() {
     this.onsubmit.emit(this.model);
     console.log(this.model);

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-buscar-pedido',
   templateUrl: './buscar-pedido.component.html',
 })
 export class BuscarPedidoComponent implements OnInit {
   pedidos = null;
-
+  myField;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -26,6 +25,13 @@ export class BuscarPedidoComponent implements OnInit {
       error => {
         console.log('problemas');
       });
+  }
+  cerrarPedido(pedido) {
+    let res = 0;
+    pedido.linea.forEach(lin => {
+      res = res + lin.precio;
+    });
+    this.myField = res;
   }
 
 }

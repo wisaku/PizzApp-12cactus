@@ -18,6 +18,6 @@ export class CrearClienteService {
     const json = JSON.stringify(cliente);
     const params = json;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, params, { headers: headers }); // .pipe();
+    return this.http.post(this.url, params, { headers: headers });
   }
 }

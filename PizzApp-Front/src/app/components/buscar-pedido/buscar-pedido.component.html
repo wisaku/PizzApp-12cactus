@@ -5,21 +5,52 @@
         <!--th>#</th-->
         <th>cliente</th>
         <th>productos</th>
-        <th>Dirección</th>
+        <th>acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pedido of pedidos">
-      <td>{{pedido.cliente}}</td>
-      <td>
-        <div *ngFor="let lin of pedido.linea">
-          <label>{{lin.nombre}} - cantidad: {{lin.cantidad}}</label>
-        </div>
-        
+        <td>{{pedido.cliente}}</td>
+        <td>
+          <div *ngFor="let lin of pedido.linea">
+            <label>{{lin.nombre}} - cantidad: {{lin.cantidad}}</label>
+          </div>
+          
+          </td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" data-toggle="modal" (click)= cerrarPedido(pedido) data-target="#exampleModal">
+              Cerrar
+            </button>
+
+          </div>
+
         </td>
-      <td>{{pedido.usuario}}</td>
       </tr>
+
     </tbody>
+
   </table>
 
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pedido cerrado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="firstLabel">Total a pagar $ </span>
+        <label for="MyField">{{myField}}</label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
