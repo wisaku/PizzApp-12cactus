@@ -13,7 +13,6 @@ import { NuevoPedidoModule } from './components/nuevo-pedido/nuevo-pedido.module
 import { CrearClienteComponent } from './components/crear-cliente/crear-cliente.component';
 import { HomeClientesComponent } from './components/home-clientes/home-clientes.component';
 import { CrearClienteService } from './components/crear-cliente/crear-cliente.service';
-import { PedidoComponent } from './components/pedido/pedido.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { BuscarClienteComponent } from './components/buscar-cliente/buscar-cliente.component';
@@ -22,28 +21,32 @@ import { BuscarProductoComponent } from './components/buscar-producto/buscar-pro
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
 import { PedidoService } from './components/services/pedido.service';
+import { ClienteService } from './components/services/cliente.service';
+import { BuscarPedidoComponent } from './components/buscar-pedido/buscar-pedido.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PedidoComponent,
     CrearClienteComponent,
     HomeClientesComponent,
     FooterComponent,
     BuscarClienteComponent,
     NuevoProductoComponent,
     BuscarProductoComponent,
+    BuscarPedidoComponent,
   ],
   imports: [
     BrowserModule,
     NuevoPedidoModule,
     APP_ROUTING,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     CrearClienteService,
+    ClienteService,
     PedidoService,
     HttpErrorHandler,
     MessageService

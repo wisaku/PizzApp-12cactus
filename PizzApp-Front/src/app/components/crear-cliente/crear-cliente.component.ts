@@ -12,6 +12,7 @@ export class CrearClienteComponent implements OnInit {
 
   clientes: Cliente[];
   model: Cliente = new clienteTable('', '', '', 0);
+  respuesta;
   @Output() onsubmit = new EventEmitter<any>();
   constructor(private clienteService: CrearClienteService) { }
 
@@ -21,7 +22,8 @@ export class CrearClienteComponent implements OnInit {
   submit() {
     this.onsubmit.emit(this.model);
     console.log(this.model);
-    this.clienteService.addCliente(this.model).subscribe();
+    console.log(this.clienteService.addCliente(this.model).subscribe());
+
     this.model = new clienteTable('', '', '', 0);
   }
 

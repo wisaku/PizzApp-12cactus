@@ -16,16 +16,16 @@ export class BuscarClienteComponent implements OnInit {
     this.clientes = this.getClientes();
   }
 
-  getClientes(){
-    let self = this;
-    this.http.get("http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes")
+  getClientes() {
+    const self = this;
+    this.http.get('http://localhost:8080/PizzApp/rest/clienteService/todosLosClientes')
     .subscribe(
       result => {
         this.clientes = result;
       },
       error => {
         console.log('problemas');
-      })
+      });
   }
 
 }
