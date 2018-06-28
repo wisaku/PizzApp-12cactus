@@ -77,4 +77,7 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
         return this.getRepository().findAll();
     }
 
+    public List<Pedido> getTodosLosPedidosPorCliente(String tel) {
+        return this.getRepository().getPedidoPorIDCliente(tel);
+    }
 }

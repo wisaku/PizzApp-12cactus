@@ -62,6 +62,13 @@ public class PedidoRest {
         return listPedidosToPedidoDTO(this.getPedidoService().todosLosPedidos());
     }
 
+    @GET
+    @Path("/pedidosByCliente/{tel}")
+    @Produces("application/json")
+    public List<PedidoDTO> pedidosPorClienteRest(@PathParam("tel")final String tel){
+        return listPedidosToPedidoDTO(this.getPedidoService().getTodosLosPedidosPorCliente(tel));
+    }
+
     private List<PedidoDTO> listPedidosToPedidoDTO(List<Pedido> pedidos){
         List<PedidoDTO> listDTO = new ArrayList<>();
         for(Pedido p: pedidos){
