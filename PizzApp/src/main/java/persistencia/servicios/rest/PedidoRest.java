@@ -2,6 +2,7 @@ package persistencia.servicios.rest;
 
 import modelo.Pedido;
 import modelo.Producto;
+import modelo.enums.EstadoPedido;
 import persistencia.servicios.Service.ClienteService;
 import persistencia.servicios.Service.PedidoService;
 import persistencia.servicios.Service.ProductoService;
@@ -83,6 +84,7 @@ public class PedidoRest {
         dto.setLinea(listProductoToListDtoProducto(pedido.getProductos()));
         dto.setCliente(pedido.getCliente().getTelefono());
         dto.setId(pedido.getId());
+        dto.setEstado(pedido.getEstado().toString());
         return dto;
     }
 
@@ -90,6 +92,7 @@ public class PedidoRest {
         Pedido pedido = new Pedido();
         pedido.setProductos(listDtoToListProducto(dto.getLinea()));
         pedido.setCliente(this.getClienteService().getCliente(dto.getCliente()));
+        pedido.setEstado(EstadoPedido.valueOf(dto.getEstado()));
         return pedido;
     }
 

@@ -1,6 +1,7 @@
 package modeltest;
 
 import modelo.*;
+import modelo.enums.EstadoPedido;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import persistencia.servicios.Service.LineaDePedidoService;
@@ -68,7 +69,7 @@ public class PedidosTestCase {
       //  assertNotNull(admin.crearPedido(1));
 
 
-        assertEquals("abierto",admin.crearPedido(1).getState());
+        assertEquals(EstadoPedido.ENCURSO,admin.crearPedido(1).getState());
     }
 /*
     @Test

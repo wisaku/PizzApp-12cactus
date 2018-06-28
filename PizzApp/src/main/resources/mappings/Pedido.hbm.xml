@@ -18,6 +18,7 @@
             <element type="modelo.Producto"/>
         </list>
         <many-to-one name="cliente" class="modelo.Cliente" lazy="false" cascade="all"/>
+        <property name="estado"/>
         <!--<many-to-one name="usuario" class="modelo.Usuario" lazy="false" cascade="all"/>-->
     </class>
 

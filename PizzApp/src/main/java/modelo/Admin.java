@@ -1,4 +1,6 @@
 package modelo;
+import modelo.enums.EstadoPedido;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +38,7 @@ public class Admin extends Usuario{
     }
     public Pedido cerrarPedido(Integer nroPedido){
 
-        seleccionarPedido(nroPedido).setState("cerrado");
+        seleccionarPedido(nroPedido).setEstado(EstadoPedido.CERRADO);
         return seleccionarPedido(nroPedido);
     }
 

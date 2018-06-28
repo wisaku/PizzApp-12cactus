@@ -3,6 +3,7 @@ package modelo.builders;
 import modelo.Cliente;
 import modelo.Pedido;
 import modelo.Producto;
+import modelo.enums.EstadoPedido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class PedidoBuilder {
 
     private Cliente cliente;
     private List<Producto> productos = new ArrayList<Producto>();
+    private EstadoPedido estado;
 
     public static PedidoBuilder unPedido(){
         return new PedidoBuilder();
@@ -30,4 +32,8 @@ public class PedidoBuilder {
         return this;
     }
 
+    public PedidoBuilder conEstado(EstadoPedido estado){
+        this.estado=estado;
+        return this;
+    }
 }

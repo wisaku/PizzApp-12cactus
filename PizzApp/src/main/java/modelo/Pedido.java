@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.enums.EstadoPedido;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.List;
 public class Pedido extends Entity {
 
     private List<Producto> productos;
-    private String state="abierto"; // el estado puedo ser "cerrado" o "abierto" como state es malisimo (sirDemian)
+    private EstadoPedido estado= EstadoPedido.ENCURSO;
     private Cliente cliente;
     private Usuario creadoPor;
 
@@ -31,12 +33,12 @@ public class Pedido extends Entity {
         this.productos = productos;
     }
 
-    public String getState(){
-        return this.state;
+    public EstadoPedido getEstado(){
+        return this.estado;
     }
 
     public boolean estaAbierto() {
-        return "abierto".equalsIgnoreCase(getState());
+        return EstadoPedido.ENCURSO.equals(getEstado());
     }
 
 
@@ -44,7 +46,7 @@ public class Pedido extends Entity {
         this.creadoPor=usuario;
     }
 
-    public void setState(String aState){ this.state=aState;}
+    public void setEstado(EstadoPedido aState){ this.estado=aState;}
 
     public Cliente getCliente() {
         return cliente;
