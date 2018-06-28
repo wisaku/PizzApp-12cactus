@@ -69,7 +69,7 @@ public class PedidosTestCase {
       //  assertNotNull(admin.crearPedido(1));
 
 
-        assertEquals(EstadoPedido.ENCURSO,admin.crearPedido(1).getState());
+        assertEquals(EstadoPedido.ENCURSO,admin.crearPedido(1).getEstado());
     }
 /*
     @Test
