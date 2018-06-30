@@ -9,28 +9,15 @@ import java.util.List;
 @XmlRootElement(name="pedido")
 public class Pedido extends Entity {
 
-    private List<Producto> productos;
     private EstadoPedido estado= EstadoPedido.ENCURSO;
     private Cliente cliente;
     private Usuario creadoPor;
 
     public Pedido(){
-        this.productos = new ArrayList<Producto>();
-
     }
 
-    public Pedido(List<Producto> productos, Cliente cliente){
-        this.productos = productos;
+    public Pedido(Cliente cliente){
         this.cliente = cliente;
-    }
-
-    public List<Producto> getProductos() {
-
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
     }
 
     public EstadoPedido getEstado(){

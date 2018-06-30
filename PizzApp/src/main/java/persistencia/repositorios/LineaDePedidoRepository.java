@@ -1,8 +1,6 @@
 package persistencia.repositorios;
 
 import modelo.LineaDePedido;
-import modelo.Pedido;
-import modelo.TestUno;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,13 +19,13 @@ public class LineaDePedidoRepository
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public List<LineaDePedido> findByPedido(Pedido pedido){
+    public List<LineaDePedido> findByPedido(int id){
         return (List<LineaDePedido>) this.getHibernateTemplate().execute(new HibernateCallback() {
             @Override
             public List<LineaDePedido> doInHibernate(final Session session) throws HibernateException {
-                Criteria criteria = session.createCriteria(TestUno.class);
-                criteria.add(Restrictions.eq("pedido", "%" + pedido + "%"));
-                return (List<LineaDePedido>)criteria.uniqueResult();
+                Criteria criteria = session.createCriteria(LineaDePedido.class);
+                criteria.add(Restrictions.eq("pedido.id", id ));
+                return (List<LineaDePedido>)criteria.list();
             }
 
         });

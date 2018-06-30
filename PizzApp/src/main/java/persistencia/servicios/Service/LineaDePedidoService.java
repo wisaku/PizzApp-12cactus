@@ -20,7 +20,7 @@ public class LineaDePedidoService extends GenericService<LineaDePedido> {
         this.repository = repository;
     }
 
-    List<LineaDePedido> findByPedido(Pedido pedido){
+    List<LineaDePedido> findByPedido(int pedido){
         return getRepository().findByPedido(pedido);
     }
 }

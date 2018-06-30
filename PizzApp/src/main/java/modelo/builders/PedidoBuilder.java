@@ -19,7 +19,7 @@ public class PedidoBuilder {
     }
 
     public Pedido build(){
-        return new Pedido(this.productos, this.cliente);
+        return new Pedido(this.cliente);
     }
 
     public PedidoBuilder conCliente(Cliente cliente){
