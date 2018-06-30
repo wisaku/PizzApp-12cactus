@@ -4,15 +4,12 @@ import modelo.LineaDePedido;
 import modelo.Pedido;
 import modelo.Producto;
 import modelo.Usuario;
-import modelo.enums.EstadoPedido;
 import persistencia.servicios.Service.ClienteService;
 import persistencia.servicios.Service.PedidoService;
 import persistencia.servicios.Service.ProductoService;
 import persistencia.servicios.dto.LineaDePedidoDTO;
 import persistencia.servicios.dto.PedidoDTO;
 import persistencia.servicios.dto.ProductoDTO;
-
-import javax.sound.sampled.Line;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;

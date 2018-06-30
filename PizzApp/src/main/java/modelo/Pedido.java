@@ -3,8 +3,6 @@ package modelo;
 import modelo.enums.EstadoPedido;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.List;
 
 @XmlRootElement(name="pedido")
 public class Pedido extends Entity {

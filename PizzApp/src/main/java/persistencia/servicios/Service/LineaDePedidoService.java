@@ -1,9 +1,7 @@
 package persistencia.servicios.Service;
 
 import modelo.LineaDePedido;
-import modelo.Pedido;
 import persistencia.repositorios.LineaDePedidoRepository;
-import persistencia.servicios.Service.GenericService;
 
 import java.util.List;
 
