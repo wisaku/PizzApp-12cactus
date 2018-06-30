@@ -33,4 +33,20 @@ public class LineaDePedidoDTO extends Entity{
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public String getNombreProd() {
+        return nombreProd;
+    }
+
+    public void setNombreProd(String nombreProd) {
+        this.nombreProd = nombreProd;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }

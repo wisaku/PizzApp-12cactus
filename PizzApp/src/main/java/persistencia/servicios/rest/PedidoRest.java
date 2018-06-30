@@ -95,12 +95,15 @@ public class PedidoRest {
         dto.setId(pedido.getId());
         dto.setEstado(pedido.getEstado().toString());
         List<LineaDePedido> lp = this.getPedidoService().getLineaDePedido(pedido.getId());
-        List<LineaDePedidoDTO> ldto = new ArrayList<>();
+        List<LineaDePedidoDTO> listdto = new ArrayList<>();
         for(LineaDePedido l: lp){
-            ldto.add(new LineaDePedidoDTO(l.getProducto().getId(), l.getCantidad(), l.getProducto().getNombre(),
-                    l.getProducto().getPrecio()*l.getCantidad()));
+            LineaDePedidoDTO lpdto = new LineaDePedidoDTO(l.getProducto().getId(), l.getCantidad(),
+                    l.getProducto().getNombre(),
+                    l.getProducto().getPrecio()*l.getCantidad());
+            lpdto.setId(l.getId());
+            listdto.add(lpdto);
         }
-        dto.setLinea(ldto);
+        dto.setLinea(listdto);
         return dto;
     }
 
