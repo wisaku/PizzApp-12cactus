@@ -1,4 +1,4 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.TestUno;
 import org.springframework.transaction.annotation.Transactional;

@@ -54,7 +54,7 @@
         </dependency>
 
 
-        <!-- Service -->
+        <!-- service -->
 
         <dependency>
             <groupId>org.slf4j</groupId>

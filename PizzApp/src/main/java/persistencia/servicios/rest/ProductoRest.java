@@ -1,7 +1,7 @@
 package persistencia.servicios.rest;
 
 import modelo.Producto;
-import persistencia.servicios.Service.ProductoService;
+import persistencia.servicios.service.ProductoService;
 import persistencia.servicios.dto.ProductoDTO;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;

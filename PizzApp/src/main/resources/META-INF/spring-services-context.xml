@@ -25,20 +25,20 @@
     <!-- ==== beans de spring ====== -->
     <!-- =========================== -->
 
-    <bean id="services.testservice" class="persistencia.servicios.Service.TestService">
+    <bean id="services.testservice" class="persistencia.servicios.service.TestService">
         <property name="repository" ref="persistence.testrepository" />
     </bean>
 
-    <bean id="services.pedidoservice" class="persistencia.servicios.Service.PedidoService">
+    <bean id="services.pedidoservice" class="persistencia.servicios.service.PedidoService">
         <property name="repository" ref="persistence.pedidorepository" />
         <property name="lineaDePedidoRepository" ref="persistence.lineaDePedidoRepository" />
     </bean>
 
-    <bean id="services.productoservice" class="persistencia.servicios.Service.ProductoService">
+    <bean id="services.productoservice" class="persistencia.servicios.service.ProductoService">
         <property name="repository" ref="persistence.productorepository" />
     </bean>
 
-    <bean id="services.clienteservice" class="persistencia.servicios.Service.ClienteService">
+    <bean id="services.clienteservice" class="persistencia.servicios.service.ClienteService">
         <property name="repository" ref="persistence.clienterepository" />
     </bean>
 

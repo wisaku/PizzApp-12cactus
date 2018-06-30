@@ -1,4 +1,4 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.Cliente;
 import modelo.builders.ClienteBuilder;
