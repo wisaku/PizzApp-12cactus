@@ -1,4 +1,4 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.Producto;
 import modelo.builders.ProductoBuilder;

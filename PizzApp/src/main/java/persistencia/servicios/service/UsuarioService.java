@@ -1,8 +1,7 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.Usuario;
 import persistencia.repositorios.UsuarioRepository;
-import persistencia.servicios.Service.GenericService;
 
 public class UsuarioService extends GenericService<Usuario> {
 

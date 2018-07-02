@@ -1,9 +1,7 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.LineaDePedido;
-import modelo.Pedido;
 import persistencia.repositorios.LineaDePedidoRepository;
-import persistencia.servicios.Service.GenericService;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class LineaDePedidoService extends GenericService<LineaDePedido> {
         this.repository = repository;
     }
 
-    List<LineaDePedido> findByPedido(Pedido pedido){
+    List<LineaDePedido> findByPedido(int pedido){
         return getRepository().findByPedido(pedido);
     }
 }

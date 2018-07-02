@@ -1,13 +1,15 @@
 package persistencia.servicios.rest;
 
+import modelo.LineaDePedido;
 import modelo.Pedido;
 import modelo.Producto;
-import persistencia.servicios.Service.ClienteService;
-import persistencia.servicios.Service.PedidoService;
-import persistencia.servicios.Service.ProductoService;
+import modelo.Usuario;
+import persistencia.servicios.service.ClienteService;
+import persistencia.servicios.service.PedidoService;
+import persistencia.servicios.service.ProductoService;
+import persistencia.servicios.dto.LineaDePedidoDTO;
 import persistencia.servicios.dto.PedidoDTO;
 import persistencia.servicios.dto.ProductoDTO;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -51,8 +53,17 @@ public class PedidoRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response crearPedido(PedidoDTO dto){
-        this.getPedidoService().save(pedidoDTOToPedido(dto));
+        this.getPedidoService().savePedido(pedidoDTOToPedido(dto), armarLineaPedido(dto.getLinea()));
         return Response.ok().build();
+    }
+
+    private List<LineaDePedido> armarLineaPedido(List<LineaDePedidoDTO> dtos){
+        List<LineaDePedido> lp = new ArrayList<>();
+        for(LineaDePedidoDTO l: dtos){
+            lp.add(new LineaDePedido(null,
+                    this.getProductoService().findById(l.getIdProd()), l.getCantidad()));
+        }
+        return lp;
     }
 
     @GET
@@ -60,6 +71,13 @@ public class PedidoRest {
     @Produces("application/json")
     public List<PedidoDTO> todosLosPedidos(){
         return listPedidosToPedidoDTO(this.getPedidoService().todosLosPedidos());
+    }
+
+    @GET
+    @Path("/pedidosByCliente/{tel}")
+    @Produces("application/json")
+    public List<PedidoDTO> pedidosPorClienteRest(@PathParam("tel")final String tel){
+        return listPedidosToPedidoDTO(this.getPedidoService().getTodosLosPedidosPorCliente(tel));
     }
 
     private List<PedidoDTO> listPedidosToPedidoDTO(List<Pedido> pedidos){
@@ -73,16 +91,26 @@ public class PedidoRest {
 
     private PedidoDTO pedidoDTOToPedido(Pedido pedido){
         PedidoDTO dto = new PedidoDTO();
-        dto.setLinea(listProductoToListDtoProducto(pedido.getProductos()));
         dto.setCliente(pedido.getCliente().getTelefono());
         dto.setId(pedido.getId());
+        dto.setEstado(pedido.getEstado().toString());
+        List<LineaDePedido> lp = this.getPedidoService().getLineaDePedido(pedido.getId());
+        List<LineaDePedidoDTO> listdto = new ArrayList<>();
+        for(LineaDePedido l: lp){
+            LineaDePedidoDTO lpdto = new LineaDePedidoDTO(l.getProducto().getId(), l.getCantidad(),
+                    l.getProducto().getNombre(),
+                    l.getProducto().getPrecio()*l.getCantidad());
+            lpdto.setId(l.getId());
+            listdto.add(lpdto);
+        }
+        dto.setLinea(listdto);
         return dto;
     }
 
     private Pedido pedidoDTOToPedido(PedidoDTO dto){
         Pedido pedido = new Pedido();
-        pedido.setProductos(listDtoToListProducto(dto.getLinea()));
         pedido.setCliente(this.getClienteService().getCliente(dto.getCliente()));
+        pedido.setCreadoPor(new Usuario());
         return pedido;
     }
 

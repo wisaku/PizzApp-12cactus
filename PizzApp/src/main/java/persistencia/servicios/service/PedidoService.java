@@ -1,11 +1,9 @@
-package persistencia.servicios.Service;
+package persistencia.servicios.service;
 
 import modelo.*;
-import modelo.builders.ClienteBuilder;
-import modelo.builders.PedidoBuilder;
-import modelo.builders.ProductoBuilder;
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
+import persistencia.repositorios.LineaDePedidoRepository;
 import persistencia.repositorios.PedidoRepository;
 
 import java.util.List;
@@ -16,7 +14,15 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
 
     private UsuarioService usuarioService;
 
-    private LineaDePedidoService lineaDePedidoService;
+    private LineaDePedidoRepository lineaDePedidoRepository;
+
+    public LineaDePedidoRepository getLineaDePedidoRepository() {
+        return lineaDePedidoRepository;
+    }
+
+    public void setLineaDePedidoRepository(LineaDePedidoRepository lineaDePedidoRepository) {
+        this.lineaDePedidoRepository = lineaDePedidoRepository;
+    }
 
     @Override
     public PedidoRepository getRepository() {
@@ -26,7 +32,7 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
     public void setRepository(PedidoRepository repository) {
         this.repository = repository;
     }
-
+/*
     @Transactional
     public Boolean crearPedido(Pedido pedido, Integer empleado, List<Producto> productos){
         try {
@@ -34,7 +40,7 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
             pedido.setCreadoPor(usuario);
             save(pedido);
             for(Producto producto: productos){
-                LineaDePedido line = new LineaDePedido(pedido, producto, usuario);
+                LineaDePedido line = new LineaDePedido(pedido, producto, );
                 lineaDePedidoService.save(line);
             }
             return true;
@@ -44,10 +50,11 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
         }
 
     }
-
+*/
     @Override
     @Transactional
     public void initialize() {
+        /*
         Cliente dam = ClienteBuilder.unCliente().conNomYApe("Damian","Rigazio").
                 conTelefono("3333").conDireccion("3333").build();
 
@@ -71,10 +78,30 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
                 PedidoBuilder.unPedido().conCliente(ema).
                         conProducto(pizza).build()
         );
+    */
     }
 
+
+    @Transactional
     public List<Pedido> todosLosPedidos() {
         return this.getRepository().findAll();
     }
 
+    @Transactional
+    public List<Pedido> getTodosLosPedidosPorCliente(String tel) {
+        return this.getRepository().getPedidoPorIDCliente(tel);
+    }
+
+    @Transactional
+    public void savePedido(Pedido pedido, List<LineaDePedido> lineaDePedidos) {
+        this.getRepository().save(pedido);
+        for(LineaDePedido l: lineaDePedidos){
+            l.setPedido(pedido);
+            this.lineaDePedidoRepository.save(l);
+        }
+    }
+
+    public List<LineaDePedido> getLineaDePedido(int id) {
+        return this.getLineaDePedidoRepository().findByPedido(id);
+    }
 }

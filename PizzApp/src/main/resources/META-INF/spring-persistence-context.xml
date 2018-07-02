@@ -114,4 +114,9 @@
         <property name="sessionFactory" ref="persistence.sessionFactory" />
     </bean>
 
+    <bean id="persistence.lineaDePedidoRepository" class="persistencia.repositorios.LineaDePedidoRepository" >
+        <property name="sessionFactory" ref="persistence.sessionFactory" />
+    </bean>
+
+
 </beans>

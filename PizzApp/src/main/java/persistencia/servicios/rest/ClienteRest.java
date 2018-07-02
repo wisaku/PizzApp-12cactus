@@ -1,7 +1,7 @@
 package persistencia.servicios.rest;
 
 import modelo.Cliente;
-import persistencia.servicios.Service.ClienteService;
+import persistencia.servicios.service.ClienteService;
 import persistencia.servicios.dto.ClienteDTO;
 
 import javax.ws.rs.*;
