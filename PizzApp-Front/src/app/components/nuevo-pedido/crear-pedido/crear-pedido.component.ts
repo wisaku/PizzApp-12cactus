@@ -22,6 +22,15 @@ export class CrearPedidoComponent implements OnInit {
   productos = null;
   pedidos: Pedido[];
   clientes: null;
+  cliente = '';
+
+
+  onKey(event: any) { // without type info
+    this.cliente = event.target.value;
+  }
+
+
+
 
   ngOnInit() {
     this.productosDisponibles = this.getProductos();
@@ -95,7 +104,11 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido() {
-    const pedido = new pedidoTable('1111' , this.productos, '1', ' ');
+   // if ( this.cliente === ' ') {
+
+//      return;
+  //  }
+    const pedido = new pedidoTable(this.cliente , this.productos, '1', ' ');
     this.onsubmit.emit(pedido);
     console.log(pedido);
     this.pedidoService.addPedido(pedido).subscribe();

@@ -5,6 +5,14 @@
         <div class="row"> 
           <div class="col-sm-12">
 
+              <div class="form-group">
+                <label >Cliente</label>
+                <input type="text" class="form-control" (keyup)="onKey($event)">
+                  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+
+                    <span ng-show="myForm.user.$error.required">El numero de cliente es requerido</span>
+                  </span>
+              </div>
           </div>
 
 
