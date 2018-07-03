@@ -1,28 +1,28 @@
 # ITERACION 4
 ##### Objetivos:
-● Presentacion de Burndown chart
-● Presentar:
+- Presentacion de Burndown chart
+- Presentar:
 >  Dar de alta producto.
  Entregar Seleccionar Pedido para cerrarlo.
 
-● Integracion continua funcionando.
-● Explicacion de Retrospectiva.
-● Explicacion de evolución del Sprint.
-● Proponer planificacion para la siguiente iteracion.
+- Integracion continua funcionando.
+- Explicacion de Retrospectiva.
+- Explicacion de evolución del Sprint.
+- Proponer planificacion para la siguiente iteracion.
 
 ### Retrospectiva:
 ##### Low:
-● Cambio de herramienta para burndownchart (expiro trial).
-● Falta de tiempo por otras materias.
+- Cambio de herramienta para burndownchart (expiro trial).
+- Falta de tiempo por otras materias.
 ##### High :
-● Scrum daily meeting.
-● Charla con cliente real de pizzeria.
-● Avances con más seguridad.
+- Scrum daily meeting.
+- Charla con cliente real de pizzeria.
+- Avances con más seguridad.
 
 ##### Planificacion Siguiente iteracion:
-● Conocer historial de pedidos de un cliente
-● Seleccionar productos para agregar a los pedidos iniciados
-● Cancelar un pedido
+- Conocer historial de pedidos de un cliente
+- Seleccionar productos para agregar a los pedidos iniciados
+-Cancelar un pedido
 
 Respositorio Github:
 ```sh
