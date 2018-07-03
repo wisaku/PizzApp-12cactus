@@ -1,13 +1,13 @@
 # ITERACION 0
 ##### Objetivos:
-● Muestra Repositorio Github
-● Muestra de Arquitectura basica funcionando sin ninguna funcionalidad
-● Integracion continua funcionando
-● Explicacion de Retrospectiva
-● Explicacion de evolución del Sprint
-● Proponer planificacion para la siguiente iteracion
-● Presentar Visual Story mapping
-● Presentacion de Walking Skeleton
+- Muestra Repositorio Github
+- Muestra de Arquitectura basica funcionando sin ninguna funcionalidad
+- Integracion continua funcionando
+- Explicacion de Retrospectiva
+- Explicacion de evolución del Sprint
+- Proponer planificacion para la siguiente iteracion
+- Presentar Visual Story mapping
+- Presentacion de Walking Skeleton
 
 Respositorio Github:
 ```sh
