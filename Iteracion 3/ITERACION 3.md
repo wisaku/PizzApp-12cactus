@@ -1,25 +1,25 @@
 # ITERACION 3
 ##### Objetivos:
-● Presentacion de Burndown chart
-● Presentar:
+- Presentacion de Burndown chart
+- Presentar:
 >  Mozo carga pedido vacío. (Dar de alta pedido)
 
-● Integracion continua funcionando.
-● Explicacion de Retrospectiva.
-● Explicacion de evolución del Sprint.
-● Proponer planificacion para la siguiente iteracion.
+- Integracion continua funcionando.
+- Explicacion de Retrospectiva.
+- Explicacion de evolución del Sprint.
+- Proponer planificacion para la siguiente iteracion.
 
 ### Retrospectiva:
 ##### Low:
-● Error de merge que travis no detectó
+- Error de merge que travis no detectó
 ##### High :
-● Trabajo en conjunto
-● Scrum daily meeting
-● Resolvimos mas de lo previsto
+- Trabajo en conjunto
+- Scrum daily meeting
+- Resolvimos mas de lo previsto
 
 ##### Planificacion Siguiente iteracion:
-● Entregar Dar de alta producto.
-● Entregart Seleccionar Pedido para cerrarlo.
+- Entregar Dar de alta producto.
+- Entregart Seleccionar Pedido para cerrarlo.
 
 Respositorio Github:
 ```sh
