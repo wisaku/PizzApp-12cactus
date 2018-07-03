@@ -1,31 +1,31 @@
 # ITERACION 1
 ##### Objetivos:
-● Presentacion de Burndown chart
-● Presentar Walking Skeleton terminado
+- Presentacion de Burndown chart
+- Presentar Walking Skeleton terminado
 > Admin dar de alta cliente
 > Admin dar de alta pizza o empanada.
 > Mozo carga pedido vacío.
 > Mozo agrega productos.
 > Mozo cierra pedido.
 
-● Integracion continua funcionando.
-● Explicacion de Retrospectiva.
-● Explicacion de evolución del Sprint.
-● Proponer planificacion para la siguiente iteracion.
+- Integracion continua funcionando.
+- Explicacion de Retrospectiva.
+- Explicacion de evolución del Sprint.
+- Proponer planificacion para la siguiente iteracion.
 
 ### Retrospectiva:
 ##### Low:
-● Imposibilidad de resolver las vistas (CORS).
-● Denormalización de ids. Lo vamos a quitar.
-● Problemas con estimación de vista (crear pedido).
-● No utilizamos datos simulados (fake data) para mostrar progreso.
-● Discrepancias tecnológicas.
+- Imposibilidad de resolver las vistas (CORS).
+- Denormalización de ids. Lo vamos a quitar.
+- Problemas con estimación de vista (crear pedido).
+- No utilizamos datos simulados (fake data) para mostrar progreso.
+- Discrepancias tecnológicas.
 ##### High :
-● Implementacion Angular 6.
-● Todos ambientes configurados.
-● No existe brecha entre BE & FE.
-● Desde la vista puede impactar la base.
-● Dinámica de revision de PRs fue satisfactoria.
+- Implementacion Angular 6.
+- Todos ambientes configurados.
+- No existe brecha entre BE & FE.
+- Desde la vista puede impactar la base.
+- Dinámica de revision de PRs fue satisfactoria.
 
 ##### Planificacion Siguiente iteracion:
 1)Realizar Walking Skeleton.
