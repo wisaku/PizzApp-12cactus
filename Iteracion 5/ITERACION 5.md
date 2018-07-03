@@ -1,16 +1,16 @@
 # ITERACION 5
 ##### Objetivos:
-● Presentacion de Burndown chart
-● Presentar:
+- Presentacion de Burndown chart
+- Presentar:
 >  Conocer historial de pedidos de un cliente
  Seleccionar productos para agregar a los pedidos iniciados
  Cancelar un pedido
 
 
-● Integracion continua funcionando.
-● Explicacion de Retrospectiva.
-● Explicacion de evolución del Sprint.
-● Proponer planificacion para la siguiente iteracion.
+- Integracion continua funcionando.
+- Explicacion de Retrospectiva.
+- Explicacion de evolución del Sprint.
+- Proponer planificacion para la siguiente iteracion.
 
 ### Retrospectiva:
 ##### Low:
