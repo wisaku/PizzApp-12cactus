@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class BuscarPedidoComponent implements OnInit {
   pedidos = null;
   myField;
+  nroCliente = '';
+  pedidosPorCliente = null;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class BuscarPedidoComponent implements OnInit {
       result => {
         console.log(result);
         this.pedidos = result;
+        this.pedidosPorCliente = result;
       },
       error => {
         console.log('problemas');
@@ -32,6 +35,10 @@ export class BuscarPedidoComponent implements OnInit {
       res = res + lin.precio;
     });
     this.myField = res;
+  }
+
+  filtrarClientes() {
+    this.pedidosPorCliente = this.pedidos.filter(p => p.cliente === this.nroCliente);
   }
 
 }

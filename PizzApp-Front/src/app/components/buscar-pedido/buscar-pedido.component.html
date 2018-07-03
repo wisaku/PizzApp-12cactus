@@ -1,15 +1,18 @@
 <div class="col-sm-12" id="containerproductSelecteds">
-  <table class="table table-striped">
+  <div>
+    <input [(ngModel)]="nroCliente" type="search" placeholder="Pedidos por cliente" aria-label="Search">
+    <button class="btn btn-outline-success" (click)= filtrarClientes()>Buscar</button>
+  </div>
+    <table class="table table-striped">
     <thead>
       <tr>
-        <!--th>#</th-->
         <th>cliente</th>
         <th>productos</th>
         <th>acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of pedidos">
+      <tr *ngFor="let pedido of pedidosPorCliente">
         <td>{{pedido.cliente}}</td>
         <td>
           <div *ngFor="let lin of pedido.linea">
