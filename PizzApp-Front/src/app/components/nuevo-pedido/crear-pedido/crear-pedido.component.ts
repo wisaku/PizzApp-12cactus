@@ -22,6 +22,15 @@ export class CrearPedidoComponent implements OnInit {
   productos = null;
   pedidos: Pedido[];
   clientes: null;
+  cliente = '';
+
+
+  onKey(event: any) { // without type info
+    this.cliente = event.target.value;
+  }
+
+
+
 
   ngOnInit() {
     this.productosDisponibles = this.getProductos();
@@ -47,7 +56,7 @@ export class CrearPedidoComponent implements OnInit {
     if ((this.getTodosLosProductos()).includes(producto.nombre)) {
       this.productos.forEach(element => {
         console.log(element + 'es igual a' + producto.nombre);
-        if (element.nombre === producto.nombre) {
+        if (element.nombreProd === producto.nombre) {
           this.sumarUnoAlProducto(element);
         }
       });
@@ -61,7 +70,7 @@ export class CrearPedidoComponent implements OnInit {
   getTodosLosProductos() {
     const todosLosProductos = [];
     this.productos.forEach(element => {
-        todosLosProductos.push(element.nombre);
+      todosLosProductos.push(element.nombreProd);
     });
     return todosLosProductos;
   }
@@ -95,7 +104,11 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido() {
-    const pedido = new pedidoTable('1111' , this.productos, '1');
+   // if ( this.cliente === ' ') {
+
+//      return;
+  //  }
+    const pedido = new pedidoTable(this.cliente , this.productos, '1', ' ');
     this.onsubmit.emit(pedido);
     console.log(pedido);
     this.pedidoService.addPedido(pedido).subscribe();
@@ -111,9 +124,9 @@ export class productoTable implements Producto {
 
 // tslint:disable-next-line:class-name
 export class lineaTable implements Linea {
-  constructor(public id, public nombre, public precio, public cantidad ) { }
+  constructor(public idProd, public nombreProd, public precio, public cantidad ) { }
 }
 // tslint:disable-next-line:class-name
 export class pedidoTable implements Pedido {
-  constructor(public cliente, public linea, public usuario) { }
+  constructor(public cliente, public linea, public usuario, public estado) { }
 }

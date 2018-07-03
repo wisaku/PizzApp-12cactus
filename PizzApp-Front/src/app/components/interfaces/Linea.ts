@@ -1,6 +1,6 @@
 export interface Linea {
-  id: string;
-  nombre: string;
+  idProd: string;
+  nombreProd: string;
   precio: string;
   cantidad: number;
 
