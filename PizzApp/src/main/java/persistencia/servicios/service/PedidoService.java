@@ -116,15 +116,39 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
     }
 
     @Transactional
-    private void updateLineas(List<LineaDePedido> lineaDePedidos, Pedido pedido) {
-        List lineaDelPedido = lineaDePedidoRepository.findByPedido(pedido.getId());
-        Iterator iterator = lineaDelPedido.iterator();
+    private void updateLineas(List<LineaDePedido> lineaDePedidosNuevo , Pedido pedido) {
+        List<LineaDePedido> lineaDelPedidoViejo = lineaDePedidoRepository.findByPedido(pedido.getId());
+        List lineasAAgregar = new ArrayList<LineaDePedido>();
+        //voy a agregar los que estan en el nuevo pedido y no en el viejo
+        for(LineaDePedido lin : lineaDePedidosNuevo){
+            Boolean existeYa = false;
+            for(LineaDePedido li :lineaDelPedidoViejo ){
+                if(li.getProducto().getNombre().equalsIgnoreCase(lin.getProducto().getNombre())){
+                    existeYa = true;
+                }
+            }
+            if(!existeYa){
+                lineasAAgregar.add(lin);
+            }
+        }
+        Iterator iterator = lineaDelPedidoViejo.iterator();
         while(iterator.hasNext()){
+            Boolean estaViejaEnLaNueva = false;
             LineaDePedido aBorrar = (LineaDePedido) iterator.next();
-            this.lineaDePedidoRepository.delete(aBorrar);
+            for(LineaDePedido lin : lineaDePedidosNuevo) {
+
+                if (aBorrar.getProducto().getNombre().equalsIgnoreCase(lin.getProducto().getNombre())) {
+                    aBorrar.setCantidad(lin.getCantidad());
+                    this.lineaDePedidoRepository.update(aBorrar);
+                    estaViejaEnLaNueva = true;
+                }
+            }
+            if(!estaViejaEnLaNueva)
+                this.lineaDePedidoRepository.delete(aBorrar);
 
         }
-        agregarLineas(lineaDePedidos,pedido);
+
+        agregarLineas(lineasAAgregar,pedido);
     }
 
     public List<LineaDePedido> getLineaDePedido(int id) {

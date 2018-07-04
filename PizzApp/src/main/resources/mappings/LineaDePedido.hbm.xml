@@ -12,8 +12,8 @@
             <generator class="native"/>
         </id>
 
-        <many-to-one name="pedido" class="modelo.Pedido" lazy="false" cascade="all"/>
-        <many-to-one name="producto" class="modelo.Producto" lazy="false" cascade="all"/>
+        <many-to-one name="pedido" class="modelo.Pedido" lazy="false" />
+        <many-to-one name="producto" class="modelo.Producto" lazy="false" />
         <property name="cantidad"/>
     </class>
 

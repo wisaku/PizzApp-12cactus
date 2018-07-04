@@ -122,7 +122,11 @@ export class CrearPedidoComponent implements OnInit {
     let pedido = null;
     console.log(this.productosEdit);
     if (this.productosEdit === null || this.productosEdit === undefined ) {
-      pedido = new pedidoTable(0, this.cliente, this.productos, '1', ' ');
+      if ( this.cliente === null || this.cliente === undefined || this.cliente === '') {
+        return;
+      } else {
+        pedido = new pedidoTable(0, this.cliente, this.productos, '1', ' ');
+      }
     } else {
       pedido = new pedidoTable(this.productosEdit.id, this.productosEdit.cliente, this.productos, '1', ' ');
     }
