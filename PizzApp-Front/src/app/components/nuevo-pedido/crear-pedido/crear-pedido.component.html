@@ -45,13 +45,13 @@
             <td>
               <div class="btn-group">
                 <button class="btn btn-success" (click)= sumarUnoAlProducto(producto) >
-                  <i class="fa fa-plus-square"></i>
+                  +
                 </button>
                 <button class="btn btn-info" (click)= restarUnoAlProducto(producto)> 
-                  <i class="fa fa-minus-square"></i>
+                  -
                 </button>
                 <button class="btn btn-danger" (click)=deleteLine(i)>
-                  <i class="fa fa-trash"></i>
+                  Borrar
                 </button>
               </div>            
             </td>
@@ -62,9 +62,28 @@
     </div>
   </div>
   <div>
-      <button width="200px" height="50px" class="btn btn-success btn-lg btn-block" type="submit" (click)= crearPedido()>
+      <button width="200px" height="50px" class="btn btn-success btn-lg btn-block" type="submit" data-toggle="modal" (click)= crearPedido() data-target="#crearPedidoBox">
         Crear
       </button>
   </div>
 
+</div>
+
+<div class="modal fade" id="crearPedidoBox" tabindex="-1" role="dialog" aria-labelledby="crearPedidoBox" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Pedido</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="MyField">El pedido se creo con exitó</label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
