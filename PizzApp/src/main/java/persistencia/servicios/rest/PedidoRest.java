@@ -144,4 +144,10 @@ public class PedidoRest {
         producto.setPrecio(dto.getPrecio());
         return producto;
     }
+
+    @GET
+    @Path("/cancelarPedido/{id}")
+    public void cancelarPedidoRest(@PathParam("id")final Integer id){
+        this.getPedidoService().cancelarPedido(id);
+    }
 }

@@ -21,9 +21,9 @@ export class BuscarPedidoComponent implements OnInit {
     this.http.get('http://localhost:8080/PizzApp/rest/pedidoService/todosLosPedidos')
     .subscribe(
       result => {
-        console.log(result);
         this.pedidos = result;
         this.pedidosPorCliente = result;
+        this.filtrar();
       },
       error => {
         console.log('problemas');
@@ -38,9 +38,28 @@ export class BuscarPedidoComponent implements OnInit {
   }
 
   filtrarClientes() {
+    if (this.nroCliente === '') {
+      this.pedidosPorCliente = this.pedidos;
+    } else {
     this.pedidosPorCliente = this.pedidos.filter(p => p.cliente === this.nroCliente);
+    }
   }
 
+  cancelarPedido(pedido) {
+    pedido.estado = 'RECHAZADO';
+    this.http.get('http://localhost:8080/PizzApp/rest/pedidoService/cancelarPedido/' + pedido.id)
+      .subscribe(
+        result => {
+        },
+        error => {
+          console.log('problemas');
+        });
+    this.filtrar();
+  }
+
+  filtrar() {
+    this.pedidosPorCliente = this.pedidos.filter(p => p.estado !== 'RECHAZADO');
+  }
 }
 
 

@@ -1,6 +1,7 @@
 package persistencia.servicios.service;
 
 import modelo.*;
+import modelo.enums.EstadoPedido;
 import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
 import persistencia.repositorios.LineaDePedidoRepository;
@@ -103,5 +104,12 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
 
     public List<LineaDePedido> getLineaDePedido(int id) {
         return this.getLineaDePedidoRepository().findByPedido(id);
+    }
+
+    @Transactional
+    public void cancelarPedido(Integer id) {
+        Pedido pedidoModificado = this.getRepository().findById(id);
+        pedidoModificado.setEstado(EstadoPedido.RECHAZADO);
+        this.getRepository().save(pedidoModificado);
     }
 }

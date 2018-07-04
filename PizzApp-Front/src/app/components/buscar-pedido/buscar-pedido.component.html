@@ -25,7 +25,12 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" (click)= cerrarPedido(pedido) data-target="#exampleModal">
               Cerrar
             </button>
-
+            <button type="button" class="btn btn-info"  [routerLink] = "['../nuevoPedido', pedido]">
+              Modificar
+            </button>
+            <button type="button" class="btn btn-danger" (click)= cancelarPedido(pedido) data-target="#exampleModal">
+              Cancelar
+            </button>
           </div>
 
         </td>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Linea } from '../../interfaces/Linea';
@@ -7,6 +7,7 @@ import { Pedido } from '../../interfaces/Pedido';
 import { Cliente } from '../../interfaces/Cliente';
 import { PedidoService } from '../../services/pedido.service';
 import { ClienteService } from '../../services/cliente.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -16,26 +17,27 @@ export class CrearPedidoComponent implements OnInit {
 
   @Output() onsubmit = new EventEmitter<any>();
   // tslint:disable-next-line:max-line-length
-  constructor(private _router: Router, private http: HttpClient, private pedidoService: PedidoService) { }
+  constructor(private route: ActivatedRoute, private _router: Router, private http: HttpClient, private pedidoService: PedidoService) { }
   productosDisponibles = null;
   productosDelPedido = null;
   productos = null;
-  pedidos: Pedido[];
   clientes: null;
   cliente = '';
-
+  @Input() clienteInput: String;
 
   onKey(event: any) { // without type info
     this.cliente = event.target.value;
   }
 
-
-
-
   ngOnInit() {
     this.productosDisponibles = this.getProductos();
     this.productos = [];
     this.getClientes();
+    const sub = this.route.params.subscribe(params => {
+      console.log(JSON.stringify(params));
+      this.cliente = params.cliente;
+      console.log('elCli ' + this.cliente);
+    });
   }
 
   getClientes() {
@@ -104,14 +106,11 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido() {
-   // if ( this.cliente === ' ') {
-
-//      return;
-  //  }
     const pedido = new pedidoTable(this.cliente , this.productos, '1', ' ');
     this.onsubmit.emit(pedido);
     console.log(pedido);
     this.pedidoService.addPedido(pedido).subscribe();
+    this.productos = [];
   }
 
 }
