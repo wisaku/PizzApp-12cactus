@@ -39,7 +39,7 @@
         <tbody class="tbodypedido">
           <tr *ngFor="let producto of productos let i = index" [attr.data-index]="i">
             <td>{{i +1}}</td>
-            <td>{{producto.nombre}}</td>
+            <td>{{producto.nombreProd}}</td>
             <td>{{producto.cantidad}}</td>
             <td>{{producto.precio * producto.cantidad}}</td>
             <td>

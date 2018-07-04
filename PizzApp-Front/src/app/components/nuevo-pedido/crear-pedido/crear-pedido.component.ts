@@ -23,6 +23,7 @@ export class CrearPedidoComponent implements OnInit {
   productos = null;
   clientes: null;
   cliente = '';
+  productosDeLaChota = null;
   @Input() clienteInput: String;
 
   onKey(event: any) { // without type info
@@ -34,10 +35,9 @@ export class CrearPedidoComponent implements OnInit {
     this.productos = [];
     this.getClientes();
     const sub = this.route.params.subscribe(params => {
-      console.log(JSON.stringify(params));
-      this.cliente = params.cliente;
-      console.log('elCli ' + this.cliente);
+    this.getPedido(params.id);
     });
+
   }
 
   getClientes() {
@@ -92,6 +92,20 @@ export class CrearPedidoComponent implements OnInit {
     this.productos.splice(index, 1);
   }
 
+  getPedido(pedidoId) {
+    this.http.get('http://localhost:8080/PizzApp/rest/pedidoService/pedidosByID/' + pedidoId)// .pipe(map(res => res.json()))
+      .subscribe(
+        result => {
+
+          this.productosDeLaChota = result;
+          console.log('result puto: 8====B  ' + this.productosDeLaChota.linea);
+          this.productos = this.productosDeLaChota.linea;
+        },
+        error => {
+          console.log('problemas');
+        });
+  }
+
   getProductos() {
     const self = this;
     this.http.get('http://localhost:8080/PizzApp/rest/productoService/todosLosProductos')
@@ -118,8 +132,6 @@ export class CrearPedidoComponent implements OnInit {
 export class productoTable implements Producto {
   constructor(public id, public nombre, public precio) {}
 }
-
-
 
 // tslint:disable-next-line:class-name
 export class lineaTable implements Linea {

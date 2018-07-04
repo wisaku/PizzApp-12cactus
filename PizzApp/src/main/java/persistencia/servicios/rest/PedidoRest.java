@@ -80,6 +80,13 @@ public class PedidoRest {
         return listPedidosToPedidoDTO(this.getPedidoService().getTodosLosPedidosPorCliente(tel));
     }
 
+    @GET
+    @Path("/pedidosByID/{id}")
+    @Produces("application/json")
+    public PedidoDTO pedidosPorIdRest(@PathParam("id")final Integer id){
+        return pedidoDTOToPedido( this.getPedidoService().findById(id) );
+    }
+
     private List<PedidoDTO> listPedidosToPedidoDTO(List<Pedido> pedidos){
         List<PedidoDTO> listDTO = new ArrayList<>();
         for(Pedido p: pedidos){
