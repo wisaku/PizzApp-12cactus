@@ -118,6 +118,7 @@ public class PedidoRest {
         Pedido pedido = new Pedido();
         pedido.setCliente(this.getClienteService().getCliente(dto.getCliente()));
         pedido.setCreadoPor(new Usuario());
+        pedido.setId(dto.getId());
         return pedido;
     }
 

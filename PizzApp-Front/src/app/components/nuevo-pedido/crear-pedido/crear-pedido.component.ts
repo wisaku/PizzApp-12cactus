@@ -23,7 +23,7 @@ export class CrearPedidoComponent implements OnInit {
   productos = null;
   clientes: null;
   cliente = '';
-  productosDeLaChota = null;
+  productosEdit = null;
   @Input() clienteInput: String;
 
   onKey(event: any) { // without type info
@@ -97,9 +97,8 @@ export class CrearPedidoComponent implements OnInit {
       .subscribe(
         result => {
 
-          this.productosDeLaChota = result;
-          console.log('result puto: 8====B  ' + this.productosDeLaChota.linea);
-          this.productos = this.productosDeLaChota.linea;
+          this.productosEdit = result;
+          this.productos = this.productosEdit.linea;
         },
         error => {
           console.log('problemas');
@@ -120,7 +119,14 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   crearPedido() {
-    const pedido = new pedidoTable(this.cliente , this.productos, '1', ' ');
+    let pedido = null;
+    console.log(this.productosEdit);
+    if (this.productosEdit === null || this.productosEdit === undefined ) {
+      pedido = new pedidoTable(0, this.cliente, this.productos, '1', ' ');
+    } else {
+      pedido = new pedidoTable(this.productosEdit.id, this.productosEdit.cliente, this.productos, '1', ' ');
+    }
+
     this.onsubmit.emit(pedido);
     console.log(pedido);
     this.pedidoService.addPedido(pedido).subscribe();
@@ -139,5 +145,5 @@ export class lineaTable implements Linea {
 }
 // tslint:disable-next-line:class-name
 export class pedidoTable implements Pedido {
-  constructor(public cliente, public linea, public usuario, public estado) { }
+  constructor(public id, public cliente, public linea, public usuario, public estado) { }
 }

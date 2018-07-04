@@ -6,7 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import persistencia.Initializable;
 import persistencia.repositorios.LineaDePedidoRepository;
 import persistencia.repositorios.PedidoRepository;
+import scala.tools.nsc.backend.jvm.analysis.Null;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class PedidoService extends GenericService<Pedido>  implements Initializable {
@@ -95,11 +98,33 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
 
     @Transactional
     public void savePedido(Pedido pedido, List<LineaDePedido> lineaDePedidos) {
-        this.getRepository().save(pedido);
+        if (new Integer(pedido.getId()) == null || pedido.getId() == 0){
+            this.getRepository().save(pedido);
+            this.agregarLineas(lineaDePedidos,pedido);
+        }else{
+            this.getRepository().update(pedido);
+            updateLineas(lineaDePedidos, pedido);
+        }
+    }
+
+    @Transactional
+    private void agregarLineas(List<LineaDePedido> lineaDePedidos, Pedido pedido) {
         for(LineaDePedido l: lineaDePedidos){
             l.setPedido(pedido);
             this.lineaDePedidoRepository.save(l);
         }
+    }
+
+    @Transactional
+    private void updateLineas(List<LineaDePedido> lineaDePedidos, Pedido pedido) {
+        List lineaDelPedido = lineaDePedidoRepository.findByPedido(pedido.getId());
+        Iterator iterator = lineaDelPedido.iterator();
+        while(iterator.hasNext()){
+            LineaDePedido aBorrar = (LineaDePedido) iterator.next();
+            this.lineaDePedidoRepository.delete(aBorrar);
+
+        }
+        agregarLineas(lineaDePedidos,pedido);
     }
 
     public List<LineaDePedido> getLineaDePedido(int id) {
