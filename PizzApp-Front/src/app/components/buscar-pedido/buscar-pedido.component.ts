@@ -9,6 +9,7 @@ export class BuscarPedidoComponent implements OnInit {
   pedidos = null;
   myField;
   nroCliente = '';
+  estado = '';
   pedidosPorCliente = null;
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,7 @@ export class BuscarPedidoComponent implements OnInit {
       res = res + lin.precio;
     });
     this.myField = res;
+    this.mandarCierreBack(pedido);
   }
 
   filtrarClientes() {
@@ -56,6 +58,46 @@ export class BuscarPedidoComponent implements OnInit {
         });
     this.filtrar();
   }
+
+  mandarCierreBack(pedido) {
+    pedido.estado = 'CERRADO';
+    this.http.get('http://localhost:8080/PizzApp/rest/pedidoService/cerrarPedido/' + pedido.id)
+      .subscribe(
+        result => {
+        },
+        error => {
+          console.log('problemas');
+        });
+    this.filtrar();
+  }
+
+
+  mostrarEnCurso() {
+    this.filtrarEstado('ENCURSO');
+  }
+  mostrarListo() {
+    this.filtrarEstado('LISTO');
+  }
+  mostrarEntregado() {
+    this.filtrarEstado('ENTREGADO');
+  }
+  mostrarRechazado() {
+    this.filtrarEstado('RECHAZADO');
+  }
+  mostrarCerrado() {
+    this.filtrarEstado('CERRADO');
+    console.log('puto');
+  }
+
+  filtrarEstado(estado) {
+    this.filtrarClientes();
+    if (estado === '') {
+      return;
+    } else {
+      this.pedidosPorCliente = this.pedidosPorCliente.filter(p => p.estado === estado);
+    }
+  }
+
 
   filtrar() {
     this.pedidosPorCliente = this.pedidos.filter(p => p.estado !== 'RECHAZADO');

@@ -1,13 +1,37 @@
 <div class="col-sm-12" id="containerproductSelecteds">
-  <div>
+  <div class="row">
+  <div class="col-sm-5">
     <input [(ngModel)]="nroCliente" type="search" placeholder="Pedidos por cliente" aria-label="Search">
     <button class="btn btn-outline-success" (click)= filtrarClientes()>Buscar</button>
   </div>
+<!--Dropdown primary-->
+  <div class="dropdown" class="col-sm-5">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Estado
+    </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="dropdown-item" (click)= mostrarEnCurso() >ENCURSO</button>
+        <button class="dropdown-item" (click)= mostrarListo() >LISTO</button>
+        <button class="dropdown-item" (click)= mostrarEntregado()>ENTREGADO</button>
+        <button class="dropdown-item" (click)= mostrarRechazado()>RECHAZADO</button>
+        <button class="dropdown-item" (click)= mostrarCerrado() >CERRADO</button>
+        
+        
+      </div>
+    </div>
+  </div>
+
+   <script src=""> // This is the body of the script tag function
+  do_login();
+  </script>
+<!--/Dropdown primary-->
     <table class="table table-striped">
     <thead>
       <tr>
         <th>cliente</th>
         <th>productos</th>
+        <th>Estado</th>
         <th>acciones</th>
       </tr>
     </thead>
@@ -19,7 +43,10 @@
             <label>{{lin.nombreProd}} - cantidad: {{lin.cantidad}}</label>
           </div>
           
-          </td>
+        </td>
+        <td>
+          <label>{{pedido.estado}}</label>
+        </td>
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-primary" data-toggle="modal" (click)= cerrarPedido(pedido) data-target="#exampleModal">

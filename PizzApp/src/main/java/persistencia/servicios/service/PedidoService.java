@@ -161,4 +161,11 @@ public class PedidoService extends GenericService<Pedido>  implements Initializa
         pedidoModificado.setEstado(EstadoPedido.RECHAZADO);
         this.getRepository().save(pedidoModificado);
     }
+
+    @Transactional
+    public void cerrarPedido(Integer id) {
+        Pedido pedidoModificado = this.getRepository().findById(id);
+        pedidoModificado.setEstado(EstadoPedido.CERRADO);
+        this.getRepository().save(pedidoModificado);
+    }
 }

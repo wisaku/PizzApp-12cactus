@@ -158,4 +158,12 @@ public class PedidoRest {
     public void cancelarPedidoRest(@PathParam("id")final Integer id){
         this.getPedidoService().cancelarPedido(id);
     }
+
+    @GET
+    @Path("/cerrarPedido/{id}")
+    public void cerrarPedidoRest(@PathParam("id")final Integer id){
+        this.getPedidoService().cerrarPedido(id);
+    }
 }
+
+
