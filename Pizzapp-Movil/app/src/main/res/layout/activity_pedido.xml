@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="13">
+
+        <LinearLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:weightSum="12"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <TextView
+                android:id="@+id/numero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="N°"
+                android:textSize="20sp"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=" Nombre "
+                android:textSize="20sp"
+                android:layout_weight="6">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/cantidad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cant"
+                android:textSize="20sp"
+                android:layout_weight="2">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/precio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_weight="2">
+            </TextView>
+
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listComponent">
+        </ListView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <com.beardedhen.androidbootstrap.BootstrapDropDown xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ordersSpn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:bootstrapBrand="success"
+            app:bootstrapExpandDirection="up"
+            app:bootstrapSize="xl"
+            app:bootstrapText="Seleccione una mesa"
+            app:dropdownResource="@array/mesas"
+            app:roundedCorners="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2">
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Productos"
+                android:id="@+id/irALista"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:bootstrapBrand="warning"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Crear Pedido"
+                android:id="@+id/cerrarPedido"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:bootstrapBrand="info"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
