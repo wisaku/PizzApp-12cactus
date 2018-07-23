@@ -1,0 +1,4 @@
+modeltest/ClienteTestCase.class
+modeltest/HibernateTestCase.class
+modeltest/ProductoTestCase.class
+modeltest/PedidosTestCase.class

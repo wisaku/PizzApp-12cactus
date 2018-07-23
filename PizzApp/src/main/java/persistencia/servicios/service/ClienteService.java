@@ -52,6 +52,36 @@ public class ClienteService  extends GenericService<Cliente> implements Initiali
         this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Maru","Gil").
                 conTelefono("5555").conDireccion("5555").build());
 
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-1","Salon").
+                conTelefono("212").conDireccion("212").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-2","Salon").
+                conTelefono("213").conDireccion("213").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-3","Salon").
+                conTelefono("214").conDireccion("214").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-4","Salon").
+                conTelefono("215").conDireccion("215").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-5","Salon").
+                conTelefono("216").conDireccion("216").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-6","Salon").
+                conTelefono("217").conDireccion("217").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-7","Salon").
+                conTelefono("218").conDireccion("218").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-8","Salon").
+                conTelefono("219").conDireccion("219").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-9","Salon").
+                conTelefono("220").conDireccion("220").build());
+
+        this.getRepository().save(ClienteBuilder.unCliente().conNomYApe("Mesa-10","Salon").
+                conTelefono("221").conDireccion("221").build());
+
     }
 
     @Transactional

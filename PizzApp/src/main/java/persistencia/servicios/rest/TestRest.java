@@ -31,6 +31,14 @@ public class TestRest {
         return Response.ok(toDTO(testUno)).build();
     }
 
+    @GET
+    @Path("test")
+    @Produces("application/json")
+    public Integer test(){
+        return 1;
+    }
+
+
     @POST
     @Path("/put")
     @Produces("application/json")
